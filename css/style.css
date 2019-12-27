@@ -913,7 +913,7 @@ body {
 }
 #footer-post #nav-footer a {
   color: #d44375;
-  font-size: 1em;
+  font-size: 2em;
 }
 #footer-post #nav-footer a:hover {
   background-image: linear-gradient(transparent, transparent 5px, #d44375 5px, #d44375);
@@ -1547,8 +1547,8 @@ pre code {
   border: none;
 }
 code {
-  padding: 0 5px;
-  border: 1px dotted #666;
+  padding: 0 1px;
+  border: 5px dotted #666;
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
