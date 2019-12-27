@@ -4,52 +4,6 @@
   
     
     <entry>
-      <title>ubuntu emacs 的傻瓜安装过程</title>
-      <link href="/2019/12/26/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/"/>
-      <url>/2019/12/26/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/</url>
-      
-        <content type="html"><![CDATA[<p>To ensure a clean installation, please follow these steps:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install</span><br><span class="line">$ sudo apt-get purge emacs emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot emacs-snapshot-el emacs-snapshot-gtk emacs23 emacs23-bin-common emacs23-common emacs23-el emacs23-nox emacs23-lucid auctex apel emacs24 emacs24-bin-common emacs24-common emacs24-common-non-dfsg emacs24-el</span><br></pre></td></tr></table></figure><p>To add this PPA:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:cassou&#x2F;emacs</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg</span><br></pre></td></tr></table></figure><p>the end:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ emacs</span><br></pre></td></tr></table></figure><p>按照以上顺序执行完即可</p><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ubuntu </tag>
-            
-            <tag> emacs </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>影视资源网址</title>
-      <link href="/2019/12/26/TV%20source/"/>
-      <url>/2019/12/26/TV%20source/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以下网址有在其他平台需要VIP会员才能看得视频资源</span><br><span class="line">如果使用PV端，最好使用谷歌浏览器且装有去广告插件（Adblock Plus）</span><br></pre></td></tr></table></figure><br><h2 id="可-在线-倍速-观看"><a href="#可-在线-倍速-观看" class="headerlink" title="可 在线 倍速 观看"></a>可 <strong>在线</strong> <strong>倍速</strong> 观看</h2><br><ul><li><strong><a href="http://aaqqy.com/" target="_blank" rel="noopener">YY4480</a></strong> <br></li><li><strong><a href="http://www.82tu.cc/index.html" target="_blank" rel="noopener">2TU影院</a></strong> </li></ul><br><h2 id="其余片源"><a href="#其余片源" class="headerlink" title="其余片源"></a>其余片源</h2><br><ul><li><strong><a href="https://www.yingshidaquan.info/" target="_blank" rel="noopener">影视大全</a></strong><br></li><li><strong><a href="https://www.dandanzan.com/" target="_blank" rel="noopener">蛋蛋赞</a></strong><br></li><li><strong><a href="http://www.imomoe.jp/" target="_blank" rel="noopener">樱花动漫</a></strong><br></li><li><strong><a href="http://www.8gw.com/" target="_blank" rel="noopener">八哥网</a></strong></li></ul><br><hr><h2 id="百度网盘资源分享"><a href="#百度网盘资源分享" class="headerlink" title="百度网盘资源分享"></a>百度网盘资源分享</h2><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">百度网盘入口</span><br><span class="line">主要用于工具软件、电子书籍、资料的搜索</span><br></pre></td></tr></table></figure><br><ul><li><strong><a href="http://www.panduoduo.net/" target="_blank" rel="noopener">盘多多</a></strong></li></ul><br>]]></content>
-      
-      
-      <categories>
-          
-          <category> entertainment </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>hexo搭建的博客 - 优化篇</title>
       <link href="/2019/12/24/hexo%20%E4%BC%98%E5%8C%96%E7%AF%87/"/>
       <url>/2019/12/24/hexo%20%E4%BC%98%E5%8C%96%E7%AF%87/</url>
@@ -268,6 +222,25 @@
     
     
     <entry>
+      <title>影视资源网址</title>
+      <link href="/2019/05/12/TV%20source/"/>
+      <url>/2019/05/12/TV%20source/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以下网址有在其他平台需要VIP会员才能看得视频资源</span><br><span class="line">如果使用PV端，最好使用谷歌浏览器且装有去广告插件（Adblock Plus）</span><br></pre></td></tr></table></figure><br><h2 id="可-在线-倍速-观看"><a href="#可-在线-倍速-观看" class="headerlink" title="可 在线 倍速 观看"></a>可 <strong>在线</strong> <strong>倍速</strong> 观看</h2><br><ul><li><strong><a href="http://aaqqy.com/" target="_blank" rel="noopener">YY4480</a></strong> <br></li><li><strong><a href="http://www.82tu.cc/index.html" target="_blank" rel="noopener">2TU影院</a></strong> </li></ul><br><h2 id="其余片源"><a href="#其余片源" class="headerlink" title="其余片源"></a>其余片源</h2><br><ul><li><strong><a href="https://www.yingshidaquan.info/" target="_blank" rel="noopener">影视大全</a></strong><br></li><li><strong><a href="https://www.dandanzan.com/" target="_blank" rel="noopener">蛋蛋赞</a></strong><br></li><li><strong><a href="http://www.imomoe.jp/" target="_blank" rel="noopener">樱花动漫</a></strong><br></li><li><strong><a href="http://www.8gw.com/" target="_blank" rel="noopener">八哥网</a></strong></li></ul><br><hr><h2 id="百度网盘资源分享"><a href="#百度网盘资源分享" class="headerlink" title="百度网盘资源分享"></a>百度网盘资源分享</h2><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">百度网盘入口</span><br><span class="line">主要用于工具软件、电子书籍、资料的搜索</span><br></pre></td></tr></table></figure><br><ul><li><strong><a href="http://www.panduoduo.net/" target="_blank" rel="noopener">盘多多</a></strong></li></ul><br>]]></content>
+      
+      
+      <categories>
+          
+          <category> entertainment </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>你发现你的磁盘容量由原来的500GB变成了64MB了！</title>
       <link href="/2019/04/24/windows%20%E4%B8%8B%E7%9B%98%E7%AC%A6%E5%AE%B9%E9%87%8F%E5%8F%98%E5%B0%8F/"/>
       <url>/2019/04/24/windows%20%E4%B8%8B%E7%9B%98%E7%AC%A6%E5%AE%B9%E9%87%8F%E5%8F%98%E5%B0%8F/</url>
@@ -312,6 +285,33 @@
             <tag> color </tag>
             
             <tag> compile </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ubuntu emacs 的傻瓜安装过程</title>
+      <link href="/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/"/>
+      <url>/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<p>To ensure a clean installation, please follow these steps:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install</span><br><span class="line">$ sudo apt-get purge emacs emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot emacs-snapshot-el emacs-snapshot-gtk emacs23 emacs23-bin-common emacs23-common emacs23-el emacs23-nox emacs23-lucid auctex apel emacs24 emacs24-bin-common emacs24-common emacs24-common-non-dfsg emacs24-el</span><br></pre></td></tr></table></figure><p>To add this PPA:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:cassou&#x2F;emacs</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg</span><br></pre></td></tr></table></figure><p>the end:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ emacs</span><br></pre></td></tr></table></figure><p>按照以上顺序执行完即可</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> emacs </tag>
             
         </tags>
       
