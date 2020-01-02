@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>设置windows10上文档的背景底色</title>
+      <link href="/2020/01/02/%E8%AE%BE%E7%BD%AEwindows10%E4%B8%8A%E6%96%87%E6%A1%A3%E7%9A%84%E8%83%8C%E6%99%AF%E5%BA%95%E8%89%B2/"/>
+      <url>/2020/01/02/%E8%AE%BE%E7%BD%AEwindows10%E4%B8%8A%E6%96%87%E6%A1%A3%E7%9A%84%E8%83%8C%E6%99%AF%E5%BA%95%E8%89%B2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-按windows-R打开命令提示符-并输入regedit进入注册表编辑器"><a href="#1-按windows-R打开命令提示符-并输入regedit进入注册表编辑器" class="headerlink" title="1.按windows+R打开命令提示符,并输入regedit进入注册表编辑器"></a>1.按<code>windows</code>+<code>R</code>打开命令提示符,并输入<code>regedit</code>进入注册表编辑器</h2><p><img src="https://s2.ax1x.com/2020/01/02/lYOLSP.png" alt="lYOLSP.png"></p><h2 id="2-根据下面的图片路径，找到window"><a href="#2-根据下面的图片路径，找到window" class="headerlink" title="2.根据下面的图片路径，找到window"></a>2.根据下面的图片路径，找到<code>window</code></h2><p><img src="https://s2.ax1x.com/2020/01/02/lYXB1P.png" alt="lYXB1P.png"></p><h2 id="3-双击两下打开window，并在窗口的数值数据一栏输入204-232-207"><a href="#3-双击两下打开window，并在窗口的数值数据一栏输入204-232-207" class="headerlink" title="3.双击两下打开window，并在窗口的数值数据一栏输入204 232 207"></a>3.双击两下打开<code>window</code>，并在窗口的数值数据一栏输入<code>204 232 207</code></h2><p><img src="https://s2.ax1x.com/2020/01/02/lYjCHe.png" alt="lYjCHe.png"></p><h2 id="4-点击确定"><a href="#4-点击确定" class="headerlink" title="4.点击确定"></a>4.点击确定</h2><h2 id="5-根据下面的路径，找到window"><a href="#5-根据下面的路径，找到window" class="headerlink" title="5.根据下面的路径，找到window"></a>5.根据下面的路径，找到<code>window</code></h2><p><img src="https://s2.ax1x.com/2020/01/02/lYv9x0.png" alt="lYv9x0.png"></p><h2 id="6-双击两下打开window，并在窗口的数值数据一栏输入caeace"><a href="#6-双击两下打开window，并在窗口的数值数据一栏输入caeace" class="headerlink" title="6.双击两下打开window，并在窗口的数值数据一栏输入caeace"></a>6.双击两下打开<code>window</code>，并在窗口的数值数据一栏输入<code>caeace</code></h2><p><img src="https://s2.ax1x.com/2020/01/02/lYvuxx.png" alt="lYvuxx.png"></p><h2 id="7-重启生效。"><a href="#7-重启生效。" class="headerlink" title="7.重启生效。"></a>7.重启生效。</h2><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> color </tag>
+            
+            <tag> background </tag>
+            
+            <tag> windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux下右键进入文件夹terminal</title>
+      <link href="/2020/01/02/linux%E4%B8%8B%E5%8F%B3%E9%94%AE%E8%BF%9B%E5%85%A5terminal/"/>
+      <url>/2020/01/02/linux%E4%B8%8B%E5%8F%B3%E9%94%AE%E8%BF%9B%E5%85%A5terminal/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-按ctrl-alt-T键，进入终端"><a href="#1-按ctrl-alt-T键，进入终端" class="headerlink" title="1. 按ctrl+alt+T键，进入终端"></a>1. 按<code>ctrl</code>+<code>alt</code>+<code>T</code>键，进入终端</h2><h2 id="2-输入如下命令（安装插件）"><a href="#2-输入如下命令（安装插件）" class="headerlink" title="2. 输入如下命令（安装插件）"></a>2. 输入如下命令（安装插件）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nautilus-open-terminal</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-terminal</span><br></pre></td></tr></table></figure><p><a href="https://imgchr.com/i/lY5Fbt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/01/02/lY5Fbt.png" alt="lY5Fbt.png"></a></p><h2 id="3-安装完毕后，会出现下面的画面"><a href="#3-安装完毕后，会出现下面的画面" class="headerlink" title="3. 安装完毕后，会出现下面的画面"></a>3. 安装完毕后，会出现下面的画面</h2><p><a href="https://imgchr.com/i/lY5YPU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/01/02/lY5YPU.png" alt="lY5YPU.png"></a></p><h2 id="4-退出终端，并打开文件浏览器"><a href="#4-退出终端，并打开文件浏览器" class="headerlink" title="4. 退出终端，并打开文件浏览器"></a>4. 退出终端，并打开文件浏览器</h2><h2 id="5-在你想要的目录下，右键点击open-in-terminal，即在终端打开。"><a href="#5-在你想要的目录下，右键点击open-in-terminal，即在终端打开。" class="headerlink" title="5.在你想要的目录下，右键点击open in terminal，即在终端打开。"></a>5.在你想要的目录下，右键点击open in terminal，即在终端打开。</h2><p><strong>说明</strong>：可能需要重启一下才能右键看到这个。</p><p><img src="https://s2.ax1x.com/2020/01/02/lYoC7t.png" alt="lYoC7t.png"></p><h2 id="6-进入所需文件夹终端界面"><a href="#6-进入所需文件夹终端界面" class="headerlink" title="6.进入所需文件夹终端界面"></a>6.进入所需文件夹终端界面</h2><p><img src="https://s2.ax1x.com/2020/01/02/lYoeXj.png" alt="lYoeXj.png"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> terminal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>虚拟机和主机之间vnware tools的安装</title>
+      <link href="/2020/01/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4vnware%20tools%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+      <url>/2020/01/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4vnware%20tools%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-打开终端，找到vmware-tools文件位置。"><a href="#1-打开终端，找到vmware-tools文件位置。" class="headerlink" title="1.打开终端，找到vmware tools文件位置。"></a>1.打开终端，找到<code>vmware tools</code>文件位置。</h2><p><img src="https://s2.ax1x.com/2020/01/02/lYqWfx.png" alt="lYqWfx.png"></p><h2 id="2-找到下面这个文件，并找出此文件的路径"><a href="#2-找到下面这个文件，并找出此文件的路径" class="headerlink" title="2.找到下面这个文件，并找出此文件的路径"></a>2.找到下面这个文件，并找出此文件的路径</h2><p><img src="https://s2.ax1x.com/2020/01/02/lYq36S.png" alt="lYq36S.png"></p><h2 id="3-打开终端，并输入"><a href="#3-打开终端，并输入" class="headerlink" title="3.打开终端，并输入"></a>3.打开终端，并输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp VMwareTools-10.1.6-5214329.tar.gz &#x2F;tmp</span><br><span class="line">cd &#x2F;tmp</span><br><span class="line">tar -xzvf VMwareTools-10.1.6-5214329.tar.gz</span><br><span class="line">cd vmware-tools-distrib&#x2F;</span><br><span class="line">.&#x2F;vmware-install.pl</span><br></pre></td></tr></table></figure><h2 id="4-完成测试。（如果仍然无法复制，重启虚拟机）"><a href="#4-完成测试。（如果仍然无法复制，重启虚拟机）" class="headerlink" title="4.完成测试。（如果仍然无法复制，重启虚拟机）"></a>4.完成测试。（如果仍然无法复制，重启虚拟机）</h2><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VMware tools </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo搭建的博客 - 优化篇</title>
       <link href="/2019/12/24/hexo%20%E4%BC%98%E5%8C%96%E7%AF%87/"/>
       <url>/2019/12/24/hexo%20%E4%BC%98%E5%8C%96%E7%AF%87/</url>
