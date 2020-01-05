@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>ubuntu sublime的安装与卸载教程</title>
+      <link href="/2020/01/05/ubuntu%20sublime%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/"/>
+      <url>/2020/01/05/ubuntu%20sublime%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><ol><li><p>添加sublime text3的仓库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:webupd8team&#x2F;sublime-text-3</span><br></pre></td></tr></table></figure><p>中间如需要等待的时候直接按<code>enter</code>就行。（建立信任数据库）</p></li><li><p>更新软件库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></li><li><p>安装sublime text3</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install sublime-text-installer</span><br></pre></td></tr></table></figure></li></ol><p>通过以上三步，就可以将sublime text3安装完成~</p><h1 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h1><ol><li><p>查看一下sublime text3在系统中存在的程序名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep sublime</span><br></pre></td></tr></table></figure></li><li><p>按照上述方式安装的程序名为<code>sublime-text-installer</code>,则执行下面的命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -r sublime-text-installer</span><br></pre></td></tr></table></figure></li><li><p>删除配置文件，其中<code>$username</code>为系统的用户名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf &#x2F;home&#x2F;$username&#x2F;.config&#x2F;sublime-text-3&#x2F;</span><br></pre></td></tr></table></figure></li><li><p>查看系统中与sublime text 3相关的文件，然后再根据路径依次删除即可完全卸载掉sublime text 3</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find &#x2F; -name sublime*</span><br></pre></td></tr></table></figure></li><li><p>重复在终端输入删除命令，删除其他与Sublime Text3相关的全部文件,文件路径和名称 为上面find命令查找到的文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r &#x2F;home&#x2F;long&#x2F;.local&#x2F;share&#x2F;Trash&#x2F;info&#x2F;sublime-text_build-3083_i386.deb.trashinfo</span><br></pre></td></tr></table></figure><p>…(重复rm  删除所有有关sublime的文件)…<br>…（完全卸载完成）…</p></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> sublime </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>设置windows10上文档的背景底色</title>
       <link href="/2020/01/02/%E8%AE%BE%E7%BD%AEwindows10%E4%B8%8A%E6%96%87%E6%A1%A3%E7%9A%84%E8%83%8C%E6%99%AF%E5%BA%95%E8%89%B2/"/>
       <url>/2020/01/02/%E8%AE%BE%E7%BD%AEwindows10%E4%B8%8A%E6%96%87%E6%A1%A3%E7%9A%84%E8%83%8C%E6%99%AF%E5%BA%95%E8%89%B2/</url>
@@ -372,11 +399,11 @@
     
     
     <entry>
-      <title>ubuntu emacs 的傻瓜安装过程</title>
-      <link href="/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/"/>
-      <url>/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85/</url>
+      <title>ubuntu emacs 的傻瓜安装与卸载教程</title>
+      <link href="/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/"/>
+      <url>/2019/04/01/ubuntu%20emacs%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/</url>
       
-        <content type="html"><![CDATA[<p>To ensure a clean installation, please follow these steps:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install</span><br><span class="line">$ sudo apt-get purge emacs emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot emacs-snapshot-el emacs-snapshot-gtk emacs23 emacs23-bin-common emacs23-common emacs23-el emacs23-nox emacs23-lucid auctex apel emacs24 emacs24-bin-common emacs24-common emacs24-common-non-dfsg emacs24-el</span><br></pre></td></tr></table></figure><p>To add this PPA:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:cassou&#x2F;emacs</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg</span><br></pre></td></tr></table></figure><p>the end:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ emacs</span><br></pre></td></tr></table></figure><p>按照以上顺序执行完即可</p><hr>]]></content>
+        <content type="html"><![CDATA[<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>To ensure a clean installation, please follow these steps:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install</span><br><span class="line">$ sudo apt-get purge emacs emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot emacs-snapshot-el emacs-snapshot-gtk emacs23 emacs23-bin-common emacs23-common emacs23-el emacs23-nox emacs23-lucid auctex apel emacs24 emacs24-bin-common emacs24-common emacs24-common-non-dfsg emacs24-el</span><br></pre></td></tr></table></figure><p>To add this PPA:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:cassou&#x2F;emacs</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg</span><br></pre></td></tr></table></figure><p>the end:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ emacs</span><br></pre></td></tr></table></figure><p>按照以上顺序执行完即可</p><h1 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove emacs</span><br><span class="line">或</span><br><span class="line">sudo apt-get remove --auto-remove emacs24 emacs24-el emacs24-common-non-dfsg</span><br></pre></td></tr></table></figure><hr>]]></content>
       
       
       <categories>
