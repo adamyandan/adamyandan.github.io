@@ -5,6 +5,33 @@
     
     <entry>
       <title>contiki compile error</title>
+      <link href="/2020/01/09/wireshark%20%E5%9C%A8win10%E4%B8%8B%E6%A3%80%E6%B5%8B%E4%B8%8D%E5%87%BA%E6%8D%95%E8%8E%B7%E6%8E%A5%E5%8F%A3/"/>
+      <url>/2020/01/09/wireshark%20%E5%9C%A8win10%E4%B8%8B%E6%A3%80%E6%B5%8B%E4%B8%8D%E5%87%BA%E6%8D%95%E8%8E%B7%E6%8E%A5%E5%8F%A3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="可能性1：NPF服务没有启动"><a href="#可能性1：NPF服务没有启动" class="headerlink" title="可能性1：NPF服务没有启动"></a>可能性1：NPF服务没有启动</h2><p>安装wireshark后打开提示没有找到捕获接口，可能是NPF（Netgroup Packet Filter 网络数据包过滤器）服务没有启动，解决办法就是启动NPF服务，然后重启wireshark。 </p><p>启动NPF的方法：</p><ol><li>以管理员的身份运行命令行程序cmd.exe;</li><li>输入<code>net start npf</code>命令，确定后就会提示服务启动成功;</li><li>这样的方式只能在这一次启动NPF服务，电脑重启之后又要重新启动，如果希望电脑启动时自动启用NPF服务，则可以在上面第二步将命令行换成<code>sc config npf start=auto</code>。</li></ol><h2 id="可能性2：wireshark自带的wincap不支持win10"><a href="#可能性2：wireshark自带的wincap不支持win10" class="headerlink" title="可能性2：wireshark自带的wincap不支持win10"></a>可能性2：wireshark自带的wincap不支持win10</h2><p>在<a href="http://www.win10pcap.org/download/" target="_blank" rel="noopener">下载安装Win10Pcap</a>网址可解决此问题。</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> contiki </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> contiki </tag>
+            
+            <tag> cooja </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>contiki compile error</title>
       <link href="/2020/01/07/contiki%20compile%20error/"/>
       <url>/2020/01/07/contiki%20compile%20error/</url>
       
