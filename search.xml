@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>多协议网关设计方案</title>
+      <link href="/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88/"/>
+      <url>/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="1-需求分析"><a href="#1-需求分析" class="headerlink" title="1.需求分析"></a>1.需求分析</h2><p>  在工业互联网的信息时代，现场设备需要实现互联互通，消除信息孤岛。然而，工业控制网络本身就存在通讯协议异构、接口不统一的问题，这不利于现场设备底层数据的采集和信息共享，同时对工业控制系统的网络安全提出更高的要求。因此，开发一个工业多协议安全网关已成为必然趋势。</p><p>  本工业多协议安全网关负责对不同的通信协议进行翻译，实现不同协议网络间信息包转发，简化网络管理，将有不同通信接口的传感器都连接到同一个网关上，进行分布式数据传输和控制，大大降低了设计成本，便于后期的维护。本工业多协议安全网关主要是由主控模块MT7620、协议转换模块、组态模块、WIA-PA模块和数据汇聚模块组成，可以支持FF、PROFIBUS、HART三种工业现场总线协议以及WIA-PA工业无线网络的接入，利用NCS4000组态系统、Linux平台进行开发，并且可通过OPC UA统一接口实现对数据的共享，支持读、取、写、发布/订阅功能。</p><p>  该工业多协议安全网关满足以下指标：</p><p>  (1)    网关正常支持9600-115200bps串口波特率；<br>  (2)    网关支持以太网速率10Mbps-100Mbps自适应；<br>  (3)    网关能正确解析IEEE802.3协议、IPv4/IPv6协议、SMTP、HTTP、POP3、FTP协议；<br>  (4)    网关支持报文过滤、权限管理等安全功能；<br>  (5)    网关支持802.11标准，无线传输速率达到11Mbps，发射功率在12-15 dBm范围内；<br>  (6)    网关的吞吐量可达到100Mbps；<br>  (7)    网关的包转发速率可达到250 Kbps；<br>  (8)    网关的传输时延小于50ms；<br>  (9)    网关可以并行传输处理控制和服务信息；<br>  (10)    网关的工作环境温度范围为-40℃~70℃(在电源模块70%负载时)、-40～55 ℃（在电源模块100%负载时）；<br>  (11)    网关兼容现场总线FF、PROFIBUS、HART通信协议和无线工业通信协议WIA-PA；<br>  (12)    网关支持OPC UA、Modbus统一接口，满足连接、读写、发布/订阅的功能；<br>  (13)    网关具有不同仪表接口和业务要素的统一转换接口，上行接口速率大于等于100Mbps，下行可接入点规模大于16个点。</p><h2 id="2-总体设计方案"><a href="#2-总体设计方案" class="headerlink" title="2.总体设计方案"></a>2.总体设计方案</h2><p>  本项目所研发的工业多协议安全网关包括主控模块MT7620、协议转换模块、组态模块、WIA-PA模块和数据汇聚模块。主控模块用于承载OpenWRT系统，对网关基本路由功能提供支持，协议转换模块用于将底层采集到的不同协议数据进行统一的XML描述；组态模块用于工业现场有线/无线网络子网的组网以及入网；WIA-PA模块通过无线的方式采集底层的WIA-PA网络中的数据；数据汇聚模块拥有FF网络接口、PROFIBUS网络接口和HART网络接口，用于采集底层PROFIBUS、Fieldbus和HART现场总线网络数据；工业多协议安全网关通过协议转换模块将不同协议的数据转换为统一的XML格式，再使用有线网络或者无线网络将统一后的数据通过统一的网络接口（OPC UA或者Modbus TCP）传输至局域网或广域网。该工业多协议安全网关集无线/有线数据采集、网络组态、协议转换等功能为一体，支持底层有线/无线网络、局域网或广域网网络之间的互联互通，并通过OPC UA技术和Modbus TCP数据通信协议实现设备管理与数据传输的无缝衔接。工业多协议安全网关的总体设计如下图所示。<br><a href="https://imgchr.com/i/t9728S" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t9728S.png" alt="t9728S.png"></a></p><h2 id="3-主要模块设计"><a href="#3-主要模块设计" class="headerlink" title="3.主要模块设计"></a>3.主要模块设计</h2><h3 id="3-1-主控模块"><a href="#3-1-主控模块" class="headerlink" title="3.1 主控模块"></a>3.1 主控模块</h3><p>  工业多协议安全网关的主控模块包括MT7620主控制单元、无线模块单元、电源管理单元、以太网控制单元、串口转USB调试单元等。网关设计了三个UART接口、一个网口、一个GPIO口；其中UART0作为普通串口与无线模块交互数据，UART1作为调试串口。工业现场总线模块则通过UART2串口与主控模块进行数据交互。工业多协议安全网关的主控模块结构图如下图所示。<br><a href="https://imgchr.com/i/t97jKJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t97jKJ.png" alt="t97jKJ.png"></a><br>  工业多协议安全网关主控模块使用OpenWRT系统。该系统针对网络路由功能的需要，在嵌入式Linux系统的基础上进行优化，不仅能够很好地支持各种处理器架构，还能够支持IPv4/IPv6网络的路由转发功能。同时，该系统作为开源嵌入式Linux系统，能够对STMP、POP3、HTTP、FTP等协议提供支持。主控模块能够读取现场总线设备、WIA-PA设备的数据，并提供OPC UA、Modbus统一接口。</p><h3 id="3-2-数据汇聚模块"><a href="#3-2-数据汇聚模块" class="headerlink" title="3.2 数据汇聚模块"></a>3.2 数据汇聚模块</h3><p>  现场总线控制系统是一种开放式、安全性好、成本低、新型的分布控制系统，以控制、计算机、数字通讯等技术为主要内容的综合技术，成为自动化技术发展热点，并将导致自动化系统结构与设备的深刻变革。工业多协议安全网关现场总线模块包括FF数据汇聚模块、HART数据汇聚模块、PROFIBUS数据汇聚模块，能够读取现场总线的各种信息和实时数据，同时提供了8个FF端子、4个PROFIBUS接口和8个HART通道，能够连接大量的现场总线设备。</p><p>  3.2.1 FF数据汇聚模块<br>  NCS40000控制系统可以访问FF数据汇聚模块，该模块可以与符合FF H1标准的各种仪表和设备连接，控制站可以通过 NCS4000-FFH1-0201 模块对 H1 仪表和设备进行组态、监视、诊断、维护等功能。具有热插拔、故障和状态指示等功能。</p><p>  该模块的主要特点如下：</p><ul><li><p>通道至系统隔离 </p></li><li><p>总线供电 </p></li><li><p>电流调制方式 </p></li><li><p>通过 FF 协议物理层一致性测试</p><p>目前该模块支持两个H1接口，可以连接两个H1网段，在网段上作为LAS运行。FF数据汇聚模块端子接线如下图所示，其中CH1和CH2表示不同的H1网段，每个网段可以接入四个设备。底层FF设备通过工业多协议安全网关的FF模块接入网络，同时将数据通过该模块传输至主控模块进行下一步传输与处理。<br><a href="https://imgchr.com/i/t9HEKH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t9HEKH.png" alt="t9HEKH.png"></a></p></li></ul><p>  3.2.2 HART数据汇聚模块<br>  HART数据汇聚模块是一个具有8个通道的HART通讯模块，可以检测来自HART现场设备的电流输入和HART信号，具有热插拔、故障和状态指示等功能。通过组态软件对该模块进行通道配置，模块能够读取现场设备的实时数据。</p><p>  该模块的主要特点如下：</p><ul><li><p>通道至系统隔离</p></li><li><p>支持0～20mA，4～20mA量程的电流输入信号，每通道支持一个HART变送器</p></li><li><p>支持2、4线制变送器</p></li><li><p>2线制接线方式具有输入开路、短路检测功能</p></li><li><p>支持HART变送器的多变量读取</p><p>HART数据汇聚模块端子接线如下图所示，其中CH1-CH8分别表示8个不同的HART通道，可接入8个设备，用户可通过NCS4000组态控制系统对每个通道进行配置以及开启与关闭。<br><a href="https://imgchr.com/i/t9HJqs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t9HJqs.png" alt="t9HJqs.png"></a></p></li></ul><p>  3.2.3 PROFIBUS数据汇聚模块<br>  符合PROFIBUS协议标准的设备通过工业多协议安全网关的PROFIBUS数据汇聚模块接入网络，同时将数据通过该模块传输至主控模块进行下一步传输与处理。该模块提供4个接口端子，可一次接入4个PROFIBUS-DP/PROFIBUS-PA设备，底层设备通过组态模块（NCS-4000）获得唯一的地址，PROFIBUS数据汇聚模块通过每个设备的唯一地址对底层设备管理、读取/发送数据，以此保证数据的准确性，该模块还具有热插拔、故障和状态指示等功能。</p><p>  该模块的主要特点如下：</p><ul><li><p>通道至系统隔离</p></li><li><p>支持PROFIBUS 协议中的DP-V1 协议</p></li><li><p>每个PROFIBUS主站可连接125 个从站</p></li><li><p>一个控制器最多可带2 个PROFIBUS 主站模块<br><a href="https://imgchr.com/i/t9HdiV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t9HdiV.png" alt="t9HdiV.png"></a></p><p>PROFIBUS主站模块端子接线如上图所示，该模块拥有4个PROFIBUS-DP设备接口（A-, B+和G），接入DP分线器后可同时管理多个PROFIBUS-DP设备。接入DP/PA耦合器后，该模块则可以管理PROFIBUS-PA设备。CNTR端子代表着一个可逆计数器，VP端子表示正向电极，PE则是保护导体端子，为该模块提供安全保证。</p></li></ul><h3 id="3-3-NCS4000组态模块"><a href="#3-3-NCS4000组态模块" class="headerlink" title="3.3 NCS4000组态模块"></a>3.3 NCS4000组态模块</h3><p>  工业多协议安全网关提供NCS4000组态功能，NCS4000控制系统是全分布式的现场总线控制系统，适用于中、大规模工业控制环境，提供过程控制、逻辑控制功能，可以广泛应用于冶金、水泥焦化污处理、石油、化工等行业。通过NCS4000组态模块能够对FF、HART、PROFIBUS等现场总线设备进行参数配置和数据读取。</p><p>  NCS4000控制系统具有如下特点： </p><ul><li>支持 FF、HART、MODBUS、PROFIBUS多种现场总线标准；</li><li>支持设备管理、诊断与维护功能； </li><li>支持分布式组态、离线仿真等多种功能；</li><li>支持 IEC61131-3编程标准； </li><li>开放的数据访问接口。</li></ul><h3 id="3-4-WIA-PA数据前端模块"><a href="#3-4-WIA-PA数据前端模块" class="headerlink" title="3.4 WIA-PA数据前端模块"></a>3.4 WIA-PA数据前端模块</h3><p>  WIA-PA数据前端模块在WIA-PA网络中以WIA-PA网关的角色出现，完成整个网络的组网与管理以及数据传输功能。转换模块实现WIA-PA网络及其设备接入以IPv6协议为寻址方法和以OPC UA协议为传输方法的网络转换。具体方法是在模块中将WIA-PA的用户应用对象转换为遵循XML描述格式；在应用子层，将WIA-PA的Client-Server、Publisher-Subscriber和Report-Sink通信模式转换为OPC UA协议中对应的传输方式；在网络层，将WIA-PA的网内地址映射为标准的IPv6地址，使WIA-PA网络的每个设备都有一个虚拟的IPv6地址，外部网络可通过IPv6地址对WIA-PA设备进行寻址。<br><a href="https://imgchr.com/i/t9b3Y6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t9b3Y6.png" alt="t9b3Y6.png"></a></p><h3 id="3-5-协议转换模块"><a href="#3-5-协议转换模块" class="headerlink" title="3.5 协议转换模块"></a>3.5 协议转换模块</h3><p>  工业多协议安全网关提供了协议转换功能，将设备地址转换为标准的IPv6地址，将网络内部的信息数据转换为XML格式。同时，网关利用XML对网络内的设备进行描述，并使用统一的IP协议经过边界网关，将设备描述信息、数据信息、管理信息等XML 信息传输至上层应用。在这种架构下，虽然现场网络的设备并不能直接支持XML和IP，但借助于多协议网关的转换功能，每个现场设备仍具有单独的IP 地址，并通过XML与后台进行数据信息和管理信息交互。通过该模块，能够将工业现场总线及工业无线网络的数据转换成XML格式，建立以XML为核心的信息描述与数据交换机制，最后将工业网络数据通过OPC UA统一转换接口对外提供服务。</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> laboratory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多协议网关 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多协议网关外部接线端口说明</title>
+      <link href="/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E5%A4%96%E9%83%A8%E6%8E%A5%E7%BA%BF%E7%AB%AF%E5%8F%A3%E8%AF%B4%E6%98%8E/"/>
+      <url>/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E5%A4%96%E9%83%A8%E6%8E%A5%E7%BA%BF%E7%AB%AF%E5%8F%A3%E8%AF%B4%E6%98%8E/</url>
+      
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>多协议边界网关包含FF、HART、DP共3种现场总线模块，通过以太网连接电脑上位机，可以对FF、HART、DP设备进行配置、组态等操作。<br>多协议边界网关整体如下图所示。</p><p><a href="https://imgchr.com/i/t94u5D" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t94u5D.png" alt="t94u5D.png"></a></p><h2 id="二、接口描述"><a href="#二、接口描述" class="headerlink" title="二、接口描述"></a>二、接口描述</h2><ol><li><p>下侧接口<br><a href="https://imgchr.com/i/t94Tqx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t94Tqx.png" alt="t94Tqx.png"></a></p></li><li><p>上侧接口<br><a href="https://imgchr.com/i/t94HZ6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/25/t94HZ6.png" alt="t94HZ6.png"></a></p></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> laboratory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多协议网关 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NCS400展厅组态安装软件（路径需要用英文）</title>
+      <link href="/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/"/>
+      <url>/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、安装环境及注意事项"><a href="#一、安装环境及注意事项" class="headerlink" title="一、安装环境及注意事项"></a>一、安装环境及注意事项</h2><ol><li><p>（ win 7 旗舰版 + office 2007 ） 或 （ win 10 专业版 + office 2007 ）</p></li><li><p>安装路径都要为<strong>英文</strong></p></li><li><p>所有的软件都要<strong>以管理员身份运行</strong></p></li></ol><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>先安装 “SQLServer 2008 R2 Express” 里的文件 “SQLEXPR_x86_CHS”<br>其中，将  “账户设置” 改为 <strong>“SYSTEM”</strong></p></li><li><p>执行 “MCView_2.3.0.exe”<br>在执行过程中如果遇到问题， 先执行 “vcredistx64.exe” , win 7系统可能没有一个插件，需要手动安装 “dotNetFx40_Full_x86_x64.exe” </p></li><li><p>执行 “NCSView_v2.4.4_For_UA.exe”<br>到 “工程管理器” 工程中 打开 “test_863.mvsp”（或其他工程项目）</p></li></ol><h2 id="安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"><a href="#安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。" class="headerlink" title="安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"></a>安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。</h2><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> laboratory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NCS4000组态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020重邮研究生经费报销流程</title>
       <link href="/2020/05/25/2020%E9%87%8D%E9%82%AE%E7%A0%94%E7%A9%B6%E7%94%9F%E7%BB%8F%E8%B4%B9%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/"/>
       <url>/2020/05/25/2020%E9%87%8D%E9%82%AE%E7%A0%94%E7%A9%B6%E7%94%9F%E7%BB%8F%E8%B4%B9%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/</url>
@@ -162,7 +237,7 @@
       <link href="/2020/01/14/S323%E6%89%93%E5%8D%B0%E6%9C%BA%E8%84%B1%E6%9C%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
       <url>/2020/01/14/S323%E6%89%93%E5%8D%B0%E6%9C%BA%E8%84%B1%E6%9C%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
       
-        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="1-win10下，用cortana搜索“打印机和扫描仪”；"><a href="#1-win10下，用cortana搜索“打印机和扫描仪”；" class="headerlink" title="1.win10下，用cortana搜索“打印机和扫描仪”；"></a>1.win10下，用cortana搜索“打印机和扫描仪”；</h2><p><img src="https://s2.ax1x.com/2020/01/14/lb0hng.png" alt="lb0hng.png"></p><h2 id="2-在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）"><a href="#2-在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）" class="headerlink" title="2.在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）"></a>2.在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）</h2><p><img src="https://s2.ax1x.com/2020/01/14/lbBSE9.png" alt="lbBSE9.png"><br>点击“删除设备”；</p><h2 id="3-然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。"><a href="#3-然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。" class="headerlink" title="3.然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。"></a>3.然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。</h2><h2 id="4-回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；"><a href="#4-回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；" class="headerlink" title="4.回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；"></a>4.回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；</h2><h2 id="5-之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172-16-34-200的地址，按指示行动！"><a href="#5-之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172-16-34-200的地址，按指示行动！" class="headerlink" title="5.之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172.16.34.200的地址，按指示行动！"></a>5.之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172.16.34.200的地址，按指示行动！</h2><p><strong>如果还是不行的话，建议多试几遍？或者自求多福？==</strong><br>我尽力了/。</p><hr>]]></content>
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="先执行最简单的方案：执行-步骤1-gt-步骤2-gt-步骤4-。"><a href="#先执行最简单的方案：执行-步骤1-gt-步骤2-gt-步骤4-。" class="headerlink" title="先执行最简单的方案：执行 步骤1 -&gt; 步骤2 -&gt; 步骤4 。"></a>先执行最简单的方案：执行 步骤1 -&gt; 步骤2 -&gt; 步骤4 。</h2><h2 id="1-win10下，用cortana搜索“打印机和扫描仪”；"><a href="#1-win10下，用cortana搜索“打印机和扫描仪”；" class="headerlink" title="1.win10下，用cortana搜索“打印机和扫描仪”；"></a>1.win10下，用cortana搜索“打印机和扫描仪”；</h2><p><img src="https://s2.ax1x.com/2020/01/14/lb0hng.png" alt="lb0hng.png"></p><h2 id="2-在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）"><a href="#2-在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）" class="headerlink" title="2.在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）"></a>2.在已知的设备栏中，找到我们的打印机（现在改名字了，叫S323）</h2><p><img src="https://s2.ax1x.com/2020/01/14/lbBSE9.png" alt="lbBSE9.png"><br>点击“删除设备”；</p><h2 id="3-然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。"><a href="#3-然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。" class="headerlink" title="3.然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。"></a>3.然后去“设备管理器”，在“图像设备”栏下，右键“卸载设备”。</h2><h2 id="4-回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；"><a href="#4-回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；" class="headerlink" title="4.回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；"></a>4.回到“打印机与扫描仪”界面，点击“添加打印机和扫描仪”，下面就可以扫描到我们的打印机了；</h2><h2 id="5-之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172-16-34-200的地址，按指示行动！"><a href="#5-之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172-16-34-200的地址，按指示行动！" class="headerlink" title="5.之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172.16.34.200的地址，按指示行动！"></a>5.之后打开之前在光盘中早就装好的驱动，打开那个软件，添加新设备，找到172.16.34.200的地址，按指示行动！</h2><p><strong>如果还是不行的话，建议多试几遍？或者自求多福？==</strong><br>我尽力了/。</p><hr>]]></content>
       
       
       <categories>
