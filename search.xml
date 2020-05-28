@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>机房服务器连上WIFI依旧无法上网问题</title>
+      <link href="/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E4%B8%8Awifi%E4%BE%9D%E6%97%A7%E6%97%A0%E6%B3%95%E4%B8%8A%E7%BD%91/"/>
+      <url>/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E4%B8%8Awifi%E4%BE%9D%E6%97%A7%E6%97%A0%E6%B3%95%E4%B8%8A%E7%BD%91/</url>
+      
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h2><pre><code>机房里的服务器，在进行“思科-时天河-重邮工业互联网研究院”的项目，网线连通局域网，开4G路由器，让机房服务器连wifi进行上网。</code></pre><h2 id="1-先用4G路由器有线连接服务器"><a href="#1-先用4G路由器有线连接服务器" class="headerlink" title="1. 先用4G路由器有线连接服务器"></a>1. 先用4G路由器有线连接服务器</h2><h2 id="2-修改正确的时间，看能否上网，能，进行下一步"><a href="#2-修改正确的时间，看能否上网，能，进行下一步" class="headerlink" title="2. 修改正确的时间，看能否上网，能，进行下一步"></a>2. 修改正确的时间，看能否上网，能，进行下一步</h2><h2 id="3-修改到2018年8月1日，看能否上网，能，进行下一步"><a href="#3-修改到2018年8月1日，看能否上网，能，进行下一步" class="headerlink" title="3. 修改到2018年8月1日，看能否上网，能，进行下一步"></a>3. 修改到2018年8月1日，看能否上网，能，进行下一步</h2><h2 id="4-能否进入-DATAFLOW-，能，进入下一步"><a href="#4-能否进入-DATAFLOW-，能，进入下一步" class="headerlink" title="4. 能否进入 DATAFLOW ，能，进入下一步"></a>4. 能否进入 DATAFLOW ，能，进入下一步</h2><h2 id="5-用有线连接服务器，无线连接设备网关，进行展示。"><a href="#5-用有线连接服务器，无线连接设备网关，进行展示。" class="headerlink" title="5. 用有线连接服务器，无线连接设备网关，进行展示。"></a>5. 用有线连接服务器，无线连接设备网关，进行展示。</h2><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> laboratory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机房服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多协议网关设计方案</title>
       <link href="/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88/"/>
       <url>/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88/</url>
@@ -894,25 +919,6 @@
     
     
     <entry>
-      <title>Picture test</title>
-      <link href="/2019/03/16/pictures%20test/"/>
-      <url>/2019/03/16/pictures%20test/</url>
-      
-        <content type="html"><![CDATA[<hr><ul><li><p>最爱的金毛呀~<br><img src="https://s2.ax1x.com/2019/03/23/AJFazq.md.jpg" alt="金毛与山水"></p><hr></li><li><p>山水最是宜人<br><img src="https://s2.ax1x.com/2019/03/23/AJAKDf.jpg" alt="山水"></p></li></ul><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> entertainment </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>love, death and robot</title>
       <link href="/2019/03/16/love,%20death%20and%20robot/"/>
       <url>/2019/03/16/love,%20death%20and%20robot/</url>
@@ -923,6 +929,25 @@
       <categories>
           
           <category> thinking about life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Picture test</title>
+      <link href="/2019/03/16/pictures%20test/"/>
+      <url>/2019/03/16/pictures%20test/</url>
+      
+        <content type="html"><![CDATA[<hr><ul><li><p>最爱的金毛呀~<br><img src="https://s2.ax1x.com/2019/03/23/AJFazq.md.jpg" alt="金毛与山水"></p><hr></li><li><p>山水最是宜人<br><img src="https://s2.ax1x.com/2019/03/23/AJAKDf.jpg" alt="山水"></p></li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> entertainment </category>
           
       </categories>
       
