@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1.介绍低功耗和有损耗网络的路由协议利用目标函数(OF)建立一个面向目标的有向无环图(DODAG)。目标函数根据某种算法或计算公式使用路由度量来形成DODAG。基本上，目标函数优化或约束用于形成路由的路由度量，从而帮助选择最佳路由。在同一个节点和网格网络上可能有许多目标函数在运行，因为不同的部署目标差异很大，单个网格网络可能需要承载具有非常不同的路径质量要求的流量。 在Contiki中实现RPL，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cooja中的RPL目标函数与仿真（DGRM模式下）">
+<meta property="og:url" content="https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="不想当咸鱼的蛋蛋">
+<meta property="og:description" content="1.介绍低功耗和有损耗网络的路由协议利用目标函数(OF)建立一个面向目标的有向无环图(DODAG)。目标函数根据某种算法或计算公式使用路由度量来形成DODAG。基本上，目标函数优化或约束用于形成路由的路由度量，从而帮助选择最佳路由。在同一个节点和网格网络上可能有许多目标函数在运行，因为不同的部署目标差异很大，单个网格网络可能需要承载具有非常不同的路径质量要求的流量。 在Contiki中实现RPL，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/l2jDWd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/l2zBYF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/l2zjk8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRSQn1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRpP8e.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRpn58.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRp0xJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRpHdP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lR9PoV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lR9vtK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRiKwn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRi3WT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRFm9K.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRFcCV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/08/lRkzyF.png">
+<meta property="article:published_time" content="2020-01-05T14:00:01.000Z">
+<meta property="article:modified_time" content="2020-01-08T14:49:46.476Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="contiki">
+<meta property="article:tag" content="cooja">
+<meta property="article:tag" content="RPL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/01/08/l2jDWd.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>cooja中的RPL目标函数与仿真（DGRM模式下）</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的蛋蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/01/07/contiki%20compile%20error/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/05/sublime%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&text=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&is_video=false&description=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=cooja中的RPL目标函数与仿真（DGRM模式下）&body=Check out this article: https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&name=cooja中的RPL目标函数与仿真（DGRM模式下）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&t=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.</span> <span class="toc-text">1.介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-这章节将会学到"><span class="toc-number">2.</span> <span class="toc-text">2.这章节将会学到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-源代码路径"><span class="toc-number">3.</span> <span class="toc-text">3.源代码路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-相关文件及功能"><span class="toc-number">4.</span> <span class="toc-text">4. 相关文件及功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rpl-conf-h"><span class="toc-number">4.1.</span> <span class="toc-text">rpl-conf.h</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#of0-c"><span class="toc-number">4.2.</span> <span class="toc-text">of0.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rpl-mhrof-c"><span class="toc-number">4.3.</span> <span class="toc-text">rpl-mhrof.c</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-目标函数的修改"><span class="toc-number">5.</span> <span class="toc-text">5.目标函数的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Cooja仿真（在DGRM模式下）"><span class="toc-number">6.</span> <span class="toc-text">6.Cooja仿真（在DGRM模式下）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-温馨提醒"><span class="toc-number">7.</span> <span class="toc-text">7.温馨提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        cooja中的RPL目标函数与仿真（DGRM模式下）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的蛋蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-05T14:00:01.000Z" itemprop="datePublished">2020-01-05</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/contiki/">contiki</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/RPL/" rel="tag">RPL</a>, <a class="tag-link" href="/tags/contiki/" rel="tag">contiki</a>, <a class="tag-link" href="/tags/cooja/" rel="tag">cooja</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>低功耗和有损耗网络的路由协议利用目标函数(OF)建立一个面向目标的有向无环图(DODAG)。目标函数根据某种算法或计算公式使用路由度量来形成DODAG。基本上，目标函数优化或约束用于形成路由的路由度量，从而帮助选择最佳路由。在同一个节点和网格网络上可能有许多目标函数在运行，因为不同的部署目标差异很大，单个网格网络可能需要承载具有非常不同的路径质量要求的流量。</p>
+<p>在Contiki中实现RPL，内置有两个目标函数，但是默认情况下它使用的是最小化ETX值的那个。但是，在所有路由场景中，相同的策略不可能是最佳的路由策略。因此，需要相应地修改目标函数，以适应任何额外的约束或实现不同的目标。</p>
+<h2 id="2-这章节将会学到"><a href="#2-这章节将会学到" class="headerlink" title="2.这章节将会学到"></a>2.这章节将会学到</h2><p>本教程的基本假设是您了解用于低功耗和有损网络(RPL)的路由协议的工作原理。<br>这里使用并解释了ContikiOS 3.0 RPL的实现。<br>以下是本教程的解释:</p>
+<ul>
+<li>不同的RPL相关功能及其工作</li>
+<li>示例场景和RPL目标函数的修改</li>
+<li>基于DGRM模型的Cooja仿真</li>
+</ul>
+<h2 id="3-源代码路径"><a href="#3-源代码路径" class="headerlink" title="3.源代码路径"></a>3.源代码路径</h2><p>在contiki-3.0的操作系统下</p>
+<p>~/contiki/core/net/rpl/rpl-conf.h<br>~/contiki/core/net/rpl/rpl-of0.c<br>~/contiki/core/net/rpl/rpl-mrhof.c<br>~/contiki/tools/cooja</p>
+<h2 id="4-相关文件及功能"><a href="#4-相关文件及功能" class="headerlink" title="4. 相关文件及功能"></a>4. 相关文件及功能</h2><p>具有RPL要点的一些重要文件:rpl-config.h, rpl-of0.c, rpl-mhrof.c。但是这里只提到了这些文件中的一些重要函数。</p>
+<h3 id="rpl-conf-h"><a href="#rpl-conf-h" class="headerlink" title="rpl-conf.h"></a>rpl-conf.h</h3><p><strong>RPL_CONF_STATS</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* Set to 1 to enable RPL statistics *&#x2F;</span><br><span class="line">#ifndef RPL_CONF_STATS</span><br><span class="line">#define RPL_CONF_STATS 0</span><br><span class="line">#endif &#x2F;* RPL_CONF_STATS *&#x2F;</span><br></pre></td></tr></table></figure>
+<p>这里禁用了RPL配置统计信息。我们需要将它设置为1。</p>
+<p><strong>RPL_DAG_MC</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* </span><br><span class="line"> * Select routing metric supported at runtime. This must be a valid</span><br><span class="line"> * DAG Metric Container Object Type (see below). Currently, we only </span><br><span class="line"> * support RPL_DAG_MC_ETX and RPL_DAG_MC_ENERGY.</span><br><span class="line"> * When MRHOF (RFC6719) is used with ETX, no metric container must</span><br><span class="line"> * be used; instead the rank carries ETX directly.</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifdef RPL_CONF_DAG_MC</span><br><span class="line">#define RPL_DAG_MC RPL_CONF_DAG_MC</span><br><span class="line">#else</span><br><span class="line">#define RPL_DAG_MC RPL_DAG_MC_NONE</span><br><span class="line">#endif &#x2F;* RPL_CONF_DAG_MC *&#x2F;</span><br></pre></td></tr></table></figure>
+<p>选择运行时支持的路由度量。<br>这里支持使用ETX和ENERGY类型的RPL度量容器。（RPL_DAG_MC_ETX 和 RPL_DAG_MC_ENERGY）<br>如果您开发了一个目标函数和相关的度量容器，则可以支持它。</p>
+<p><strong>RPL_OF</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * The objective function used by RPL is configurable through the </span><br><span class="line"> * RPL_CONF_OF parameter. This should be defined to be the name of an </span><br><span class="line"> * rpl_of object linked into the system image, e.g., rpl_of0.</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifdef RPL_CONF_OF</span><br><span class="line">#define RPL_OF RPL_CONF_OF</span><br><span class="line">#else</span><br><span class="line">&#x2F;* ETX is the default objective function. *&#x2F;</span><br><span class="line">#define RPL_OF rpl_mrhof</span><br><span class="line">#endif &#x2F;* RPL_CONF_OF *&#x2F;</span><br></pre></td></tr></table></figure>
+<p>RPL_OF配置了RPL的目标函数。在这里，ETX是默认的目标函数。这应该定义为链接到系统映像的rpl_of对象的名称，比如rpl_of0。在这里，您还可以将它定义为您自己开发的目标函数。</p>
+<p><strong>RPL_LEAF_ONLY</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * This value decides if this node must stay as a leaf or not</span><br><span class="line"> * as allowed by draft-ietf-roll-rpl-19#section-8.5</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifdef RPL_CONF_LEAF_ONLY</span><br><span class="line">#define RPL_LEAF_ONLY RPL_CONF_LEAF_ONLY</span><br><span class="line">#else</span><br><span class="line">#define RPL_LEAF_ONLY 0</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>节点是否应该作为叶节点由这个值决定。<br>(如draft-ietf-roll-rpl-19#section-8.5中所述)</p>
+<p><strong>RPL_CONF_DEFAULT_ROUTE_INFINITE_LIFETIME</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * RPL Default route lifetime</span><br><span class="line"> * The RPL route lifetime is used for the downward routes and for the default</span><br><span class="line"> * route. In a high density network with DIO suppression activated it may happen</span><br><span class="line"> * that a node will never send a DIO once the DIO interval becomes high as it</span><br><span class="line"> * has heard DIO from many neighbors already. As the default route to the</span><br><span class="line"> * preferred parent has a lifetime reset by receiving DIO from the parent, it</span><br><span class="line"> * means that the default route can be destroyed after a while. Setting the</span><br><span class="line"> * default route with infinite lifetime secures the upstream route.</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifdef RPL_CONF_DEFAULT_ROUTE_INFINITE_LIFETIME</span><br><span class="line">#define RPL_DEFAULT_ROUTE_INFINITE_LIFETIME                    RPL_CONF_DEFAULT_ROUTE_INFINITE_LIFETIME</span><br><span class="line">#else</span><br><span class="line">#define RPL_DEFAULT_ROUTE_INFINITE_LIFETIME                    0</span><br><span class="line">#endif &#x2F;* RPL_CONF_DEFAULT_ROUTE_INFINITE_LIFETIME *&#x2F;</span><br></pre></td></tr></table></figure>
+<p>RPL路由生存期用于向下路由和默认路由的构建。在高密度网络且DIO不活跃时（组网稳定后），可能会发生这种情况：一个节点永远不会发送DIO报文了，一旦发送DIO的时间间隔变得很高则已经收到很多邻居的来信了。默认路径通过接收来自父节点的DIO信号来重置首选父节点的生存期，它表示默认路由可以在一段时间后销毁。<br>设置具有无限生存期的默认路由保护上行路由。</p>
+<p><strong>RPL_DIO_INTERVAL_MIN</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * The DIO interval (n) represents 2^n ms.</span><br><span class="line"> *</span><br><span class="line"> * According to the specification, the default value is 3 which</span><br><span class="line"> * means 8 milliseconds. That is far too low when using duty cycling</span><br><span class="line"> * with wake-up intervals that are typically hundreds of milliseconds.</span><br><span class="line"> * ContikiRPL thus sets the default to 2^12 ms &#x3D; 4.096 s.</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifdef RPL_CONF_DIO_INTERVAL_MIN</span><br><span class="line">#define RPL_DIO_INTERVAL_MIN        RPL_CONF_DIO_INTERVAL_MIN</span><br><span class="line">#else</span><br><span class="line">#define RPL_DIO_INTERVAL_MIN        12</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>DIO以2^n ms的时间间隔对外发送。<br>根据说明，默认的值为3（即2^3=8 ms）。当使用任务循环时，这个值太低了唤醒间隔通常为数百毫秒。<br>ContikiRPL因此设置默认值为2^12 ms = 4.096 s.</p>
+<p><strong>RPL_INIT_LINK_METRIC</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * Initial metric attributed to a link when the ETX is unknown</span><br><span class="line"> *&#x2F;</span><br><span class="line">#ifndef RPL_CONF_INIT_LINK_METRIC</span><br><span class="line">#define RPL_INIT_LINK_METRIC        2</span><br><span class="line">#else</span><br><span class="line">#define RPL_INIT_LINK_METRIC        RPL_CONF_INIT_LINK_METRIC</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>当ETX的值位置是，初始化这个度量值为2</p>
+<h3 id="of0-c"><a href="#of0-c" class="headerlink" title="of0.c"></a>of0.c</h3><p>这个文件中描述了RPL中of0目标函数的定义。</p>
+<p><strong>calculate_rank(rpl_parent_t * p, rpl_rank_t base_rank)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">static rpl_rank_t</span><br><span class="line">calculate_rank(rpl_parent_t *p, rpl_rank_t base_rank)</span><br><span class="line">&#123;</span><br><span class="line">  rpl_rank_t increment;</span><br><span class="line">  if(base_rank &#x3D;&#x3D; 0) &#123;</span><br><span class="line">    if(p &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">      return INFINITE_RANK;</span><br><span class="line">    &#125;</span><br><span class="line">    base_rank &#x3D; p-&gt;rank;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  increment &#x3D; p !&#x3D; NULL ?</span><br><span class="line">                p-&gt;dag-&gt;instance-&gt;min_hoprankinc :</span><br><span class="line">                DEFAULT_RANK_INCREMENT;</span><br><span class="line"></span><br><span class="line">  if((rpl_rank_t)(base_rank + increment) &lt; base_rank) &#123;</span><br><span class="line">    PRINTF(&quot;RPL: OF0 rank %d incremented to infinite rank due to wrapping\n&quot;,</span><br><span class="line">        base_rank);</span><br><span class="line">    return INFINITE_RANK;</span><br><span class="line">  &#125;</span><br><span class="line">  return base_rank + increment;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里计算节点的秩。节点的秩基于它的父级秩(parents rank)和基级秩(base rank)。</p>
+<ul>
+<li>如果基秩为0，而节点没有父结点，则节点的秩为无穷大。</li>
+<li>如果基秩为0并且父秩存在，那么基秩就等于父秩。</li>
+<li>如果基秩不为零，那么根据父级是否存在，增量(increment)将成为DAG instance中父节点的min_hoprankinc或DEFAULT_RANK_INCREMENT。</li>
+</ul>
+<p>简而言之，如果没有父节点，那么base_rank将增加为一个默认的增量，否则它将使用有关父级的信息来增加base_rank。</p>
+<p>在最后一部分中，如果计算出的新秩(new rank)小于基秩(bese rank)，则新秩(new rank)由于环路loop而变得无穷大。</p>
+<p>新计算的秩(the new caculate_rank) = 基秩(base_rank) + 增量(increment)。</p>
+<p><strong>best_dag(rpl_dag_t * d1, rpl_dag_t * d2)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">static rpl_dag_t *</span><br><span class="line">best_dag(rpl_dag_t *d1, rpl_dag_t *d2)</span><br><span class="line">&#123;</span><br><span class="line">  if(d1-&gt;grounded) &#123;</span><br><span class="line">    if (!d2-&gt;grounded) &#123;</span><br><span class="line">      return d1;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else if(d2-&gt;grounded) &#123;</span><br><span class="line">    return d2;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(d1-&gt;preference &lt; d2-&gt;preference) &#123;</span><br><span class="line">    return d2;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    if(d1-&gt;preference &gt; d2-&gt;preference) &#123;</span><br><span class="line">      return d1;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(d2-&gt;rank &lt; d1-&gt;rank) &#123;</span><br><span class="line">    return d2;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return d1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该函数比较两个dag，并根据目标函数返回两个dag中最好的一个(作为输入d1和d2传递)。<br>这里有3个标准来找到最佳的DAG。</p>
+<ul>
+<li>第一个是检查DAG是否接地(if the DAG is grounded)。</li>
+<li>其次是每个DAG的偏好度量(the preference metric of each DAG)。</li>
+<li>第三个是每个DAG的秩(the rank of each DAG)。</li>
+</ul>
+<p><strong>best_parent(rpl_parent_t * p1, rpl_parent_t * p2)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">static rpl_parent_t *</span><br><span class="line">best_parent(rpl_parent_t *p1, rpl_parent_t *p2)</span><br><span class="line">&#123;</span><br><span class="line">  rpl_rank_t r1, r2;</span><br><span class="line">  rpl_dag_t *dag;  </span><br><span class="line">  uip_ds6_nbr_t *nbr1, *nbr2;</span><br><span class="line">  nbr1 &#x3D; rpl_get_nbr(p1);</span><br><span class="line">  nbr2 &#x3D; rpl_get_nbr(p2);</span><br><span class="line"></span><br><span class="line">  dag &#x3D; (rpl_dag_t *)p1-&gt;dag; &#x2F;* Both parents must be in the same DAG. *&#x2F;</span><br><span class="line"></span><br><span class="line">  if(nbr1 &#x3D;&#x3D; NULL || nbr2 &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">    return dag-&gt;preferred_parent;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  PRINTF(&quot;RPL: Comparing parent &quot;);</span><br><span class="line">  PRINT6ADDR(rpl_get_parent_ipaddr(p1));</span><br><span class="line">  PRINTF(&quot; (confidence %d, rank %d) with parent &quot;,</span><br><span class="line">        nbr1-&gt;link_metric, p1-&gt;rank);</span><br><span class="line">  PRINT6ADDR(rpl_get_parent_ipaddr(p2));</span><br><span class="line">  PRINTF(&quot; (confidence %d, rank %d)\n&quot;,</span><br><span class="line">        nbr2-&gt;link_metric, p2-&gt;rank);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  r1 &#x3D; DAG_RANK(p1-&gt;rank, p1-&gt;dag-&gt;instance) * RPL_MIN_HOPRANKINC  +</span><br><span class="line">    nbr1-&gt;link_metric;</span><br><span class="line">  r2 &#x3D; DAG_RANK(p2-&gt;rank, p1-&gt;dag-&gt;instance) * RPL_MIN_HOPRANKINC  +</span><br><span class="line">    nbr2-&gt;link_metric;</span><br><span class="line">  &#x2F;* Compare two parents by looking both and their rank and at the ETX</span><br><span class="line">     for that parent. We choose the parent that has the most</span><br><span class="line">     favourable combination. *&#x2F;</span><br><span class="line"></span><br><span class="line">  if(r1 &lt; r2 + MIN_DIFFERENCE &amp;&amp;</span><br><span class="line">     r1 &gt; r2 - MIN_DIFFERENCE) &#123;</span><br><span class="line">    return dag-&gt;preferred_parent;</span><br><span class="line">  &#125; else if(r1 &lt; r2) &#123;</span><br><span class="line">    return p1;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return p2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该函数比较父节点并根据目标函数返回最佳父节点。<br>这里根据候选父节点的rank值和ETX值对候选父节点进行比较。<br>这是一个重要的功能，因为路线的形成是在此基础上选择最佳的DAG。</p>
+<h3 id="rpl-mhrof-c"><a href="#rpl-mhrof-c" class="headerlink" title="rpl-mhrof.c"></a>rpl-mhrof.c</h3><p>该文件实现了带有滞后目标函数(MRHOF)的最小秩。目标函数使用ETX作为路由度量，它还有能量度量的存根。</p>
+<p><strong>calculate_path_metric(rpl_parent_t * p)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">static rpl_path_metric_t</span><br><span class="line">calculate_path_metric(rpl_parent_t *p)</span><br><span class="line">&#123;</span><br><span class="line">  uip_ds6_nbr_t *nbr;</span><br><span class="line">  if(p &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">    return MAX_PATH_COST * RPL_DAG_MC_ETX_DIVISOR;</span><br><span class="line">  &#125;</span><br><span class="line">  nbr &#x3D; rpl_get_nbr(p);</span><br><span class="line">  if(nbr &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">    return MAX_PATH_COST * RPL_DAG_MC_ETX_DIVISOR;</span><br><span class="line">  &#125;</span><br><span class="line">#if RPL_DAG_MC &#x3D;&#x3D; RPL_DAG_MC_NONE</span><br><span class="line">  &#123;</span><br><span class="line">    return p-&gt;rank + (uint16_t)nbr-&gt;link_metric;</span><br><span class="line">  &#125;</span><br><span class="line">#elif RPL_DAG_MC &#x3D;&#x3D; RPL_DAG_MC_ETX</span><br><span class="line">  return p-&gt;mc.obj.etx + (uint16_t)nbr-&gt;link_metric;</span><br><span class="line">#elif RPL_DAG_MC &#x3D;&#x3D; RPL_DAG_MC_ENERGY</span><br><span class="line">  return p-&gt;mc.obj.energy.energy_est + (uint16_t)nbr-&gt;link_metric;</span><br><span class="line">#else</span><br><span class="line">#error &quot;Unsupported RPL_DAG_MC configured. See rpl.h.&quot;</span><br><span class="line">#endif &#x2F;* RPL_DAG_MC *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里路径度量的计算根据的是OF。<br>如果没有父节点，则使用基于最大路径成本(maximum path cost)计算的默认度量。<br>如果没有提到OF，那么路径度量就是秩的和。<br>（因为OF基于ETX，它是被测量的ETX (p-&gt;mc.obj.etx)和链接度量的总和。）<br>类似地，如果OF基于能量，则将能量值(p-&gt;mc.obj.energy.energy_est)添加到链接度量(link metric)中。<br>此函数由best_parent()调用，用于比较两个父节点的路径度量。</p>
+<p><strong>neighbor_link_callback(rpl_parent_t * p, int status, int numtx)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">static void</span><br><span class="line">neighbor_link_callback(rpl_parent_t *p, int status, int numtx)</span><br><span class="line">&#123;</span><br><span class="line">  uint16_t recorded_etx &#x3D; 0;</span><br><span class="line">  uint16_t packet_etx &#x3D; numtx * RPL_DAG_MC_ETX_DIVISOR;</span><br><span class="line">  uint16_t new_etx;</span><br><span class="line">  uip_ds6_nbr_t *nbr &#x3D; NULL;</span><br><span class="line"></span><br><span class="line">  nbr &#x3D; rpl_get_nbr(p);</span><br><span class="line">  if(nbr &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">    &#x2F;* No neighbor for this parent - something bad has occurred *&#x2F;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  recorded_etx &#x3D; nbr-&gt;link_metric;</span><br><span class="line"></span><br><span class="line">  &#x2F;* Do not penalize the ETX when collisions or transmission errors occur. *&#x2F;</span><br><span class="line">  if(status &#x3D;&#x3D; MAC_TX_OK || status &#x3D;&#x3D; MAC_TX_NOACK) &#123;</span><br><span class="line">    if(status &#x3D;&#x3D; MAC_TX_NOACK) &#123;</span><br><span class="line">      packet_etx &#x3D; MAX_LINK_METRIC * RPL_DAG_MC_ETX_DIVISOR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(p-&gt;flags &amp; RPL_PARENT_FLAG_LINK_METRIC_VALID) &#123;</span><br><span class="line">      &#x2F;* We already have a valid link metric, use weighted moving average to update it *&#x2F;</span><br><span class="line">      new_etx &#x3D; ((uint32_t)recorded_etx * ETX_ALPHA +</span><br><span class="line">                 (uint32_t)packet_etx * (ETX_SCALE - ETX_ALPHA)) &#x2F; ETX_SCALE;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;* We don&#39;t have a valid link metric, set it to the current packet&#39;s ETX *&#x2F;</span><br><span class="line">      new_etx &#x3D; packet_etx;</span><br><span class="line">      &#x2F;* Set link metric as valid *&#x2F;</span><br><span class="line">      p-&gt;flags |&#x3D; RPL_PARENT_FLAG_LINK_METRIC_VALID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    PRINTF(&quot;RPL: ETX changed from %u to %u (packet ETX &#x3D; %u)\n&quot;,</span><br><span class="line">        (unsigned)(recorded_etx &#x2F; RPL_DAG_MC_ETX_DIVISOR),</span><br><span class="line">        (unsigned)(new_etx  &#x2F; RPL_DAG_MC_ETX_DIVISOR),</span><br><span class="line">        (unsigned)(packet_etx &#x2F; RPL_DAG_MC_ETX_DIVISOR));</span><br><span class="line">    &#x2F;* update the link metric for this nbr *&#x2F;</span><br><span class="line">    nbr-&gt;link_metric &#x3D; new_etx;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此函数接收链路层邻居信息。<br>参数状态设置为0或1。<br>numetx参数表示当前邻居节点的ETX(estimated transmission)。<br>recorded_etx 是 link_metric，packet_etx是传递给函数的numetx参数。<br>new_etx是根据公式使用recorded and packet ETX计算的。<br>link_metric用新的ETX值更新。</p>
+<p><strong>calculate_rank(rpl_parent_t * p, rpl_rank_t base_rank)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">static rpl_rank_t</span><br><span class="line">calculate_rank(rpl_parent_t *p, rpl_rank_t base_rank)</span><br><span class="line">&#123;</span><br><span class="line">  rpl_rank_t new_rank;</span><br><span class="line">  rpl_rank_t rank_increase;</span><br><span class="line">  uip_ds6_nbr_t *nbr;</span><br><span class="line"></span><br><span class="line">  if(p &#x3D;&#x3D; NULL || (nbr &#x3D; rpl_get_nbr(p)) &#x3D;&#x3D; NULL) &#123;</span><br><span class="line">    if(base_rank &#x3D;&#x3D; 0) &#123;</span><br><span class="line">      return INFINITE_RANK;</span><br><span class="line">    &#125;</span><br><span class="line">    rank_increase &#x3D; RPL_INIT_LINK_METRIC * RPL_DAG_MC_ETX_DIVISOR;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    rank_increase &#x3D; nbr-&gt;link_metric;</span><br><span class="line">    if(base_rank &#x3D;&#x3D; 0) &#123;</span><br><span class="line">      base_rank &#x3D; p-&gt;rank;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(INFINITE_RANK - base_rank &lt; rank_increase) &#123;</span><br><span class="line">    &#x2F;* Reached the maximum rank. *&#x2F;</span><br><span class="line">    new_rank &#x3D; INFINITE_RANK;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">   &#x2F;* Calculate the rank based on the new rank information from DIO or</span><br><span class="line">      stored otherwise. *&#x2F;</span><br><span class="line">    new_rank &#x3D; base_rank + rank_increase;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return new_rank;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这类似于前面介绍的calculate_rank()函数，但有一点不同。<br>在这个函数中，如果parent = NULL，rank_increase是一个等于RPL_INIT_LINK_METRIC的增量。否则它等于link_metric。<br>new_rank = the increment + base rank</p>
+<p><strong>est_parent(rpl_parent_t * p1, rpl_parent_t * p2)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">static rpl_parent_t *</span><br><span class="line">best_parent(rpl_parent_t *p1, rpl_parent_t *p2)</span><br><span class="line">&#123;</span><br><span class="line">  rpl_dag_t *dag;</span><br><span class="line">  rpl_path_metric_t min_diff;</span><br><span class="line">  rpl_path_metric_t p1_metric;</span><br><span class="line">  rpl_path_metric_t p2_metric;</span><br><span class="line"></span><br><span class="line">  dag &#x3D; p1-&gt;dag; &#x2F;* Both parents are in the same DAG. *&#x2F;</span><br><span class="line"></span><br><span class="line">  min_diff &#x3D; RPL_DAG_MC_ETX_DIVISOR &#x2F;</span><br><span class="line">             PARENT_SWITCH_THRESHOLD_DIV;</span><br><span class="line"></span><br><span class="line">  p1_metric &#x3D; calculate_path_metric(p1);</span><br><span class="line">  p2_metric &#x3D; calculate_path_metric(p2);</span><br><span class="line"></span><br><span class="line">  &#x2F;* Maintain stability of the preferred parent in case of similar ranks. *&#x2F;</span><br><span class="line">  if(p1 &#x3D;&#x3D; dag-&gt;preferred_parent || p2 &#x3D;&#x3D; dag-&gt;preferred_parent) &#123;</span><br><span class="line">    if(p1_metric &lt; p2_metric + min_diff &amp;&amp;</span><br><span class="line">       p1_metric &gt; p2_metric - min_diff) &#123;</span><br><span class="line">      PRINTF(&quot;RPL: MRHOF hysteresis: %u &lt;&#x3D; %u &lt;&#x3D; %u\n&quot;,</span><br><span class="line">             p2_metric - min_diff,</span><br><span class="line">             p1_metric,</span><br><span class="line">             p2_metric + min_diff);</span><br><span class="line">      return dag-&gt;preferred_parent;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return p1_metric &lt; p2_metric ? p1 : p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这类似于前面的best_parent()函数，该函数比较两个父类并返回最佳的一个。<br>这里，为每个父节点计算的路径度量(path metric)是比较的基础。<br>首先检查在DAG中是否有一个父节点被设置为首选父对象，如果是，则选择它作为最佳父对象(基于MRHOF滞后现象 RFC 6719)。<br>否则，将比较计算的两个度量，选择具有较低度量的节点为最好的父节点。<br>在这个函数下，只有当它比当前路径少于一个给定阈值时，才切换到最小秩路径。<br>第二种机制称为“滞后现象”(RFC 6719)。这里，PARENT_SWITCH_THRESHOLD_DIV被定义为2。</p>
+<p>这种父选择发生在以下情况中：</p>
+<ul>
+<li>在网络的初始形成过程中</li>
+<li>当邻近节点的路径代价发生变化时</li>
+<li>一个新节点出现在该节点的邻域中</li>
+</ul>
+<h2 id="5-目标函数的修改"><a href="#5-目标函数的修改" class="headerlink" title="5.目标函数的修改"></a>5.目标函数的修改</h2><p><img src="https://s2.ax1x.com/2020/01/08/l2jDWd.png" alt="l2jDWd.png"><br>上图显示了一个可以使用的拓扑示例。<br>一个目标函数基本上使用一个链路度量(link metric)，并有一个约束的函数试图为路由选择最佳路径。<br>要定义一个全新的目标函数文件(不修改现有文件)，必须在其中定义以下函数。<br>还应该相应地修改makefile，并注意新文件不应出现编译和链接错误。<br>一些RPL OF 的API如下所示：</p>
+<ul>
+<li>reset(dag):重置特定DAG的目标函数状态。在对DAG执行全局修复时调用此函数。</li>
+<li>neighbor_link_callback(parent, status, etx): 接收链路层邻居信息。</li>
+<li>best_parent(parent1, parent2):根据OF，比较两个父节点并返回最好的一个。</li>
+<li>best_dag(dag1, dag2):根据OF，比较两个dag并返回最好的一个。</li>
+<li>calculate_rank(parent, base_rank): 使用父秩和基秩计算秩值。</li>
+<li>update_metric_container(dag): 在某个DAG中更新传出DIOs的度量容器。如果DAG的目标函数不使用度量容器，则该函数应该将对象类型设置为RPL_DAG_MC_NONE。</li>
+</ul>
+<p>修改目标函数的一个例子可以是<strong>Load Balancing application</strong>。<br>新的目标函数应该选择一条最小化ETX的路由，如果有多条路由具有相同的ETX，或者ETX在预定义的范围内，那么它应该减小这些路由中任意一条转发包的最大数量。<br>这意味着任何一个节点都不承担转发包的负载，而其他节点则处于未被利用的状态。</p>
+<p>解决这个问题的一种方法是定义一个如前所述的全新的目标函数。<br>另一种方法是修改现有的rpl-mhrof.c文件。因为它已经使用了问题的最小ETX部分，我们只需要实现负载平衡部分。<br>当一个子节点有多条路由时，负载平衡就出现了，比如父节点们。因此，the best parent function应该做相应的修改。</p>
+<p>另一个例子是选择<strong>shortest path with nodes using minimum energy</strong>。<br>这里的目标函数应该是这样的:<br>    它首先使用最小能量或在一个范围内识别节点；<br>    然后使用最小跳数通过这些节点到达目的地。<br>这可以应用于这样一种情况:一个节点必须快速发送数据，而不会给一个能量不足的节点带来负担。<br>在这个场景中，使用能量度量的目标函数在当前的rpl-mhrof.c中的当前实现中已经存在，并且目标函数可以与附加逻辑一起用于在选择父节点时选择最小跳数。<br>其他需要新的或修改的目标函数的场景可以基于不同的链接度量，如吞吐量(throughput)、链接质量级别(link quelity level)、延迟(latency)等。</p>
+<h2 id="6-Cooja仿真（在DGRM模式下）"><a href="#6-Cooja仿真（在DGRM模式下）" class="headerlink" title="6.Cooja仿真（在DGRM模式下）"></a>6.Cooja仿真（在DGRM模式下）</h2><p>使用DGRM模型是因为它更容易改变链路接收速率。<br>此外，在两个需要的节点之间形成链接也更容易，其他节点除外。以下是形成一个新的模拟的步骤:</p>
+<p>注意:您可以参考<a href="http://anrg.usc.edu/contiki/index.php/Cooja_Simulator" target="_blank" rel="noopener">Cooja Simulater</a>来了解Cooja.</p>
+<ul>
+<li>运行cooja</li>
+</ul>
+<p>打开你的contiki文件夹，在路径“contiki-3.0/tools/cooja”下，进入终端，敲下面命令，打开GUI界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ant run</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2020/01/08/l2zBYF.png" alt="l2zBYF.png"></p>
+<ul>
+<li>开始一个新的仿真</li>
+</ul>
+<p>从<code>file</code>下拉菜单中选择<code>New Simulation</code><br><img src="https://s2.ax1x.com/2020/01/08/l2zjk8.png" alt="l2zjk8.png"></p>
+<p>会弹出下面的界面：<br><img src="https://s2.ax1x.com/2020/01/08/lRSQn1.png" alt="lRSQn1.png"></p>
+<p>在<code>simulation name</code>栏中，填写你的仿真名称；<br>在<code>radio medium</code>下拉选项中，选择<code>directed graph radio medium(DGRM)</code><br>点击<code>creat</code>按钮，创建仿真工程。<br><img src="https://s2.ax1x.com/2020/01/08/lRpP8e.png" alt="lRpP8e.png"></p>
+<p>创建的new simulation将打开多个窗口，如下所示。<br><img src="https://s2.ax1x.com/2020/01/08/lRpn58.png" alt="lRpn58.png"></p>
+<ul>
+<li>添加sink mote</li>
+</ul>
+<p>添加类型为Sink的mote。<br><img src="https://s2.ax1x.com/2020/01/08/lRp0xJ.png" alt="lRp0xJ.png"></p>
+<p>这里使用了来自rpl-collect示例(/examples/ipv6/rpl-collect/)的udp-sink.c代码。<br>但是，您可以根据应用程序上传任何想要实现的代码。<br>单击<code>Compile</code>按钮。<br><img src="https://s2.ax1x.com/2020/01/08/lRpHdP.png" alt="lRpHdP.png"></p>
+<p>在成功编译时，将出现一个创建按钮，该按钮可根据需要在网络中添加更多的mote。这里只添加1个sink节点。<br><img src="https://s2.ax1x.com/2020/01/08/lR9PoV.png" alt="lR9PoV.png"></p>
+<ul>
+<li>添加其他sender motes<br>添加其他类型的mote。<br>这里使用的是来自rpl-collect示例(/examples/ipv6/rpl-collect/)的udp-sender.c代码。<br>但是，您可以根据应用程序上传任何想要实现的代码。<br><img src="https://s2.ax1x.com/2020/01/08/lR9vtK.png" alt="lR9vtK.png"><br>编译代码并根据拓扑结构创建许多这种类型的motes。<br><img src="https://s2.ax1x.com/2020/01/08/lRiKwn.png" alt="lRiKwn.png"><br><img src="https://s2.ax1x.com/2020/01/08/lRi3WT.png" alt="lRi3WT.png"></li>
+</ul>
+<p><strong>注意</strong>:mote的位置在这里并不重要。你可以把你的motes放在图表的任何地方。由于这与距离模型不同，我们在motes之间建立了明确的通信联系，因此它们之间的距离没有区别。</p>
+<ul>
+<li>添加communication links</li>
+</ul>
+<p>在每组节点之间添加两个通信链路，使通信可以是双向的。</p>
+<p>选择<code>tools-&gt;DGRM Links...</code>这将打开一个DGRM配置器对话框。<br><img src="https://s2.ax1x.com/2020/01/08/lRFm9K.png" alt="lRFm9K.png"></p>
+<p>单击<code>Add</code>.选择<code>source</code>和<code>destination</code>，然后再次单击<code>Add</code>。这将添加一个从源节点到目标节点的单向链接。对于双向链接，您需要添加一个带有交换的源节点和目标节点的链接。您可以通过这种方式添加多个链接。添加链接后关闭对话框。<br><img src="https://s2.ax1x.com/2020/01/08/lRFcCV.png" alt="lRFcCV.png"><br>您可以根据您的应用程序更改链接的其他参数，如RX radio、RSSI、LQI和delay。这些参数会影响单个链接的质量。RX radio影响ETX值。<br>因此，要在各种链接质量条件下测试应用程序时，可以更改这些参数。</p>
+<p>您还可以使用remove选项删除一个现有的。<br>Import选项有助于导入已经在其中指定了这些链接连接和参数的任何数据文件。</p>
+<ul>
+<li>运行仿真</li>
+</ul>
+<p>使用simulation control窗口中的Start选项运行仿真。<br>这将启动mote，并且分配给所有的mote一个新的rime地址和其他初始化过程。<br><img src="https://s2.ax1x.com/2020/01/08/lRkzyF.png" alt="lRkzyF.png"></p>
+<ul>
+<li>Watch Output</li>
+</ul>
+<ol>
+<li>motes输出和调试消息可以在Motes Output窗口中看到。</li>
+<li>可以根据节点ID:node_id对输出进行筛选，以监视特定的节点。</li>
+<li>还可以通过过滤来查看特定的调试消息。</li>
+<li>Motes output中其他有用功能是file,edit和view。<br> File选项有助于将输出保存到文件中。<br> Edit具有复制输出的选项 — 完整的或特定选定的消息。</li>
+<li>您还可以使用Clear all messages选项来清除消息。</li>
+<li>使用这些保存在文件中的信息，根据您的实验目标进行观察并绘制图形。</li>
+</ol>
+<h2 id="7-温馨提醒"><a href="#7-温馨提醒" class="headerlink" title="7.温馨提醒"></a>7.温馨提醒</h2><p>在运行cooja时，一定要以sudo ant的方式运行，因为只运行ant可能会抛出一些错误，因为它可能无法访问某些文件。<br>如果网络很大或ETX值很大，则来自叶节点的数据包可能需要一段时间才能到达根节点。<br>因此，您可能需要长时间地运行模拟。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://tools.ietf.org/html/rfc6550" target="_blank" rel="noopener">RFC 6550</a> RPL: IPv6 Routing Protocol for Low-Power and Lossy Networks</li>
+<li><a href="https://tools.ietf.org/html/rfc6552" target="_blank" rel="noopener">RFC 6552</a> Objective Function Zero for the Routing Protocol for Low-Power and Lossy Networks (RPL)</li>
+<li><a href="https://tools.ietf.org/html/rfc6719" target="_blank" rel="noopener">RFC 6719</a> MRHOF: The Minimum Rank with Hysteresis Objective Function </li>
+<li><a href="http://dunkels.com/adam/ko11contikirpl.pdf" target="_blank" rel="noopener">ContikiRPL and TinyRPL: Happy Together</a></li>
+<li><a href="https://github.com/contiki-ng/contiki-ng/wiki/Documentation:-RPL" target="_blank" rel="noopener">Documentation: RPL</a></li>
+<li><a href="https://github.com/contiki-ng/contiki-ng/wiki/Tutorial:-RPL" target="_blank" rel="noopener">Tutorial: RPL</a></li>
+</ol>
+<hr>
+<p>此文翻译的是链接 <a href="https://blog.csdn.net/frank_jb/article/details/50912306" target="_blank" rel="noopener">https://blog.csdn.net/frank_jb/article/details/50912306</a> 的内容</p>
+<hr>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.</span> <span class="toc-text">1.介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-这章节将会学到"><span class="toc-number">2.</span> <span class="toc-text">2.这章节将会学到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-源代码路径"><span class="toc-number">3.</span> <span class="toc-text">3.源代码路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-相关文件及功能"><span class="toc-number">4.</span> <span class="toc-text">4. 相关文件及功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rpl-conf-h"><span class="toc-number">4.1.</span> <span class="toc-text">rpl-conf.h</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#of0-c"><span class="toc-number">4.2.</span> <span class="toc-text">of0.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rpl-mhrof-c"><span class="toc-number">4.3.</span> <span class="toc-text">rpl-mhrof.c</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-目标函数的修改"><span class="toc-number">5.</span> <span class="toc-text">5.目标函数的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Cooja仿真（在DGRM模式下）"><span class="toc-number">6.</span> <span class="toc-text">6.Cooja仿真（在DGRM模式下）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-温馨提醒"><span class="toc-number">7.</span> <span class="toc-text">7.温馨提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&text=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&is_video=false&description=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=cooja中的RPL目标函数与仿真（DGRM模式下）&body=Check out this article: https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&title=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&name=cooja中的RPL目标函数与仿真（DGRM模式下）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/01/05/contiki%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-RPL%E7%AF%87%EF%BC%881%EF%BC%89/&t=cooja中的RPL目标函数与仿真（DGRM模式下）" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2023 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

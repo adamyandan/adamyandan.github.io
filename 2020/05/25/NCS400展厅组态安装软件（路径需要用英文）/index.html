@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、安装环境及注意事项 （ win 7 旗舰版 + office 2007 ） 或 （ win 10 专业版 + office 2007 ）  安装路径都要为英文  所有的软件都要以管理员身份运行   安装步骤 先安装 “SQLServer 2008 R2 Express” 里的文件 “SQLEXPR_x86_CHS”其中，将  “账户设置” 改为 “SYSTEM”  执行 “MCView_2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NCS400展厅组态安装软件（路径需要用英文）">
+<meta property="og:url" content="https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/index.html">
+<meta property="og:site_name" content="不想当咸鱼的蛋蛋">
+<meta property="og:description" content="一、安装环境及注意事项 （ win 7 旗舰版 + office 2007 ） 或 （ win 10 专业版 + office 2007 ）  安装路径都要为英文  所有的软件都要以管理员身份运行   安装步骤 先安装 “SQLServer 2008 R2 Express” 里的文件 “SQLEXPR_x86_CHS”其中，将  “账户设置” 改为 “SYSTEM”  执行 “MCView_2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-25T08:15:01.000Z">
+<meta property="article:modified_time" content="2020-05-25T08:26:45.070Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="NCS4000组态">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>NCS400展厅组态安装软件（路径需要用英文）</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的蛋蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/25/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E5%A4%96%E9%83%A8%E6%8E%A5%E7%BA%BF%E7%AB%AF%E5%8F%A3%E8%AF%B4%E6%98%8E/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/25/2020%E9%87%8D%E9%82%AE%E7%A0%94%E7%A9%B6%E7%94%9F%E7%BB%8F%E8%B4%B9%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&text=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&is_video=false&description=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NCS400展厅组态安装软件（路径需要用英文）&body=Check out this article: https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&name=NCS400展厅组态安装软件（路径需要用英文）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&t=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装环境及注意事项"><span class="toc-number">1.</span> <span class="toc-text">一、安装环境及注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">2.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"><span class="toc-number">3.</span> <span class="toc-text">安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        NCS400展厅组态安装软件（路径需要用英文）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的蛋蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-25T08:15:01.000Z" itemprop="datePublished">2020-05-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/laboratory/">laboratory</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/NCS4000%E7%BB%84%E6%80%81/" rel="tag">NCS4000组态</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory -->
+
+<h2 id="一、安装环境及注意事项"><a href="#一、安装环境及注意事项" class="headerlink" title="一、安装环境及注意事项"></a>一、安装环境及注意事项</h2><ol>
+<li><p>（ win 7 旗舰版 + office 2007 ） 或 （ win 10 专业版 + office 2007 ）</p>
+</li>
+<li><p>安装路径都要为<strong>英文</strong></p>
+</li>
+<li><p>所有的软件都要<strong>以管理员身份运行</strong></p>
+</li>
+</ol>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>先安装 “SQLServer 2008 R2 Express” 里的文件 “SQLEXPR_x86_CHS”<br>其中，将  “账户设置” 改为 <strong>“SYSTEM”</strong></p>
+</li>
+<li><p>执行 “MCView_2.3.0.exe”<br>在执行过程中如果遇到问题， 先执行 “vcredistx64.exe” , win 7系统可能没有一个插件，需要手动安装 “dotNetFx40_Full_x86_x64.exe” </p>
+</li>
+<li><p>执行 “NCSView_v2.4.4_For_UA.exe”<br>到 “工程管理器” 工程中 打开 “test_863.mvsp”（或其他工程项目）</p>
+</li>
+</ol>
+<h2 id="安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"><a href="#安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。" class="headerlink" title="安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"></a>安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。</h2><hr>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装环境及注意事项"><span class="toc-number">1.</span> <span class="toc-text">一、安装环境及注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">2.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。"><span class="toc-number">3.</span> <span class="toc-text">安装完后，退出。并按照实验室祖传的打开方式，进行测试验证。</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&text=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&is_video=false&description=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NCS400展厅组态安装软件（路径需要用英文）&body=Check out this article: https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&title=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&name=NCS400展厅组态安装软件（路径需要用英文）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/05/25/NCS400%E5%B1%95%E5%8E%85%E7%BB%84%E6%80%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%B7%AF%E5%BE%84%E9%9C%80%E8%A6%81%E7%94%A8%E8%8B%B1%E6%96%87%EF%BC%89/&t=NCS400展厅组态安装软件（路径需要用英文）" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2023 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

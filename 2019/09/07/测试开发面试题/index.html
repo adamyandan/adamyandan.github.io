@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="数据库1. 在 student_course 表(sid, cid, score) 查询课程 1(cid&#x3D;1) 成绩第2高的学生 2. 数据库查询慢怎么优化 3. 存储过程与自定义函数的区别1）存储过程实现的功能要复杂一些；  而函数的针对性更强；  （在实际过程中，很少使用函数来对表进行操作）2）存储过程可以返回多个值，而函数只能有一个返回值；3）存储过程一般独立的来执行；  而函数可以作为其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试开发工程师相关知识">
+<meta property="og:url" content="https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="不想当咸鱼的蛋蛋">
+<meta property="og:description" content="数据库1. 在 student_course 表(sid, cid, score) 查询课程 1(cid&#x3D;1) 成绩第2高的学生 2. 数据库查询慢怎么优化 3. 存储过程与自定义函数的区别1）存储过程实现的功能要复杂一些；  而函数的针对性更强；  （在实际过程中，很少使用函数来对表进行操作）2）存储过程可以返回多个值，而函数只能有一个返回值；3）存储过程一般独立的来执行；  而函数可以作为其他">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-07T08:20:51.000Z">
+<meta property="article:modified_time" content="2019-12-20T08:22:17.953Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="interview">
+<meta property="article:tag" content="test development">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>测试开发工程师相关知识</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的蛋蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/08/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&text=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&is_video=false&description=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=测试开发工程师相关知识&body=Check out this article: https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&name=测试开发工程师相关知识&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&t=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构"><span class="toc-number">2.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手撕代码"><span class="toc-number">3.</span> <span class="toc-text">手撕代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作系统"><span class="toc-number">4.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机网络"><span class="toc-number">5.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-C-语言知识"><span class="toc-number">6.</span> <span class="toc-text">C&#x2F;C++语言知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux知识"><span class="toc-number">7.</span> <span class="toc-text">linux知识</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        测试开发工程师相关知识
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的蛋蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-07T08:20:51.000Z" itemprop="datePublished">2019-09-07</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/interview/">interview</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/interview/" rel="tag">interview</a>, <a class="tag-link" href="/tags/test-development/" rel="tag">test development</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p><strong>1. 在 student_course 表(sid, cid, score) 查询课程 1(cid=1) 成绩第2高的学生</strong></p>
+<p><strong>2. 数据库查询慢怎么优化</strong></p>
+<p><strong>3. 存储过程与自定义函数的区别</strong><br>1）存储过程实现的功能要复杂一些；<br>  而函数的针对性更强；<br>  （在实际过程中，很少使用函数来对表进行操作）<br>2）存储过程可以返回多个值，而函数只能有一个返回值；<br>3）存储过程一般独立的来执行；<br>  而函数可以作为其他SQL语句的组成部分来实现。</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>**1. </p>
+<h1 id="手撕代码"><a href="#手撕代码" class="headerlink" title="手撕代码"></a>手撕代码</h1><p><strong>1. 将一个输入数组转化为一个字符串序列</strong></p>
+<p><strong>2. 查找数组中重复的数字并输出，要求输出的数字不重复</strong></p>
+<p><strong>3. 求连续子数组的最大和</strong></p>
+<p><strong>4. 6位数字旋转180°正常的概率，和原来一样的概率</strong></p>
+<p><strong>5. 找到链表的第k个节点，并删除</strong></p>
+<p>**6.</p>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><p><strong>1. 变量声明和定义，内存分配时有啥区别？</strong></p>
+<p><strong>2. 死锁是因为什么？怎么解决？</strong></p>
+<p><strong>3. 进程与线程的区别。</strong><br>1）进程是资源分配的基本单位；<br>   线程是分配处理机的基本单位，它与资源分配无关；<br>2）一个线程只能属于一个进程；<br>   而一个进程可以有多个线程；<br>3）一个程序至少有一个进程，一个进程至少有一个线程；<br>4）进程在执行过程中拥有独立的内存单元；<br>   而多个线程是共享内存，极大地提高了程序的运行效率；<br>   （线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉）<br>5）线程在执行过程中需要协作同步；<br>   不同进程间要利用消息通信的方式实现同步。</p>
+<p>**4. </p>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p><strong>1. HTTP协议</strong></p>
+<p><strong>2. FIR和IIR</strong></p>
+<p><strong>3. 对面向对象的理解</strong></p>
+<p><strong>4. TCP的三次握手和四次挥手</strong></p>
+<p><strong>5. 输入一个URL，但是没有访问到预期的网站，是什么原因？</strong><br>1.DNS坏掉了，修改自己的IP地址为8.8.8.8试试<br>2.网络断了<br>3.服务器拒绝访问<br>4.请求或者响应在网络传输中途被劫走了</p>
+<p>如何排查？<br>从七层网络的角度进行逐层分析，<br>物理层-即网线有没有连接；<br>数据链路层-即网口的灯有没有亮；<br>某层-可以查询本机的IP地址，根据IP地址和子网掩码的计算结果查看是否和网关在同一子网，还应检查DHCP动态分配的IP地址，看是否和网关在同一个子网；<br>检查本地ARP表中网关的IP地址和MAC地址是否对应。</p>
+<p><em>OSI七层模型解决网络故障实战思路</em><br>物理层故障原因：①设别电源未打开 ②设别电源未接通 ③网络电缆松脱 ④电缆故障 ⑤电缆类型不正确<br>数据链路层故障原因：①设别驱动程序出错 ②设备没有安装驱动程序 ③设备配置错误<br>网络层故障原因：①IP地址是否设置正确 ②子网掩码是否正确 ③网关是否正确 ④DNS或DHCP是否正确<br>网络层常用的排除故障的命令包括：ipconfig命令、ping命令、tracert命令<br>传输层故障原因：①防火墙设置错误 ②应用程序的TCP的端口是否被打开<br>会话层、表示层、应用层故障原因：这三层主要涉及使用软件的故障原因，把应用软件设置正确，问题迎刃而解。</p>
+<p><strong>6. 在浏览器中输入一个网址它的运行过程是怎样的？</strong><br><em>1.首先进行域名解析，*域名解析具体过程讲一下：<br>浏览器搜索自己的DNS缓存，缓存中维护一张域名与IP地址的对应表；<br>若没有，则搜索操作系统的DNS缓存；<br>若没有，则操作系统将域名发送至本地域名服务器（递归查询方式），本地域名服务器查询自己的DNS缓存，查找成功则返回结果，否则，通过以下方式迭代查找：<br>本地域名服务器向根域名服务器发起请求，根域名服务器返回com域的顶级域名服务器的地址；<br>本地域名服务器向com域的顶级域名服务器发起请求，返回权限域名服务器地址；<br>本地域名服务器向权限域名服务器发起请求，得到IP地址；<br>本地域名服务器将得到的IP地址返回给操作系统，同时自己将IP地址缓存起来；<br>操作系统将IP地址返回给浏览器，同时自己也将IP地址缓存起来；<br>至此，浏览器已经得到了域名对应的IP地址。<br>*2.浏览器发起HTTP请求；</em><br><em>3.接下来到了传输层，<em>选择传输协议，TCP或者UDP，TCP是可靠的传输控制协议，对HTTP请求进行封装，加入了端口号等信息；<br>*4.然后到了网络层，</em>通过IP协议将IP地址封装为IP数据报；然后此时会用到ARP协议，主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址，找到目的MAC地址；<br><em>5.接下来到了数据链路层，</em>把网络层交下来的IP数据报添加首部和尾部，封装为MAC帧，现在根据目的mac开始建立TCP连接，三次握手，接收端在收到物理层上交的比特流后，根据首尾的标记，识别帧的开始和结束，将中间的数据部分上交给网络层，然后层层向上传递到应用层；<br>*6.服务器响应请求并请求客户端要的资源，传回给客户端；</em><br><em>7.断开TCP连接，浏览器对页面进行渲染呈现给客户端。</em></p>
+<p><strong>7.单工、半双工、双工的含义</strong><br>单工： A收B发；<br>半双工： A收B发和B收A发都可以，但是不能同时进行；<br>双工： A向B发送的时候同时还可以接收到B发送给A的信号。</p>
+<p>**8.</p>
+<h1 id="C-C-语言知识"><a href="#C-C-语言知识" class="headerlink" title="C/C++语言知识"></a>C/C++语言知识</h1><p><strong>1. vector insert和push_back有什么区别？</strong></p>
+<p><strong>2. malloc 和 new 的区别？</strong></p>
+<p><strong>3. 软件开发流程</strong></p>
+<p>**4. </p>
+<h1 id="linux知识"><a href="#linux知识" class="headerlink" title="linux知识"></a>linux知识</h1><p><strong>1. 如何查看linux内核版本？</strong><br>方法1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;version</span><br></pre></td></tr></table></figure>
+
+<p>方法2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<p>方法 3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. shell脚本的第一句是什么？有什么作用？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p>作用：执行解释器环境</p>
+<p><strong>3. find默认的查找目录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 查询进程的pid</strong></p>
+<p>查看进程：<br>1）ps 命令用于查看当前正在运行的进程。<br>grep 是搜索<br>例如： ps -ef | grep java<br>表示查看所有进程里 CMD 是 java 的进程信息</p>
+<p>2）ps -aux | grep java<br>-aux 显示所有状态</p>
+<p>3）kill 命令用于终止进程<br>例如： kill -9 [PID]<br>-9 表示强迫进程立即停止</p>
+<p><strong>通常用 ps 查看进程 PID ，用 kill 命令终止进程</strong></p>
+<p><strong>5. Linux的启动顺序</strong><br>1）内核的引导；<br>2）运行 init；<br>3）系统初始化；<br>4）建立终端；<br>5）用户登录系统。</p>
+<p>**6.</p>
+<hr>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构"><span class="toc-number">2.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手撕代码"><span class="toc-number">3.</span> <span class="toc-text">手撕代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作系统"><span class="toc-number">4.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机网络"><span class="toc-number">5.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-C-语言知识"><span class="toc-number">6.</span> <span class="toc-text">C&#x2F;C++语言知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux知识"><span class="toc-number">7.</span> <span class="toc-text">linux知识</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&text=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&is_video=false&description=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=测试开发工程师相关知识&body=Check out this article: https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&title=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&name=测试开发工程师相关知识&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/&t=测试开发工程师相关知识" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2023 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

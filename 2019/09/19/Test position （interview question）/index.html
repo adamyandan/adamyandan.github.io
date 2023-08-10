@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="测试的基础知识1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？首先，将问题提交到缺陷管理库里面进行备案。 然后，要获取判断的依据和标准： 根据需求说明书、产品说明、设计文档等，确认实际结果是否与计划有不一致的地方，提供缺陷是否确认的直接依据；如果没有文档依据，可以根据类似软件的一般特性来说明是否存在不一致的地方，来确认是否是缺陷；根据用户的一般使用习惯，来确认是否">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试工程师面试题">
+<meta property="og:url" content="https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/index.html">
+<meta property="og:site_name" content="不想当咸鱼的蛋蛋">
+<meta property="og:description" content="测试的基础知识1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？首先，将问题提交到缺陷管理库里面进行备案。 然后，要获取判断的依据和标准： 根据需求说明书、产品说明、设计文档等，确认实际结果是否与计划有不一致的地方，提供缺陷是否确认的直接依据；如果没有文档依据，可以根据类似软件的一般特性来说明是否存在不一致的地方，来确认是否是缺陷；根据用户的一般使用习惯，来确认是否">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-19T07:41:51.000Z">
+<meta property="article:modified_time" content="2019-12-20T08:21:45.860Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="interview">
+<meta property="article:tag" content="test">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>测试工程师面试题</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的蛋蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/21/%E8%BD%AF%E4%BB%B6%E7%A0%94%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/09/07/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&text=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&is_video=false&description=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=测试工程师面试题&body=Check out this article: https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&name=测试工程师面试题&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&t=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试的基础知识"><span class="toc-number">1.</span> <span class="toc-text">测试的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？"><span class="toc-number">1.1.</span> <span class="toc-text">1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何测试网站？"><span class="toc-number">1.2.</span> <span class="toc-text">2. 如何测试网站？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。"><span class="toc-number">1.3.</span> <span class="toc-text">3.在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别"><span class="toc-number">1.4.</span> <span class="toc-text">4.问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-什么是软件测试？软件测试的目的与原则"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是软件测试？软件测试的目的与原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-目前主要的测试用例设计方法是什么？"><span class="toc-number">1.6.</span> <span class="toc-text">6.目前主要的测试用例设计方法是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-软件的安全性应从哪几个方面去测试？"><span class="toc-number">1.7.</span> <span class="toc-text">7.软件的安全性应从哪几个方面去测试？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-什么是测试用例？什么是测试脚本？两者的关系是什么？"><span class="toc-number">1.8.</span> <span class="toc-text">8.什么是测试用例？什么是测试脚本？两者的关系是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试-β测试"><span class="toc-number">1.9.</span> <span class="toc-text">9.简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试 β测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-软件产品质量特性是什么"><span class="toc-number">1.10.</span> <span class="toc-text">10.软件产品质量特性是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-软件测试分为几个阶段-各阶段的测试策略和要求是什么"><span class="toc-number">1.11.</span> <span class="toc-text">11.软件测试分为几个阶段 各阶段的测试策略和要求是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-测试人员在软件开发过程中的任务是什么？"><span class="toc-number">1.12.</span> <span class="toc-text">12.测试人员在软件开发过程中的任务是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！"><span class="toc-number">1.13.</span> <span class="toc-text">13.黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-如何测试一个纸杯？"><span class="toc-number">1.14.</span> <span class="toc-text">14.如何测试一个纸杯？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？"><span class="toc-number">1.15.</span> <span class="toc-text">15.测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。"><span class="toc-number">1.16.</span> <span class="toc-text">16.黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？"><span class="toc-number">1.17.</span> <span class="toc-text">17.您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-你对测试最大的兴趣在哪里？为什么？"><span class="toc-number">1.18.</span> <span class="toc-text">18.你对测试最大的兴趣在哪里？为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-你自认为测试的优势在哪里？"><span class="toc-number">1.19.</span> <span class="toc-text">19.你自认为测试的优势在哪里？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-软件验收测试"><span class="toc-number">1.20.</span> <span class="toc-text">20.软件验收测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-请说出这些测试最好由那些人员完成，测试的是什么？"><span class="toc-number">1.21.</span> <span class="toc-text">21.请说出这些测试最好由那些人员完成，测试的是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-一套完整的测试应该由哪些阶段组成？"><span class="toc-number">1.22.</span> <span class="toc-text">22.一套完整的测试应该由哪些阶段组成？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-你对测试最大的兴趣在哪里？为什么？"><span class="toc-number">1.23.</span> <span class="toc-text">23.你对测试最大的兴趣在哪里？为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。"><span class="toc-number">1.24.</span> <span class="toc-text">24.请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-主键、外键的作用，索引的优点与不足"><span class="toc-number">1.25.</span> <span class="toc-text">25.主键、外键的作用，索引的优点与不足?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26"><span class="toc-number">1.26.</span> <span class="toc-text">26.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">2.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自动售货机的测试"><span class="toc-number">2.1.</span> <span class="toc-text">1. 自动售货机的测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-测-QQ-登录页面"><span class="toc-number">2.2.</span> <span class="toc-text">2. 测 QQ 登录页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-测试微信的通讯录功能"><span class="toc-number">2.3.</span> <span class="toc-text">3. 测试微信的通讯录功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如果要你来测试王者荣耀这款游戏，你会测试什么？"><span class="toc-number">2.4.</span> <span class="toc-text">4. 如果要你来测试王者荣耀这款游戏，你会测试什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-测试电梯"><span class="toc-number">2.5.</span> <span class="toc-text">5. 测试电梯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-集成测试和系统测试，并且Bug定位属于什么测试"><span class="toc-number">2.6.</span> <span class="toc-text">6. 集成测试和系统测试，并且Bug定位属于什么测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-交换机测试"><span class="toc-number">2.7.</span> <span class="toc-text">7. 交换机测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-如何测试一个纸杯？"><span class="toc-number">2.8.</span> <span class="toc-text">8.如何测试一个纸杯？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9"><span class="toc-number">2.9.</span> <span class="toc-text">9.</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        测试工程师面试题
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的蛋蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-19T07:41:51.000Z" itemprop="datePublished">2019-09-19</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/interview/">interview</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/interview/" rel="tag">interview</a>, <a class="tag-link" href="/tags/test/" rel="tag">test</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="测试的基础知识"><a href="#测试的基础知识" class="headerlink" title="测试的基础知识"></a>测试的基础知识</h1><h2 id="1-你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？"><a href="#1-你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？" class="headerlink" title="1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？"></a>1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？</h2><p>首先，将问题提交到缺陷管理库里面进行备案。</p>
+<p>然后，要获取判断的依据和标准：</p>
+<p>根据需求说明书、产品说明、设计文档等，确认实际结果是否与计划有不一致的地方，提供缺陷是否确认的直接依据；<br>如果没有文档依据，可以根据类似软件的一般特性来说明是否存在不一致的地方，来确认是否是缺陷；<br>根据用户的一般使用习惯，来确认是否是缺陷；<br>与设计人员、开发人员和客户代表等相关人员探讨，确认是否是缺陷；<br>合理的论述，向测试经理说明自己的判断的理由，注意客观、严谨，不参杂个人情绪。</p>
+<p>等待测试经理做出最终决定，如果仍然存在争议，可以通过公司政策所提供的渠道，向上级反映，并有上级做出决定。</p>
+<h2 id="2-如何测试网站？"><a href="#2-如何测试网站？" class="headerlink" title="2. 如何测试网站？"></a>2. 如何测试网站？</h2><p>首先，查找需求说明、网站设计等相关文档，分析测试需求。<br>制定测试计划，确定测试范围和测试策略，一般包括以下几个部分：功能性测试；界面测试；性能测试；数据库测试；安全性测试；兼容性测试</p>
+<p><strong>设计测试用例如下：</strong></p>
+<p><strong>（1）功能性测试</strong>可以包括，但不限于以下几个方面：<br><strong>链接测试。</strong><br>链接是否正确跳转，是否存在空页面和无效页面，是否有不正确的出错信息返回。<br>提交功能的测试。<br>多媒体元素是否可以正确加载和显示。<br>多语言支持是否能够正确显示选择的语言等。</p>
+<p><strong>（2）界面测试</strong>可以包括但不限于一下几个方面：<br>页面是否风格统一，美观<br>页面布局是否合理，重点内容和热点内容是否突出<br>控件是否正常使用<br>对于必须但未安装的控件，是否提供自动下载并安装的功能<br>文字检查</p>
+<p><strong>（3）性能测试</strong>一般从以下两个方面考虑：<br><strong>1）压力测试；<br>  2）负载测试；<br>  3）强度测试。</strong></p>
+<p><strong>（4）数据库测试</strong>要具体决定是否需要开展。<br>数据库一般需要考虑连结性，对数据的存取操作，数据内容的验证等方面。</p>
+<p><strong>（5）安全性测试：</strong><br>基本的登录功能的检查<br>是否存在溢出错误，导致系统崩溃或者权限泄露<br>相关开发语言的常见安全性问题检查，例如SQL注入等<br>如果需要高级的安全性测试，确定获得专业安全公司的帮助，外包测试，或者获取支持</p>
+<p><strong>（6）兼容性测试</strong>根据需求说明的内容，确定支持的平台组合：<br>浏览器的兼容性；<br>操作系统的兼容性；<br>软件平台的兼容性；<br>数据库的兼容性。</p>
+<p>开展测试，并记录缺陷。<br>合理的安排调整测试进度，提前获取测试所需的资源，建立管理体系（例如，需求变更、风险、配置、测试文档、缺陷报告、人力资源等内容）。<br>定期评审，对测试进行评估和总结，调整测试的内容。</p>
+<h2 id="3-在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。"><a href="#3-在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。" class="headerlink" title="3.在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。"></a>3.在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。</h2><p>1）建立测试计划，确定测试标准和测试范围</p>
+<p>2）设计典型场景的测试用例，覆盖常用业务流程和不常用的业务流程等</p>
+<p>3）根据测试用例，开发自动测试脚本和场景：<br><strong>录制测试脚本：</strong>新建一个脚本（WebHTML协议）；点击录制按钮，在弹出的对话框的URL中输入”about:blank”；在打开的浏览器中进行正常操作流程后，结束录制；调试脚本并保存，可能要注意到字符集的关联。<br><strong>设置测试场景：</strong>针对性能设置测试场景，主要判断在正常情况下，系统的平均事务响应时间是否达标；针对压力负载设置测试场景，主要判断在长时间处于满负荷或者超出系统承载能力的条件下，系统是否会崩溃；执行测试，获取测试结果，分析测试结果。</p>
+<h2 id="4-问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别"><a href="#4-问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别" class="headerlink" title="4.问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别?"></a>4.问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别?</h2><ul>
+<li>300个用户在一个客户端上，会占用客户机更多的资源，而影响测试的结果。线程之间可能发生干扰，而产生一些异常。</li>
+<li>300个用户在一个客户端上，需要更大的带宽。</li>
+<li>IP地址的问题，可能需要使用IP Spoof来绕过服务器对于单一IP地址最大连接数的限制。</li>
+<li>所有用户在一个客户端上，不必考虑分布式管理的问题；而用户分布在不同的客户端上，需要考虑使用控制器来整体调配不同客户机上的用户。同时，还需要给予相应的权限配置和防火墙设置。</li>
+</ul>
+<h2 id="5-什么是软件测试？软件测试的目的与原则"><a href="#5-什么是软件测试？软件测试的目的与原则" class="headerlink" title="5.什么是软件测试？软件测试的目的与原则"></a>5.什么是软件测试？软件测试的目的与原则</h2><p>在规定的条件下对程序进行操作，以发现程序错误，衡量软件质量，并对其是否能满足设计要求进行评估的过程。</p>
+<p><strong>软件测试的目的：</strong></p>
+<p>测试是程序的执行过程，目的在于发现错误<br>一个成功的测试用例在于发现至今未发现的错误<br>一个成功的测试是发现了至今未发现的错误的测试<br>确保产品完成了它所承诺或公布的功能，并且用户可以访问到的功能都有明确的书面说明。<br>确保产品满足性能和效率的要求<br>确保产品是健壮的和适应用户环境的</p>
+<p><strong>软件测试的原则：</strong></p>
+<p>测试用例中一个必须部分是对预期输出或接过进行定义<br>程序员应避免测试自己编写的程序<br>编写软件的组织不应当测试自己编写的软件<br>应当彻底检查每个测试的执行结果<br>测试用例的编写不仅应当根据有效和预料到的输入情况，而且也应当根据无效和未预料到的输入情况<br>检擦程序是否“未做其应该做的”仅是测试的一半，测试的另一半是检查程序是否“做了其不应该做的”<br>应避免测试用例用后即弃，除非软件本身就是个一次性的软件<br>计划测试工作时不应默许假定不会发现错误<br>程序某部分存在更多错误的可能性，与该部分已经发现错误的数量成正比<br>软件测试是一项极富创造性，极具智力的挑战性的工作</p>
+<h2 id="6-目前主要的测试用例设计方法是什么？"><a href="#6-目前主要的测试用例设计方法是什么？" class="headerlink" title="6.目前主要的测试用例设计方法是什么？"></a>6.目前主要的测试用例设计方法是什么？</h2><p>白盒测试：逻辑覆盖、循环覆盖、基本路径覆盖</p>
+<p>黑盒测试：边界值分析法、等价类划分、错误猜测法、因果图法、状态图法、测试大纲法、随机测试、场景法</p>
+<h2 id="7-软件的安全性应从哪几个方面去测试？"><a href="#7-软件的安全性应从哪几个方面去测试？" class="headerlink" title="7.软件的安全性应从哪几个方面去测试？"></a>7.软件的安全性应从哪几个方面去测试？</h2><p><strong>软件安全性测试包括程序、数据库安全性测试。根据系统安全指标不同测试策略也不同。</strong></p>
+<p><strong>用户认证安全</strong>的测试要考虑问题： 明确区分系统中不同用户权限 、系统中会不会出现用户冲突 、系统会不会因用户的权限的改变造成混乱 、用户登陆密码是否是可见、可复制 、是否可以通过绝对途径登陆系统（拷贝用户登陆后的链接直接进入系统）、用户退出系统后是否删除了所有鉴权标记，是否可以使用后退键而不通过输入口令进入系统 、系统网络安全的测试要考虑问题 、测试采取的防护措施是否正确装配好，有关系统的补丁是否打上 、模拟非授权攻击，看防护系统是否坚固 、采用成熟的网络漏洞检查工具检查系统相关漏洞（即用最专业的黑客攻击工具攻击试一下，现在最常用的是 NBSI 系列和 IPhacker IP ） 、采用各种木马检查工具检查系统木马情况 、采用各种防外挂工具检查系统各组程序的外挂漏洞</p>
+<p><strong>数据库安全</strong>考虑问题： 系统数据是否机密（比如对银行系统，这一点就特别重要，一般的网站就没有太高要求）、系统数据的完整性（我刚刚结束的企业实名核查服务系统中就曾存在数据 的不完整，对于这个系统的功能实现有了障碍） 、系统数据可管理性 、系统数据的独立性 、系统数据可备份和恢复能力（数据备份是否完整，可否恢复，恢复是否可以完整）</p>
+<h2 id="8-什么是测试用例？什么是测试脚本？两者的关系是什么？"><a href="#8-什么是测试用例？什么是测试脚本？两者的关系是什么？" class="headerlink" title="8.什么是测试用例？什么是测试脚本？两者的关系是什么？"></a>8.什么是测试用例？什么是测试脚本？两者的关系是什么？</h2><p><strong>测试用例</strong> 是为实施测试而向被测试系统提供的输入数据、操作或各种环境设置以及期望结果的一个特定的集合。</p>
+<p><strong>测试脚本</strong> 是为了进行自动化测试而编写的脚本。</p>
+<p>测试脚本的编写必须对应相应的测试用例</p>
+<h2 id="9-简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试-β测试"><a href="#9-简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试-β测试" class="headerlink" title="9.简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试 β测试"></a>9.简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试 β测试</h2><ul>
+<li><strong>静态测试</strong>是不运行程序本身而寻找程序代码中可能存在的错误或评估程序代码的过程。  </li>
+<li><strong>动态测试</strong>是实际运行被测程序，输入相应的测试实例，检查运行结果与预期结果的差异，判定执行结果是否符合要求，从而检验程序的正确性、可靠性和有效性，并分析系统运行效率和健壮性等性能。</li>
+<li><strong>黑盒测试</strong>一般用来确认软件功能的正确性和可操作性,目的是检测软件的各个功能是否能得以实现,把被测试的程序当作一个黑盒,不考虑其内部结构,在知道该程序的输入和输出之间的关系或程序功能的情况下,依靠软件规格说明书来确定测试用例和推断测试结果的正确性。</li>
+<li><strong>白盒测试</strong>根据软件内部的逻辑结构分析来进行测试,是基于代码的测试，测试人员通过阅读程序代码或者通过使用开发工具中的单步调试来判断软件的质量，一般黑盒测试由项目经理在程序员开发中来实现。</li>
+<li><strong>α测试</strong>是由一个用户在开发环境下进行的测试，也可以是公司内部的用户在模拟实际操作环境下进行的受控测试，Alpha测试不能由程序员或测试员完成。</li>
+<li><strong>β测试</strong>是软件的多个用户在一个或多个用户的实际使用环境下进行的测试。开发者通常不在测试现场，Beta测试不能由程序员或测试员完成。</li>
+</ul>
+<h2 id="10-软件产品质量特性是什么"><a href="#10-软件产品质量特性是什么" class="headerlink" title="10.软件产品质量特性是什么?"></a>10.软件产品质量特性是什么?</h2><p><strong>功能性：</strong>适应性、准确性、互操作性、依从性、安全性。<br><strong>可靠性：</strong>成熟性、容错性、易恢复性。<br><strong>可使用性：</strong>易理解性、易学习性、易操作性。<br><strong>效率：</strong>时间特性、资源特性。<br><strong>可维护性：</strong>易分析性、易变更性、稳定性、易测试性。<br><strong>可移植性：</strong> 适应性、易安装性、遵循性、易替换性</p>
+<h2 id="11-软件测试分为几个阶段-各阶段的测试策略和要求是什么"><a href="#11-软件测试分为几个阶段-各阶段的测试策略和要求是什么" class="headerlink" title="11.软件测试分为几个阶段 各阶段的测试策略和要求是什么?"></a>11.软件测试分为几个阶段 各阶段的测试策略和要求是什么?</h2><p>和开发过程相对应，测试过程会依次经历单元测试、集成测试、系统测试、验收测试四个主要阶段：</p>
+<p><strong>1）单元测试：</strong>单元测试是针对软件设计的最小单位––程序模块甚至代码段进行正确性检验的测试工作，通常由开发人员进行。<br><strong>2）集成测试：</strong>集成测试是将模块按照设计要求组装起来进行测试，主要目的是发现与接口有关的问题。由于在产品提交到测试部门前，产品开发小组都要进行联合调试，因此在大部分企业中集成测试是由开发人员来完成的。<br><strong>3）系统测试：</strong>系统测试是在集成测试通过后进行的，目的是充分运行系统，验证各子系统是否都能正常工作并完成设计的要求。它主要由测试部门进行，是测试部门最大最重要的一个测试，对产品的质量有重大的影响。<br><strong>4）验收测试：</strong>验收测试以需求阶段的《需求规格说明书》为验收标准，测试时要求模拟实际用户的运行环境。对于实际项目可以和客户共同进行，对于产品来说就是最后一次的系统测试。测试内容为对功能模块的全面测试，尤其要进行文档测试。</p>
+<p><strong>单元测试测试策略：</strong><br>自顶向下的单元测试策略：比孤立单元测试的成本高很多，不是单元测试的一个好的选择。<br>自底向上的单元测试策略：比较合理的单元测试策略，但测试周期较长。<br>孤立单元测试策略：最好的单元测试策略。</p>
+<p><strong>集成测试的测试策略：</strong><br>大爆炸集成：适应于一个维护型项目或被测试系统较小<br>自顶向下集成：适应于产品控制结构比较清晰和稳定；高层接口变化较小；底层接口未定义或经常可能被修改；产口控制组件具有较大的技术风险，需要尽早被验证；希望尽早能看到产品的系统功能行为。<br>自底向上集成：适应于底层接口比较稳定；高层接口变化比较频繁；底层组件较早被完成。<br>基于进度的集成<br>     优点：具有较高的并行度；能够有效缩短项目的开发进度。<br>     缺点：桩和驱动工作量较大；有些接口测试不充分；有些测试重复和浪费。</p>
+<p><strong>系统测试的测试策略：</strong><br>数据和数据库完整性测试；<br>功能测试；<br>用户界面测试；<br>性能评测；<br>负载测试；<br>强度测试；<br>容量测试；<br>安全性和访问控制测试；<br>故障转移和恢复测试；<br>配置测试；<br>安装测试；<br>加密测试；<br>可用性测试；<br>版本验证测试；<br>文档测试。</p>
+<h2 id="12-测试人员在软件开发过程中的任务是什么？"><a href="#12-测试人员在软件开发过程中的任务是什么？" class="headerlink" title="12.测试人员在软件开发过程中的任务是什么？"></a>12.测试人员在软件开发过程中的任务是什么？</h2><p>1）尽可能早的找出系统中的Bug；<br>2）避免软件开发过程中缺陷的出现；<br>3）衡量软件的品质，保证系统的质量；<br>4）关注用户的需求，并保证系统符合用户需求。<br><strong>总的目标是：确保软件的质量。</strong></p>
+<h2 id="13-黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！"><a href="#13-黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！" class="headerlink" title="13.黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！"></a>13.黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！</h2><p><strong>黑盒测试</strong></p>
+<p>优点：</p>
+<ul>
+<li>比较简单，不需要了解程序内部的代码及实现；</li>
+<li>与软件的内部实现无关；  </li>
+<li>从用户角度出发，能很容易的知道用户会用到哪些功能，会遇到哪些问题；</li>
+<li>基于软件开发文档，所以也能知道软件实现了文档中的哪些功能；</li>
+<li>在做软件自动化测试时较为方便。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不可能覆盖所有的代码，覆盖率较低，大概只能达到总代码量的30%；</li>
+<li>自动化测试的复用性较低。</li>
+</ul>
+<p><strong>白盒测试</strong></p>
+<p>优点：</p>
+<ul>
+<li>帮助软件测试人员增大代码的覆盖率，提高代码的质量，发现代码中隐藏的问题。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>程序运行会有很多不同的路径，不可能测试所有的运行路径；</li>
+<li>测试基于代码，只能测试开发人员做的对不对，而不能知道设计的正确与否，可能会漏掉一些功能需求；</li>
+<li>系统庞大时，测试开销会非常大。</li>
+</ul>
+<h2 id="14-如何测试一个纸杯？"><a href="#14-如何测试一个纸杯？" class="headerlink" title="14.如何测试一个纸杯？"></a>14.如何测试一个纸杯？</h2><p><strong>功能度：</strong>用水杯装水看漏不漏；水能不能被喝到<br><strong>安全性：</strong>杯子有没有毒或细菌<br><strong>可靠性：</strong>杯子从不同高度落下的损坏程度<br><strong>可移植性：</strong>杯子在不同的地方、温度等环境下是否都可以正常使用<br><strong>兼容性：</strong>杯子是否能够容纳果汁、白水、酒精、汽油等<br><strong>易用性：</strong>杯子是否烫手、是否有防滑措施、是否方便饮用<br><strong>用户文档：</strong>使用手册是否对杯子的用法、限制、使用条件等有详细描述<br><strong>疲劳测试：</strong>将杯子盛上水（案例一）放24小时检查泄漏时间和情况；盛上汽油（案例二）放24小时检查泄漏时间和情况等<br><strong>压力测试：</strong>用根针并在针上面不断加重量，看压强多大时会穿透</p>
+<h2 id="15-测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？"><a href="#15-测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？" class="headerlink" title="15.测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？"></a>15.测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？</h2><p>软件测试计划是指导测试过程的纲领性文件：</p>
+<p>领导能够根据测试计划进行宏观调控，进行相应资源配置等<br>测试人员能够了解整个项目测试情况以及项目测试不同阶段的所要进行的工作等<br>便于其他人员了解测试人员的工作内容，进行有关配合工作<br>包含了产品概述、测试策略、测试方法、测试区域、测试配置、测试周期、测试资源、测试交流、风险分析等内容。<br>借助软件测试计划，参与测试的项目成员，尤其是测试管理人员，可以明确测试任务和测试方法，保持测试实施过程的顺畅沟通，跟踪和控制测试进度，应对测试过程中的各种变更。</p>
+<p><strong>测试计划编写6要素（5W1H）：</strong></p>
+<p>why — 为什么要进行这些测试；<br>what — 测试哪些方面，不同阶段的工作内容；<br>when — 测试不同阶段的起止时间；<br>where — 相应文档，缺陷的存放位置，测试环境等；<br>who — 项目有关人员组成，安排哪些测试人员进行测试；<br>how — 如何去做，使用哪些测试工具以及测试方法进行测试</p>
+<p>测试计划和测试详细规格、测试用例之间是战略和战术的关系，<br>测试计划主要从宏观上规划测试活动的范围、方法和资源配置，<br>而测试详细规格、测试用例是完成测试任务的具体战术。<br><strong>所以其中最重要的是测试测试策略和测试方法（最好是能先评审）。</strong></p>
+<h2 id="16-黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。"><a href="#16-黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。" class="headerlink" title="16.黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。"></a>16.黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。</h2><p><strong>1）等价类划分</strong><br>等价类是指某个输入域的子集合。<br>在该子集合中,各个输入数据对于揭露程序中的错误都是等效的。<br>并合理地假定:测试某等价类的代表值就等于对这一类其它值的测试.<br>因此,可以把全部输入数据合理划分为若干等价类,在每一个等价类中取一个数据作为测试的输入条件,就可以用少量代表性的测试数据.取得较好的测试结果.<br>等价类划分可有两种不同的情况:有效等价类和无效等价类.</p>
+<p><strong>2）边界值分析法</strong><br>是对等价类划分方法的补充。<br>测试工作经验告诉我,大量的错误是发生在输入或输出范围的边界上,而不是发生在输入输出范围的内部.因此针对各种边界情况设计测试用例,可以查出更多的错误.</p>
+<p>使用边界值分析方法设计测试用例,首先应确定边界情况.通常输入和输出等价类的边界,就是应着重测试的边界情况.<br>应当选取<strong>正好等于</strong>,<strong>刚刚大于</strong>或<strong>刚刚小于</strong>边界的值作为测试数据,而不是选取等价类中的典型值或任意值作为测试数据.</p>
+<p><strong>3）错误猜测法</strong><br>基于经验和直觉推测程序中所有可能存在的各种错误, 从而有针对性的设计测试用例的方法.</p>
+<p>错误推测方法的基本思想:<br>列举出程序中所有可能有的错误和容易发生错误的特殊情况,根据他们选择测试用例.<br>例如, 在单元测试时曾列出的许多在模块中常见的错误. 以前产品测试中曾经发现的错误等, 这些就是经验的总结.<br>还有, 输入数据和输出数据为0的情况. 输入表格为空格或输入表格只有一行. 这些都是容易发生错误的情况. 可选择这些情况下的例子作为测试用例.</p>
+<p><strong>4）因果图方法</strong><br>前面介绍的等价类划分方法和边界值分析方法,都是着重考虑输入条件,但未考虑输入条件之间的联系, 相互组合等.<br>考虑输入条件之间的相互组合,可能会产生一些新的情况. 但要检查输入条件的组合不是一件容易的事情, 即使把所有输入条件划分成等价类,他们之间的组合情况也相当多.<br>因此必须考虑采用一种适合于描述对于多种条件的组合,相应产生多个动作的形式来考虑设计测试用例. 这就需要利用因果图（逻辑模型）.<br>因果图方法最终生成的就是判定表. 它适合于检查程序输入条件的各种组合情况.</p>
+<p><strong>5）正交表分析法</strong><br>可能因为大量的参数的组合而引起测试用例数量上的激增，同时，这些测试用例并没有明显的优先级上的差距，而测试人员又无法完成这么多数量的测试，就可以通过正交表来进行缩减一些用例，从而达到尽量少的用例覆盖尽量大的范围的可能性。</p>
+<p><strong>6）场景分析方法</strong><br>指根据用户场景来模拟用户的操作步骤，这个比较类似因果图，但是可能执行的深度和可行性更好。 </p>
+<p><strong>7）状态图法</strong><br>通过输入条件和系统需求说明得到被测系统的所有状态，通过输入条件和状态得出输出条件；通过输入条件、输出条件和状态得出被测系统的测试用例。</p>
+<p><strong>8）大纲法</strong><br>大纲法是一种着眼于需求的方法，为了列出各种测试条件，就将需求转换为大纲的形式。<br>大纲表示为树状结构，在根和每个叶子结点之间存在唯一的路径。<br>大纲中的每条路径定义了一个特定的输入条件集合，用于定义测试用例。<br>树中叶子的数目或大纲中的路径给出了测试所有功能所需测试用例的大致数量。</p>
+<h2 id="17-您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？"><a href="#17-您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？" class="headerlink" title="17.您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？"></a>17.您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？</h2><p>尽量面对面的沟通，<br>其次是能直接通过电话沟通，<br>如果只能通过Email等非及时沟通工具的话，强调必须对特性的理解深刻以及能表达清楚。<br>运用一些测试管理工具如TestDirector进行管理也是较有效的方法，同时要注意在TestDirector中对BUG有准确的描述。</p>
+<p>在团队中建立测试人员与开发人员良好沟通中注意以下几点：<br>一真诚、<br>二是团队精神、<br>三是在专业上有共同语言、<br>四是要对事不对人，工作至上</p>
+<p>当然也可以通过直接指出一些小问题，而不是进入BUG Tracking System来增加对方的好感。</p>
+<h2 id="18-你对测试最大的兴趣在哪里？为什么？"><a href="#18-你对测试最大的兴趣在哪里？为什么？" class="headerlink" title="18.你对测试最大的兴趣在哪里？为什么？"></a>18.你对测试最大的兴趣在哪里？为什么？</h2><p>回答这个面试题，没有固定统一的答案，但可能是许多企业都会问到的。提供以下答案供考：<br>最大的兴趣，感觉这是一个有挑战性的工作；<br>测试是一个经验行业，工作越久越能感觉到做好测试的难度和乐趣<br>通过自己的工作，能使软件产品越来越完善，从中体会到乐趣</p>
+<p>回答此类问题注意以下几个方面：<br>尽可能的切合招聘企业的技术路线来表达你的兴趣，例如该企业是数据库应用的企业，那么表示你的兴趣在数据库的测试，并且希望通过测试提升自己的数据库掌握能力。<br>表明你做测试的目的是为了提升能力，也是为了更好的做好测试；提升能力不是为了以后转开发或其他的，除非用人企业有这样的安排。<br>不要过多的表达你的兴趣在招聘企业的范畴这外。比如招聘企业是做财务软件的，可是你表现出来的是对游戏软件的兴趣；或招聘是做JAVA开发的，而你的兴趣是在C类语言程序的开发。</p>
+<h2 id="19-你自认为测试的优势在哪里？"><a href="#19-你自认为测试的优势在哪里？" class="headerlink" title="19.你自认为测试的优势在哪里？"></a>19.你自认为测试的优势在哪里？</h2><p>该面试也没有固定不变的答案，但可参考以下几点，并结合自身特点：<br>有韧性、<br>有耐心、<br>责任心、<br>做事有条理性、<br>喜欢面对挑战、<br>有信心做好每一件事情、<br>较强的沟通能力、<br>具备一定的编程经验<br>时时保持怀疑态度，并且有缺陷预防的意识</p>
+<h2 id="20-软件验收测试"><a href="#20-软件验收测试" class="headerlink" title="20.软件验收测试"></a>20.软件验收测试</h2><p>三种：</p>
+<ul>
+<li>正式验收测试</li>
+<li>alpha测试</li>
+<li>beta测试</li>
+</ul>
+<h2 id="21-请说出这些测试最好由那些人员完成，测试的是什么？"><a href="#21-请说出这些测试最好由那些人员完成，测试的是什么？" class="headerlink" title="21.请说出这些测试最好由那些人员完成，测试的是什么？"></a>21.请说出这些测试最好由那些人员完成，测试的是什么？</h2><p>代码、函数级测试 一般由白盒测试人员完成，他们针对每段代码或函数进行正确性检验，检查其是否正确的实现了规定的功能。<br>模块、组件级测试 主要依据是程序结构设计测试模块间的集成和调用关系，一般由测试人员完成。<br>系统测试 在于模块测试与单元测试的基础上进行测试。了解系统功能与性能，根据测试用例进行全面的测试。</p>
+<h2 id="22-一套完整的测试应该由哪些阶段组成？"><a href="#22-一套完整的测试应该由哪些阶段组成？" class="headerlink" title="22.一套完整的测试应该由哪些阶段组成？"></a>22.一套完整的测试应该由哪些阶段组成？</h2><ul>
+<li>可行性分析</li>
+<li>需求分析</li>
+<li>概要设计</li>
+<li>详细设计</li>
+<li>编码</li>
+<li>单元测试</li>
+<li>集成测试</li>
+<li>系统测试</li>
+<li>验收测试</li>
+</ul>
+<h2 id="23-你对测试最大的兴趣在哪里？为什么？"><a href="#23-你对测试最大的兴趣在哪里？为什么？" class="headerlink" title="23.你对测试最大的兴趣在哪里？为什么？"></a>23.你对测试最大的兴趣在哪里？为什么？</h2><p>最大的兴趣就是<strong>测试有难度，有挑战性！</strong><br>做测试越久越能感觉到做好测试有多难。</p>
+<p>刚开始进入测试行业时，对测试的认识是从无忧测试网上了解到的一些资料，当时是冲着做测试需要很多技能才能做的好，虽然入门容易，但做好很难，比开发更难，虽然当时我很想做开发（学校专业课我基本上不缺席，因为我喜欢我的专业），但看到测试比开发更难更有挑战性，想做好测试的意志就更坚定了。</p>
+<p>我觉得做测试整个过程中有2点让我觉得很有难度（对我来说，有难度的东西我就非常感兴趣），<br><strong>第一是测试用例的设计</strong><br>因为测试的精华就在测试用例的设计上了，要在版本出来之前，把用例写好，用什么测试方法写？（也就是测试计划或测试策略），如果你刚测试一个新任务时，你得花一定的时间去消化业务需求和技术基础，业务需求很好理解（多和产品经理和开发人员沟通就能达到目的），而技术基础可就没那么简单了，这需要你自觉的学习能力，比如说网站吧，最基本的技术知识你要知道网站内部是怎么运作的的，后台是怎么响应用户请求的？测试环境如何搭建？这些都需要最早的学好。至少在开始测试之前能做好基本的准备，可能会遇到什么难题？需求细节是不是没有确定好？这些问题都能在设计用例的时候发现。</p>
+<p><strong>第二是发现BUG的时候了</strong><br>这应该是测试人员最基本的任务了，一般按测试用例开始测试就能发现大部分的bug，还有一部分bug需要测试的过程中更了解所测版本的情况获得更多信息，补充测试用例，测试出bug。还有如何发现bug？这就需要在测试用例有效的情况下，通过细心和耐心去发现bug了，每个用例都有可能发现bug，每个地方都有可能出错，所以测试过程中思维要清晰（测试过程数据流及结果都得看仔细了，bug都在里面发现的）。如何描述bug也很有讲究，bug在什么情况下会产生，如果条件变化一点点，就不会有这个bug，以哪些最少的操作步骤就能重现这个bug，这个bug产生的规律是什么？如果你够厉害的话，可以帮开发人员初步定位问题。</p>
+<h2 id="24-请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。"><a href="#24-请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。" class="headerlink" title="24.请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。"></a>24.请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。</h2><p>　　黑盒测试：已知产品的功能设计规格，可以进行测试证明每个实现了的功能是否符合要求。<br>　　白盒测试：已知产品的内部工作过程，可以通过测试证明每种内部操作是否符合设计规格要求，所有内部成分是否以经过检查。</p>
+<p>　　软件的黑盒测试意味着测试要在软件的接口处进行。这种方法是把测试对象看做一个黑盒子，测试人员完全不考虑程序内部的逻辑结构和内部特性，只依据程序的需求规格说明书，检查程序的功能是否符合它的功能说明。<br><strong>因此黑盒测试又叫<em>功能测试</em>或<em>数据驱动测试</em>。</strong></p>
+<pre><code>黑盒测试主要是为了发现以下几类错误：
+1、是否有不正确或遗漏的功能？
+2、在接口上，输入是否能正确的接受？能否输出正确的结果？
+3、是否有数据结构错误或外部信息（例如数据文件）访问错误？
+4、性能上是否能够满足要求？5、是否有初始化或终止性错误？</code></pre><p>　　软件的白盒测试是对软件的过程性细节做细致的检查。这种方法是把测试对象看做一个打开的盒子，它允许测试人员利用程序内部的逻辑结构及有关信息，设计或选择测试用例，对程序所有逻辑路径进行测试。通过在不同点检查程序状态，确定实际状态是否与预期的状态一致。<br><strong>因此白盒测试又称为<em>结构测试</em>或<em>逻辑驱动测试</em>。</strong></p>
+<pre><code>白盒测试主要是想对程序模块进行如下检查：
+1、对程序模块的所有独立的执行路径至少测试一遍。
+2、对所有的逻辑判定，取“真”与取“假”的两种情况都能至少测一遍。
+3、在循环的边界和运行的界限内执行循环体。
+4、测试内部数据结构的有效性，等等。</code></pre><p><strong>单元测试（模块测试）</strong><br>    是开发者编写的一小段代码，用于检验被测代码的一个很小的、很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。<br>    单元测试是由程序员自己来完成，最终受益的也是程序员自己。<br>    可以这么说，程序员有责任编写功能代码，同时也就有责任为自己的代码编写单元测试。<br>    执行单元测试，就是为了证明这段代码的行为和我们期望的一致。</p>
+<p><strong>集成测试（也叫组装测试，联合测试）</strong><br>    是单元测试的逻辑扩展。<br>    它的最简单的形式是：两个已经测试过的单元组合成一个组件，并且测试它们之间的接口。<br>    从这一层意义上讲，组件是指多个单元的集成聚合。<br>    在现实方案中，许多单元组合成组件，而这些组件又聚合成程序的更大部分。<br>    方法是测试片段的组合，并最终扩展进程，将您的模块与其他组的模块一起测试。最后，将构成进程的所有模块一起测试。</p>
+<p><strong>系统测试</strong><br>    是将经过测试的子系统装配成一个完整系统来测试。<br>    它是检验系统是否确实能提供系统方案说明书中指定功能的有效方法。（常见的联调测试）<br>    系统测试的目的是对最终软件系统进行全面的测试，确保最终软件系统满足产品需求并且遵循系统设计。<br>    验收测试是部署软件之前的最后一个测试操作。<br>    验收测试的目的是确保软件准备就绪，并且可以让最终用户将其用于执行软件的既定功能和任务。<br>    验收测试是向未来的用户表明系统能够像预定要求那样工作。<br>    经集成测试后，已经按照设计把所有的模块组装成一个完整的软件系统，接口错误也已经基本排除了，接着就应该进一步验证软件的有效性，这就是验收测试的任务，即软件的功能性能如同用户所合理期待的那样。</p>
+<h2 id="25-主键、外键的作用，索引的优点与不足"><a href="#25-主键、外键的作用，索引的优点与不足" class="headerlink" title="25.主键、外键的作用，索引的优点与不足?"></a>25.主键、外键的作用，索引的优点与不足?</h2><p><strong>主键：是表中的唯一标示键。</strong><br>作用：</p>
+<ul>
+<li>保证实体的完整性;</li>
+<li>加快数据库的操作速度;</li>
+<li>增加新的表记录时，数据库会自动检索新记录的主键值，不允许该值与其他表中记录的主键重复;</li>
+<li>数据库会按主键值的顺序显示记录，如果没有设定主键，则按输入的顺序显示记录。</li>
+</ul>
+<p><strong>外键：是主键的从属，表示了两个表之间的联系。</strong><br>作用：</p>
+<ul>
+<li>使用外键可以避免冗余。</li>
+</ul>
+<p><strong>索引的优点：</strong><br>1、通过创建唯一性的索引，可以保证表中数据的唯一性;<br>2、加速数据的检索速度;<br>3、加快表与表之间的连接;<br>4、在使用分组与排序数据检索时，可以显著检索分组与排序的时间;<br>5、在查询的过程中使用优化隐藏器，提供系统性能。</p>
+<p><strong>缺点：</strong><br>1、创建索引需要时间，且随着数据量的增加而增加;<br>2、索引需要占用物理空间;<br>3、当对表中数据进行修改时，索引也要动态维护，降低了数据的维护速度。</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26."></a>26.</h2><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="1-自动售货机的测试"><a href="#1-自动售货机的测试" class="headerlink" title="1. 自动售货机的测试"></a>1. 自动售货机的测试</h2><p><strong>功能性测试：</strong><br>1）验证每个按钮是否发挥作用，如摁下选择任何一个饮料的按钮是否会提示该饮料的价格和请投币字样；<br>2）验证用户选择饮料功能是否正确，摁下每个饮料按钮是否起作用；<br>3）验证投币付款功能是否正确，包括投入纸币和硬币，纸币和硬币的种类，如纸币只接受一元、五元、十元，硬币只接受五角、一元；<br>4）验证退币功能是否正确，包括有零钱时和没有零钱时的反应；<br>5）验证第三方支付功能是否正确，如微信支付、支付宝支付等；</p>
+<p><strong>性能测试：</strong><br>1）利用微信、支付宝等第三方平台支付时的响应速度；<br>2）选好饮料弹出提示信息的时间；<br>3）退币时的响应时间和退币速度；<br>4）付款时突然断电；</p>
+<p><strong>易用性测试：</strong><br>1）售货机是否符合用户的使用习惯，有无错误提示信息<br>2）操作按钮是否通俗易懂，有无歧义；</p>
+<p><strong>压力测试：</strong></p>
+<ul>
+<li>在反复大量输入或在恶劣的天气情况下，能否持续正常操作</li>
+</ul>
+<p><strong>外观测试：</strong></p>
+<ul>
+<li>售货机是否外形美观，布局是否合理，界面元素是否清晰</li>
+</ul>
+<p><strong>安全性测试：</strong><br>1）售货机货箱是否坚固耐用<br>2）是否有防盗功能<br>3）在应用第三方支付扫码时扫到非正常二维码时的处理情况</p>
+<h2 id="2-测-QQ-登录页面"><a href="#2-测-QQ-登录页面" class="headerlink" title="2. 测 QQ 登录页面"></a>2. 测 QQ 登录页面</h2><p><strong>功能测试</strong></p>
+<ul>
+<li><p>正常登陆<br>1）正确的账号和密码<br>2）账号、密码最长<br>3）账号、密码最短<br>4）密码规则符合大小写<br>5）异地登陆<br>6）删除登陆历史<br>7）二维码登录<br>8）修改登录状态<br>9）记住密码<br>10）自动登陆<br>11）找回密码<br>12）注册账号<br>13）切换用户登陆<br>14）设置<br>15）关闭<br>16) 最小化</p>
+</li>
+<li><p>异常登陆<br>1）账号不正确<br>2）密码不正确<br>3）账号和密码都不正确<br>4）网络异常<br>5）服务器异常<br>6）数据库异常<br>7）账号被禁用<br>8）账号被锁定<br>9）正在找回密码<br>10）更新中<br>11）已登陆了再次登陆<br>12）账号、密码长度超长<br>13）账号、密码低于最短<br>14）密码规则不符合<br>15）登陆最多失败次数<br>16）网络不稳定扫描二维码登陆<br>17）弱网登陆</p>
+</li>
+</ul>
+<p><strong>性能测试</strong><br>1）一台电脑同时登陆QQ的个数<br>2）QQ登陆成功所需的时间</p>
+<p><strong>界面测试</strong><br>1）界面美观，颜色搭配合理<br>2）布局合理<br>3）按钮大小位置合适<br>4）文字、大小颜色搭配合理</p>
+<p><strong>易用性测试</strong><br>1）用户名、密码粘贴复制<br>2）记住密码<br>3）自动登陆<br>4）找回密码</p>
+<p><strong>兼容性测试</strong><br>1.不同的WINDOWS、操作系统<br>2.不同的QQ版本</p>
+<p><strong>安全测试</strong><br>1）已带病毒的QQ登陆<br>2）登录验证码<br>3）记住密码<br>4）自动登陆<br>5）找回密码</p>
+<h2 id="3-测试微信的通讯录功能"><a href="#3-测试微信的通讯录功能" class="headerlink" title="3. 测试微信的通讯录功能"></a>3. 测试微信的通讯录功能</h2><h2 id="4-如果要你来测试王者荣耀这款游戏，你会测试什么？"><a href="#4-如果要你来测试王者荣耀这款游戏，你会测试什么？" class="headerlink" title="4. 如果要你来测试王者荣耀这款游戏，你会测试什么？"></a>4. 如果要你来测试王者荣耀这款游戏，你会测试什么？</h2><h2 id="5-测试电梯"><a href="#5-测试电梯" class="headerlink" title="5. 测试电梯"></a>5. 测试电梯</h2><h2 id="6-集成测试和系统测试，并且Bug定位属于什么测试"><a href="#6-集成测试和系统测试，并且Bug定位属于什么测试" class="headerlink" title="6. 集成测试和系统测试，并且Bug定位属于什么测试"></a>6. 集成测试和系统测试，并且Bug定位属于什么测试</h2><h2 id="7-交换机测试"><a href="#7-交换机测试" class="headerlink" title="7. 交换机测试"></a>7. 交换机测试</h2><h2 id="8-如何测试一个纸杯？"><a href="#8-如何测试一个纸杯？" class="headerlink" title="8.如何测试一个纸杯？"></a>8.如何测试一个纸杯？</h2><p><strong>功能度：</strong>用水杯装水看漏不漏；水能不能被喝到<br><strong>安全性：</strong>杯子有没有毒或细菌<br><strong>可靠性：</strong>杯子从不同高度落下的损坏程度<br><strong>可移植性：</strong>杯子在不同的地方、温度等环境下是否都可以正常使用<br><strong>兼容性：</strong>杯子是否能够容纳果汁、白水、酒精、汽油等<br><strong>易用性：</strong>杯子是否烫手、是否有防滑措施、是否方便饮用<br><strong>用户文档：</strong>使用手册是否对杯子的用法、限制、使用条件等有详细描述<br><strong>疲劳测试：</strong>将杯子盛上水（案例一）放24小时检查泄漏时间和情况；盛上汽油（案例二）放24小时检查泄漏时间和情况等<br><strong>压力测试：</strong>用根针并在针上面不断加重量，看压强多大时会穿透</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h2>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试的基础知识"><span class="toc-number">1.</span> <span class="toc-text">测试的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？"><span class="toc-number">1.1.</span> <span class="toc-text">1.你在测试中发现了一个bug，但是开发经理认为这不是一个bug，你应该怎样解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何测试网站？"><span class="toc-number">1.2.</span> <span class="toc-text">2. 如何测试网站？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。"><span class="toc-number">1.3.</span> <span class="toc-text">3.在搜索引擎中输入汉字就可以解析到对应的域名，请问如何用LoadRunner进行测试。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别"><span class="toc-number">1.4.</span> <span class="toc-text">4.问：一台客户端有三百个客户与三百个客户端有三百个客户对服务器施压，有什么区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-什么是软件测试？软件测试的目的与原则"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是软件测试？软件测试的目的与原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-目前主要的测试用例设计方法是什么？"><span class="toc-number">1.6.</span> <span class="toc-text">6.目前主要的测试用例设计方法是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-软件的安全性应从哪几个方面去测试？"><span class="toc-number">1.7.</span> <span class="toc-text">7.软件的安全性应从哪几个方面去测试？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-什么是测试用例？什么是测试脚本？两者的关系是什么？"><span class="toc-number">1.8.</span> <span class="toc-text">8.什么是测试用例？什么是测试脚本？两者的关系是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试-β测试"><span class="toc-number">1.9.</span> <span class="toc-text">9.简述什么是静态测试、动态测试、黑盒测试、白盒测试、α测试 β测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-软件产品质量特性是什么"><span class="toc-number">1.10.</span> <span class="toc-text">10.软件产品质量特性是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-软件测试分为几个阶段-各阶段的测试策略和要求是什么"><span class="toc-number">1.11.</span> <span class="toc-text">11.软件测试分为几个阶段 各阶段的测试策略和要求是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-测试人员在软件开发过程中的任务是什么？"><span class="toc-number">1.12.</span> <span class="toc-text">12.测试人员在软件开发过程中的任务是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！"><span class="toc-number">1.13.</span> <span class="toc-text">13.黑盒测试和白盒测试是软件测试的两种基本方法，请分别说明各自的优点和缺点！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-如何测试一个纸杯？"><span class="toc-number">1.14.</span> <span class="toc-text">14.如何测试一个纸杯？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？"><span class="toc-number">1.15.</span> <span class="toc-text">15.测试计划工作的目的是什么？测试计划文档的内容应该包括什么？其中哪些是最重要的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。"><span class="toc-number">1.16.</span> <span class="toc-text">16.黑盒测试的测试用例常见设计方法都有哪些？请分别以具体的例子来说明这些方法在测试用例设计工作中的应用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？"><span class="toc-number">1.17.</span> <span class="toc-text">17.您认为在测试人员同开发人员的沟通过程中，如何提高沟通的效率和改善沟通的效果？维持测试人员同开发团队中其他成员良好的人际关系的关键是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-你对测试最大的兴趣在哪里？为什么？"><span class="toc-number">1.18.</span> <span class="toc-text">18.你对测试最大的兴趣在哪里？为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-你自认为测试的优势在哪里？"><span class="toc-number">1.19.</span> <span class="toc-text">19.你自认为测试的优势在哪里？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-软件验收测试"><span class="toc-number">1.20.</span> <span class="toc-text">20.软件验收测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-请说出这些测试最好由那些人员完成，测试的是什么？"><span class="toc-number">1.21.</span> <span class="toc-text">21.请说出这些测试最好由那些人员完成，测试的是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-一套完整的测试应该由哪些阶段组成？"><span class="toc-number">1.22.</span> <span class="toc-text">22.一套完整的测试应该由哪些阶段组成？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-你对测试最大的兴趣在哪里？为什么？"><span class="toc-number">1.23.</span> <span class="toc-text">23.你对测试最大的兴趣在哪里？为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。"><span class="toc-number">1.24.</span> <span class="toc-text">24.请试着比较一下黑盒测试、白盒测试、单元测试、集成测试、系统测试、验收测试的区别与联系。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-主键、外键的作用，索引的优点与不足"><span class="toc-number">1.25.</span> <span class="toc-text">25.主键、外键的作用，索引的优点与不足?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26"><span class="toc-number">1.26.</span> <span class="toc-text">26.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">2.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自动售货机的测试"><span class="toc-number">2.1.</span> <span class="toc-text">1. 自动售货机的测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-测-QQ-登录页面"><span class="toc-number">2.2.</span> <span class="toc-text">2. 测 QQ 登录页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-测试微信的通讯录功能"><span class="toc-number">2.3.</span> <span class="toc-text">3. 测试微信的通讯录功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如果要你来测试王者荣耀这款游戏，你会测试什么？"><span class="toc-number">2.4.</span> <span class="toc-text">4. 如果要你来测试王者荣耀这款游戏，你会测试什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-测试电梯"><span class="toc-number">2.5.</span> <span class="toc-text">5. 测试电梯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-集成测试和系统测试，并且Bug定位属于什么测试"><span class="toc-number">2.6.</span> <span class="toc-text">6. 集成测试和系统测试，并且Bug定位属于什么测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-交换机测试"><span class="toc-number">2.7.</span> <span class="toc-text">7. 交换机测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-如何测试一个纸杯？"><span class="toc-number">2.8.</span> <span class="toc-text">8.如何测试一个纸杯？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9"><span class="toc-number">2.9.</span> <span class="toc-text">9.</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&text=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&is_video=false&description=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=测试工程师面试题&body=Check out this article: https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&title=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&name=测试工程师面试题&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2019/09/19/Test%20position%20%EF%BC%88interview%20question%EF%BC%89/&t=测试工程师面试题" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2023 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
