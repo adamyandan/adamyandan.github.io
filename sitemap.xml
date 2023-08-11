@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adamyandan.github.io/2019/07/15/hexo%20%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2023-08-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adamyandan.github.io/2019/07/15/hexo+github%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2023-08-11</lastmod>
@@ -86,15 +95,6 @@
     <loc>https://adamyandan.github.io/2019/05/12/TV%20source/</loc>
     
     <lastmod>2020-05-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adamyandan.github.io/2019/07/15/hexo%20%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
