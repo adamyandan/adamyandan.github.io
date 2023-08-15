@@ -43,6 +43,32 @@
   </entry>
   
   <entry>
+    <title>年休假、读书费、差旅报销</title>
+    <link href="https://adamyandan.github.io/2023/08/15/%E5%B9%B4%E4%BC%91%E5%81%87%E3%80%81%E8%AF%BB%E4%B9%A6%E8%B4%B9%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/"/>
+    <id>https://adamyandan.github.io/2023/08/15/%E5%B9%B4%E4%BC%91%E5%81%87%E3%80%81%E8%AF%BB%E4%B9%A6%E8%B4%B9%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/</id>
+    <published>2023-08-15T09:07:01.000Z</published>
+    <updated>2023-08-15T09:12:38.044Z</updated>
+    
+    <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、开票类型"><a href="#一、开票类型" class="headerlink" title="一、开票类型"></a>一、开票类型</h2><ol><li>员工个人图书费、年休假发票：增值税普通（电子）发票，开票抬头为 <strong>单位信息</strong> ；</li><li>飞机票、火车票、轮船票为 <strong>本人姓名</strong></li><li>员工出差代垫住宿费，参加培训开具增值税专用（电子）发票，开票单位信息</li></ol><h2 id="二、图书费"><a href="#二、图书费" class="headerlink" title="二、图书费"></a>二、图书费</h2><p><a href="https://imgse.com/i/pPQiI4s" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2023/08/15/pPQiI4s.png" alt="pPQiI4s.png"></a></p><h2 id="三、年休假补贴"><a href="#三、年休假补贴" class="headerlink" title="三、年休假补贴"></a>三、年休假补贴</h2><p><a href="https://imgse.com/i/pPQibvV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2023/08/15/pPQibvV.png" alt="pPQibvV.png"></a></p><h2 id="四、差旅费"><a href="#四、差旅费" class="headerlink" title="四、差旅费"></a>四、差旅费</h2><p><strong>1、差旅费定义</strong><br>差旅费是指工作人员临时到常驻地以外地区 (重庆至外省市、重庆主城区到区县、区县到主城区、区县到区县 ) 公务出差所发生的城市间交通费、住宿费、伙食补助费。</p><p><strong>2、伙食费补助标准</strong><br>市外、主城到区县：100元/人/天<br>主城区内（渝中、江北、两江新区、沙坪坝、九龙坡、大渡口、南岸、渝北）：不报销伙食补助费</p><p><strong>3、住宿费标准</strong>.<br>北京、上海、广州、深圳：500<br>省会城市、天津、计划单列城市（大连、青岛、宁波、厦门）：400<br>其他城市：300<br>重庆区县：250<br>重庆区县内乡镇：150</p><p><strong>4、交通工具及标准</strong><br>1.交通工具乘坐标准: 出差人员应当按规定等级乘坐交通工具</p><ul><li>乘坐飞机为经济舱;</li><li>乘坐火车为火车硬席 (硬座、硬卧)</li><li>高铁/动车二等座</li><li>乘坐轮船 (不包括旅游船 ) 为三等舱</li></ul><p>2.市外交通费标准: 按每人每次不超过80元标准，凭市外目的地发票据实报销，最多报销两次。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --&gt;
+
+&lt;h2 id=&quot;一</summary>
+      
+    
+    
+    
+    <category term="welfare" scheme="https://adamyandan.github.io/categories/welfare/"/>
+    
+    
+    <category term="补贴" scheme="https://adamyandan.github.io/tags/%E8%A1%A5%E8%B4%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>多协议网关软件性能测试详细步骤</title>
     <link href="https://adamyandan.github.io/2020/05/28/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"/>
     <id>https://adamyandan.github.io/2020/05/28/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</id>
@@ -516,33 +542,6 @@
     <category term="wireshark" scheme="https://adamyandan.github.io/tags/wireshark/"/>
     
     <category term="windows" scheme="https://adamyandan.github.io/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>contiki compile error</title>
-    <link href="https://adamyandan.github.io/2020/01/07/contiki%20compile%20error/"/>
-    <id>https://adamyandan.github.io/2020/01/07/contiki%20compile%20error/</id>
-    <published>2020-01-07T14:50:01.000Z</published>
-    <updated>2020-01-07T14:53:19.086Z</updated>
-    
-    <content type="html"><![CDATA[<p>在cooja仿真添加sky mote的时候，选择相对应的<code>.c</code>文件后，编译会出现以下错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make: msp430-gcc: Command not found</span><br><span class="line">  CC        ..&#x2F;..&#x2F;core&#x2F;net&#x2F;rime&#x2F;rimeaddr.c</span><br><span class="line">make: msp430-gcc: Command not found</span><br><span class="line">make: *** [obj_sky&#x2F;rimeaddr.o] Error 127</span><br></pre></td></tr></table></figure><p>说明没有安装msp430插件，需要执行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-msp430</span><br></pre></td></tr></table></figure><p>安装完成后，再次选择文件点击编译，就好啦~</p><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在cooja仿真添加sky mote的时候，选择相对应的&lt;code&gt;.c&lt;/code&gt;文件后，编译会出现以下错误：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl</summary>
-      
-    
-    
-    
-    <category term="contiki" scheme="https://adamyandan.github.io/categories/contiki/"/>
-    
-    
-    <category term="contiki" scheme="https://adamyandan.github.io/tags/contiki/"/>
-    
-    <category term="cooja" scheme="https://adamyandan.github.io/tags/cooja/"/>
     
   </entry>
   
