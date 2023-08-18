@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>不想当咸鱼的蛋蛋</title>
+  <title>不想当咸鱼的盐蛋</title>
   
   <subtitle>尹小丹的博客</subtitle>
   <link href="https://adamyandan.github.io/atom.xml" rel="self"/>
   
   <link href="https://adamyandan.github.io/"/>
-  <updated>2023-08-15T09:14:29.915Z</updated>
+  <updated>2023-08-18T04:59:58.411Z</updated>
   <id>https://adamyandan.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>换台电脑后如何移植原来的hexo博客内容</title>
+    <link href="https://adamyandan.github.io/2023/08/18/hexo%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91/"/>
+    <id>https://adamyandan.github.io/2023/08/18/hexo%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91/</id>
+    <published>2023-08-18T04:07:01.000Z</published>
+    <updated>2023-08-18T04:59:58.411Z</updated>
+    
+    <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><p>在更换主机设备后，由于我们的博客内容都保留在本地，故想要对博客进行迁移时需要将本地的资料一并保留迁移。<br>这里主要参考了 <a href="https://blog.csdn.net/Zzzzz_pp/article/details/132132055" target="_blank" rel="noopener">hexo-从搭建到更换设备</a><br>按照上述方法解决即可，这里将作简要步骤的记录:</p><h2 id="一、保留必要文件"><a href="#一、保留必要文件" class="headerlink" title="一、保留必要文件"></a>一、保留必要文件</h2><ul><li>_config.yml</li><li>theme/</li><li>source/</li><li>scaffolds/</li><li>package.json</li><li>.gitignore</li></ul><p><a href="https://imgse.com/i/pP3S00g" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2023/08/18/pP3S00g.png" alt="pP3S00g.png"></a></p><p>在新主机上创建一个新的文件夹，将上述文件拷贝进去。</p><h2 id="二、在新主机上进行Hexo环境搭建"><a href="#二、在新主机上进行Hexo环境搭建" class="headerlink" title="二、在新主机上进行Hexo环境搭建"></a>二、在新主机上进行Hexo环境搭建</h2><p>分为<br>1、安装git<br>2、安装node.js<br>3、安装hexo<br>具体步骤可参考我的另一篇博客<a href="https://adamyandan.github.io/2019/07/15/hexo+github%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">Github + hexo 搭建个人网站教程</a></p><h2 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h2><p>输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &quot;test&quot;  （新建文章）</span><br><span class="line">hexo g （生成静态页面）</span><br><span class="line">hexo s （启动本地服务）</span><br></pre></td></tr></table></figure><p>然后打开[<a href="http://localhost:4000]，即可看到本地版博客">http://localhost:4000]，即可看到本地版博客</a></p><p>编写完成后<br>输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d （部署上去）</span><br></pre></td></tr></table></figure><p>就可登录正式网址(不想当咸鱼的盐蛋)[<a href="https://adamyandan.github.io/]上看到这篇文章啦。">https://adamyandan.github.io/]上看到这篇文章啦。</a></p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --&gt;
+
+&lt;p&gt;在更换主机设</summary>
+      
+    
+    
+    
+    <category term="hexo" scheme="https://adamyandan.github.io/categories/hexo/"/>
+    
+    
+    <category term="移植" scheme="https://adamyandan.github.io/tags/%E7%A7%BB%E6%A4%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>补贴报销</title>
@@ -516,32 +542,6 @@
     <category term="contiki" scheme="https://adamyandan.github.io/tags/contiki/"/>
     
     <category term="cooja" scheme="https://adamyandan.github.io/tags/cooja/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>wireshark在win10下检测不出捕获接口</title>
-    <link href="https://adamyandan.github.io/2020/01/09/wireshark%20%E5%9C%A8win10%E4%B8%8B%E6%A3%80%E6%B5%8B%E4%B8%8D%E5%87%BA%E6%8D%95%E8%8E%B7%E6%8E%A5%E5%8F%A3/"/>
-    <id>https://adamyandan.github.io/2020/01/09/wireshark%20%E5%9C%A8win10%E4%B8%8B%E6%A3%80%E6%B5%8B%E4%B8%8D%E5%87%BA%E6%8D%95%E8%8E%B7%E6%8E%A5%E5%8F%A3/</id>
-    <published>2020-01-09T09:50:01.000Z</published>
-    <updated>2020-01-09T14:50:19.188Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="可能性1：NPF服务没有启动"><a href="#可能性1：NPF服务没有启动" class="headerlink" title="可能性1：NPF服务没有启动"></a>可能性1：NPF服务没有启动</h2><p>安装wireshark后打开提示没有找到捕获接口，可能是NPF（Netgroup Packet Filter 网络数据包过滤器）服务没有启动，解决办法就是启动NPF服务，然后重启wireshark。 </p><p>启动NPF的方法：</p><ol><li>以管理员的身份运行命令行程序cmd.exe;</li><li>输入<code>net start npf</code>命令，确定后就会提示服务启动成功;</li><li>这样的方式只能在这一次启动NPF服务，电脑重启之后又要重新启动，如果希望电脑启动时自动启用NPF服务，则可以在上面第二步将命令行换成<code>sc config npf start=auto</code>。</li></ol><h2 id="可能性2：wireshark自带的wincap不支持win10"><a href="#可能性2：wireshark自带的wincap不支持win10" class="headerlink" title="可能性2：wireshark自带的wincap不支持win10"></a>可能性2：wireshark自带的wincap不支持win10</h2><p>在<a href="http://www.win10pcap.org/download/" target="_blank" rel="noopener">下载安装Win10Pcap</a>网址可解决此问题。</p><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;可能性1：NPF服务没有启动&quot;&gt;&lt;a href=&quot;#可能性1：NPF服务没有启动&quot; class=&quot;headerlink&quot; title=&quot;可能性1：NPF服务没有启动&quot;&gt;&lt;/a&gt;可能性1：NPF服务没有启动&lt;/h2&gt;&lt;p&gt;安装wireshark后打开提示没有找到捕获</summary>
-      
-    
-    
-    
-    <category term="wireshark" scheme="https://adamyandan.github.io/categories/wireshark/"/>
-    
-    
-    <category term="wireshark" scheme="https://adamyandan.github.io/tags/wireshark/"/>
-    
-    <category term="windows" scheme="https://adamyandan.github.io/tags/windows/"/>
     
   </entry>
   
