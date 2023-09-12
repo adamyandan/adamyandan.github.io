@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>差旅的从头到尾</title>
+      <link href="/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/"/>
+      <url>/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/</url>
+      
+        <content type="html"><![CDATA[<p>Cooja是Contiki无线嵌入式系统自带的网络模拟器，Cooja的功能十分强大，开发者通过使用Cooja可以建立基于软件的开发工程，对各种所支持的板进行模拟，而不需要硬件资源。</p><p>collectview是cooja中自带的工具，可以对WSN中的节点进行详细的分析，如占空比、能源消耗、网络结构图等。</p><p>下面说一下如何在cooja中运行collectview的官方例子，系统版本为contiki-3.0，环境为虚拟机上运行InstantContiki3.0。</p><ol><li>运行cooja仿真器，找到collectview的例子</li></ol><p>选择：file-&gt;open simulation-&gt;browse<br>路径：contiki-3.0/examples/collect/example-collect-view.csc。</p><ol start="2"><li><p>打开工程后，会弹出“sensor data collect with contiki”窗口。</p></li><li><p>点击<code>start</code>按钮。<br>启动网络</p></li><li><p>在“sensor data collect with contiki”窗口选择“node control”模块后，并点击<code>start collect</code>按钮</p></li><li><p>你会发现“power”等其他选项卡，里面的内容一片空白，没有显示统计数据。而且如果点击其他选项还可能报错误，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftsgK.png" alt="lftsgK.png"></p></li><li><p>别慌，按以下步骤操作：</p></li></ol><ul><li>关闭目前开启的“sensor data collect with contiki”窗口；</li><li>在cooja中选择tools-&gt;Collect View-&gt;Sky1；</li><li>之后，就会重新打开了一个“Sensor Data Collect with Contiki”界面；</li><li>在这个界面中再选择”Node Control”，点击“Start Collect”，然后点击“Send command to nodes”；</li><li>再选择”Power”就会显示网络数据的统计信息（可能需要等一会，用于统计）。</li></ul><p>之后就有数据显示出来了，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftI8P.png" alt="lftI8P.png"><br><img src="https://s2.ax1x.com/2020/01/09/lftTv8.jpg" alt="lftTv8.jpg"></p><p>具体原因我也不清楚，由于刚接触Cooja仿真，所以大家如果有知道原因的，请为我解答一下。<br>例子能够运行之后，下一步就是将collect view功能集成到其他程序中，从而实现在其他contiki程序中对网络数据进行统计。</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Telecom </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 差旅 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>换台电脑后如何移植原来的hexo博客内容</title>
       <link href="/2023/08/18/hexo%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91/"/>
       <url>/2023/08/18/hexo%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91/</url>
@@ -38,7 +63,7 @@
       
       <categories>
           
-          <category> welfare </category>
+          <category> Telecom </category>
           
       </categories>
       
@@ -63,7 +88,7 @@
       
       <categories>
           
-          <category> welfare </category>
+          <category> Telecom </category>
           
       </categories>
       

@@ -6,7 +6,7 @@
   <link href="https://adamyandan.github.io/atom.xml" rel="self"/>
   
   <link href="https://adamyandan.github.io/"/>
-  <updated>2023-08-18T05:08:05.082Z</updated>
+  <updated>2023-09-12T09:46:32.289Z</updated>
   <id>https://adamyandan.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>差旅的从头到尾</title>
+    <link href="https://adamyandan.github.io/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/"/>
+    <id>https://adamyandan.github.io/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/</id>
+    <published>2023-09-12T09:50:01.000Z</published>
+    <updated>2023-09-12T09:46:32.289Z</updated>
+    
+    <content type="html"><![CDATA[<p>Cooja是Contiki无线嵌入式系统自带的网络模拟器，Cooja的功能十分强大，开发者通过使用Cooja可以建立基于软件的开发工程，对各种所支持的板进行模拟，而不需要硬件资源。</p><p>collectview是cooja中自带的工具，可以对WSN中的节点进行详细的分析，如占空比、能源消耗、网络结构图等。</p><p>下面说一下如何在cooja中运行collectview的官方例子，系统版本为contiki-3.0，环境为虚拟机上运行InstantContiki3.0。</p><ol><li>运行cooja仿真器，找到collectview的例子</li></ol><p>选择：file-&gt;open simulation-&gt;browse<br>路径：contiki-3.0/examples/collect/example-collect-view.csc。</p><ol start="2"><li><p>打开工程后，会弹出“sensor data collect with contiki”窗口。</p></li><li><p>点击<code>start</code>按钮。<br>启动网络</p></li><li><p>在“sensor data collect with contiki”窗口选择“node control”模块后，并点击<code>start collect</code>按钮</p></li><li><p>你会发现“power”等其他选项卡，里面的内容一片空白，没有显示统计数据。而且如果点击其他选项还可能报错误，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftsgK.png" alt="lftsgK.png"></p></li><li><p>别慌，按以下步骤操作：</p></li></ol><ul><li>关闭目前开启的“sensor data collect with contiki”窗口；</li><li>在cooja中选择tools-&gt;Collect View-&gt;Sky1；</li><li>之后，就会重新打开了一个“Sensor Data Collect with Contiki”界面；</li><li>在这个界面中再选择”Node Control”，点击“Start Collect”，然后点击“Send command to nodes”；</li><li>再选择”Power”就会显示网络数据的统计信息（可能需要等一会，用于统计）。</li></ul><p>之后就有数据显示出来了，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftI8P.png" alt="lftI8P.png"><br><img src="https://s2.ax1x.com/2020/01/09/lftTv8.jpg" alt="lftTv8.jpg"></p><p>具体原因我也不清楚，由于刚接触Cooja仿真，所以大家如果有知道原因的，请为我解答一下。<br>例子能够运行之后，下一步就是将collect view功能集成到其他程序中，从而实现在其他contiki程序中对网络数据进行统计。</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Cooja是Contiki无线嵌入式系统自带的网络模拟器，Cooja的功能十分强大，开发者通过使用Cooja可以建立基于软件的开发工程，对各种所支持的板进行模拟，而不需要硬件资源。&lt;/p&gt;
+&lt;p&gt;collectview是cooja中自带的工具，可以对WSN中的节点进行详细的</summary>
+      
+    
+    
+    
+    <category term="Telecom" scheme="https://adamyandan.github.io/categories/Telecom/"/>
+    
+    
+    <category term="差旅" scheme="https://adamyandan.github.io/tags/%E5%B7%AE%E6%97%85/"/>
+    
+  </entry>
   
   <entry>
     <title>换台电脑后如何移植原来的hexo博客内容</title>
@@ -47,7 +72,7 @@
     <link href="https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/"/>
     <id>https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/</id>
     <published>2023-08-15T09:15:01.000Z</published>
-    <updated>2023-09-12T09:06:58.309Z</updated>
+    <updated>2023-09-12T09:47:09.196Z</updated>
     
     <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、开票类型"><a href="#一、开票类型" class="headerlink" title="一、开票类型"></a>一、开票类型</h2><ol><li>员工个人图书费、年休假发票：增值税普通（电子）发票，开票抬头为 <strong>单位信息</strong> ；</li><li>飞机票、火车票、轮船票为 <strong>本人姓名</strong></li><li>员工出差代垫住宿费，参加培训开具 <strong>增值税专用（电子）发票</strong> ，开票抬头为 <strong>单位信息</strong> 。</li></ol><h2 id="二、图书费"><a href="#二、图书费" class="headerlink" title="二、图书费"></a>二、图书费</h2><p>图书费每人每年有600元补贴<br>普通发票即可，抬头为 <strong>单位信息</strong><br>货物或应税劳务、服务名称：*印刷品*图书<br><a href="https://imgse.com/i/pPQiI4s" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2023/08/15/pPQiI4s.png" alt="pPQiI4s.png"></a></p><h2 id="三、年休假补贴"><a href="#三、年休假补贴" class="headerlink" title="三、年休假补贴"></a>三、年休假补贴</h2><p>符合本人的：<br><strong>1、加油票</strong> ：抬头为单位信息，普票（电子），单张发票不能超过500元，最多可开1250元；<br><strong>2、住宿票</strong> ：抬头为单位信息，普票（电子），无金额上线，但要注意开票时间；</p><p>住宿费若是在网上订票：<br>（1）货物或应税劳务、服务名称： *旅游服务*代订住宿费  或  *旅游服务*住宿费<br>（2）提供住宿费网上订单截图</p><p><strong>3、交通费</strong> ：抬头为本人姓名，无金额上限，，但要注意开票时间。</p><p><a href="https://imgse.com/i/pPQibvV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2023/08/15/pPQibvV.png" alt="pPQibvV.png"></a></p><h2 id="四、差旅费"><a href="#四、差旅费" class="headerlink" title="四、差旅费"></a>四、差旅费</h2><p><strong>1、差旅费定义</strong><br>差旅费是指工作人员临时到常驻地以外地区 (重庆至外省市、重庆主城区到区县、区县到主城区、区县到区县 ) 公务出差所发生的城市间交通费、住宿费、伙食补助费。</p><p><strong>2、伙食费补助标准</strong><br>市外、主城到区县：100元/人/天<br>主城区内（渝中、江北、两江新区、沙坪坝、九龙坡、大渡口、南岸、渝北）：不报销伙食补助费<br>（这个费用，不需要自己发起报账，在【智慧商旅】中发起行程、确认行程后，通过人资自动发放）</p><p><strong>3、住宿费标准</strong>.<br>北京、上海、广州、深圳：500<br>省会城市、天津、计划单列城市（大连、青岛、宁波、厦门）：400<br>其他城市：300<br>重庆区县：250<br>重庆区县内乡镇：150</p><p><strong>4、交通工具及标准</strong><br>1.交通工具乘坐标准: 出差人员应当按规定等级乘坐交通工具</p><ul><li>乘坐飞机为经济舱;</li><li>乘坐火车为火车硬席 (硬座、硬卧)</li><li>高铁/动车二等座</li><li>乘坐轮船 (不包括旅游船 ) 为三等舱</li></ul><p>2.市外交通费标准: 按每人每次不超过80元标准，凭市外目的地发票据实报销，最多报销两次。<br>（发票金额超过了80，按照80元标准报销）</p>]]></content>
     
@@ -61,7 +86,7 @@
     
     
     
-    <category term="welfare" scheme="https://adamyandan.github.io/categories/welfare/"/>
+    <category term="Telecom" scheme="https://adamyandan.github.io/categories/Telecom/"/>
     
     
     <category term="补贴" scheme="https://adamyandan.github.io/tags/%E8%A1%A5%E8%B4%B4/"/>
@@ -73,7 +98,7 @@
     <link href="https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/"/>
     <id>https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/</id>
     <published>2023-08-15T09:07:01.000Z</published>
-    <updated>2023-08-15T06:48:59.593Z</updated>
+    <updated>2023-09-12T09:46:48.662Z</updated>
     
     <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、药房发票要求"><a href="#一、药房发票要求" class="headerlink" title="一、药房发票要求"></a>一、药房发票要求</h2><ol><li>不能为单张发票（仅用1张发票金额为报销全额的药房发票。如1张6100/5700/5400元的药房发票）；</li><li>不能为同一药房、同一天的连号发票；</li><li>单张发票金额原则上不超过3000元、药品种类不超过8种、每种药品数量不超过10；</li><li>药品种类不能为熊胆粉、三七等单味名贵中药材、营养保健食品、口罩、棉签类医疗器材等；</li><li>成年人不可报销小儿用药，男性不可报销女性用药，女性不可报销男性用药；</li><li>网上购药后开出的异地电子发票，需附上订单金额截图</li></ol><h2 id="二、报销流程"><a href="#二、报销流程" class="headerlink" title="二、报销流程"></a>二、报销流程</h2><ol><li>证件资料：</li></ol><ul><li>员工本人报销：员工本人身份证正反面、银行卡复印件；</li><li>员工直系亲属报销：<br>① 成年人：员工本人身份证正反面、亲属身份证正反面、亲属银行卡复印件<br>② 未成年人（18周岁以下）：员工本人身份证正反面、员工银行卡复印件、亲属身份证正反面或户口页复印件，关系证明（户口、出生证、独子证、单位盖章的情况说明）复印件</li></ul><p><strong>银行卡（需为借记卡）</strong>：工行、农行、中行、建行、招行、邮储、交行、民生、光大、中信、兴业、浦发、华夏、广发、平安、农村信用联合银行</p><hr>]]></content>
     
@@ -87,7 +112,7 @@
     
     
     
-    <category term="welfare" scheme="https://adamyandan.github.io/categories/welfare/"/>
+    <category term="Telecom" scheme="https://adamyandan.github.io/categories/Telecom/"/>
     
     
     <category term="补充医疗" scheme="https://adamyandan.github.io/tags/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97/"/>
@@ -515,33 +540,6 @@
     
     
     <category term="matlab" scheme="https://adamyandan.github.io/tags/matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在cooja中运行collect view实验例子出现问题时</title>
-    <link href="https://adamyandan.github.io/2020/01/09/%E5%9C%A8cooja%E4%B8%AD%E4%BD%BF%E7%94%A8example%E4%B8%8B%E7%9A%84collect%20view%E5%AE%9E%E4%BE%8B%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E6%97%B6/"/>
-    <id>https://adamyandan.github.io/2020/01/09/%E5%9C%A8cooja%E4%B8%AD%E4%BD%BF%E7%94%A8example%E4%B8%8B%E7%9A%84collect%20view%E5%AE%9E%E4%BE%8B%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E6%97%B6/</id>
-    <published>2020-01-09T14:50:01.000Z</published>
-    <updated>2020-01-09T15:04:19.446Z</updated>
-    
-    <content type="html"><![CDATA[<p>Cooja是Contiki无线嵌入式系统自带的网络模拟器，Cooja的功能十分强大，开发者通过使用Cooja可以建立基于软件的开发工程，对各种所支持的板进行模拟，而不需要硬件资源。</p><p>collectview是cooja中自带的工具，可以对WSN中的节点进行详细的分析，如占空比、能源消耗、网络结构图等。</p><p>下面说一下如何在cooja中运行collectview的官方例子，系统版本为contiki-3.0，环境为虚拟机上运行InstantContiki3.0。</p><ol><li>运行cooja仿真器，找到collectview的例子</li></ol><p>选择：file-&gt;open simulation-&gt;browse<br>路径：contiki-3.0/examples/collect/example-collect-view.csc。</p><ol start="2"><li><p>打开工程后，会弹出“sensor data collect with contiki”窗口。</p></li><li><p>点击<code>start</code>按钮。<br>启动网络</p></li><li><p>在“sensor data collect with contiki”窗口选择“node control”模块后，并点击<code>start collect</code>按钮</p></li><li><p>你会发现“power”等其他选项卡，里面的内容一片空白，没有显示统计数据。而且如果点击其他选项还可能报错误，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftsgK.png" alt="lftsgK.png"></p></li><li><p>别慌，按以下步骤操作：</p></li></ol><ul><li>关闭目前开启的“sensor data collect with contiki”窗口；</li><li>在cooja中选择tools-&gt;Collect View-&gt;Sky1；</li><li>之后，就会重新打开了一个“Sensor Data Collect with Contiki”界面；</li><li>在这个界面中再选择”Node Control”，点击“Start Collect”，然后点击“Send command to nodes”；</li><li>再选择”Power”就会显示网络数据的统计信息（可能需要等一会，用于统计）。</li></ul><p>之后就有数据显示出来了，如下图所示：<br><img src="https://s2.ax1x.com/2020/01/09/lftI8P.png" alt="lftI8P.png"><br><img src="https://s2.ax1x.com/2020/01/09/lftTv8.jpg" alt="lftTv8.jpg"></p><p>具体原因我也不清楚，由于刚接触Cooja仿真，所以大家如果有知道原因的，请为我解答一下。<br>例子能够运行之后，下一步就是将collect view功能集成到其他程序中，从而实现在其他contiki程序中对网络数据进行统计。</p><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Cooja是Contiki无线嵌入式系统自带的网络模拟器，Cooja的功能十分强大，开发者通过使用Cooja可以建立基于软件的开发工程，对各种所支持的板进行模拟，而不需要硬件资源。&lt;/p&gt;
-&lt;p&gt;collectview是cooja中自带的工具，可以对WSN中的节点进行详细的</summary>
-      
-    
-    
-    
-    <category term="contiki" scheme="https://adamyandan.github.io/categories/contiki/"/>
-    
-    
-    <category term="contiki" scheme="https://adamyandan.github.io/tags/contiki/"/>
-    
-    <category term="cooja" scheme="https://adamyandan.github.io/tags/cooja/"/>
     
   </entry>
   
