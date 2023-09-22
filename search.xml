@@ -129,31 +129,6 @@
     
     
     <entry>
-      <title>展厅设备手册</title>
-      <link href="/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/"/>
-      <url>/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/</url>
-      
-        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、OPC-UA信息共享平台"><a href="#一、OPC-UA信息共享平台" class="headerlink" title="一、OPC UA信息共享平台"></a>一、OPC UA信息共享平台</h2><ol><li>跑一个程序</li><li>跑一个客户端</li></ol><p>打开终端，依次输入如下指令：</p><ol><li>先跑一个程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop</span><br><span class="line">$ cd New</span><br><span class="line">$ cd 3_iot</span><br><span class="line">$ cd CS</span><br><span class="line">$ .&#x2F;csadapter</span><br></pre></td></tr></table></figure></li><li>再跑一个OPC UA客户端<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop</span><br><span class="line">$ cd New</span><br><span class="line">$ cd Script</span><br><span class="line">$ cd copy</span><br><span class="line">$ .&#x2F;OPC UA</span><br></pre></td></tr></table></figure></li></ol><p>地址：<code>127.0.0.1</code><br>端口号：<code>5222</code></p><h2 id="二、863节点运行系统"><a href="#二、863节点运行系统" class="headerlink" title="二、863节点运行系统"></a>二、863节点运行系统</h2><ol><li>先打开UA Export看所有网络的数据有没有上来，没有上来的话，就要一一进入各网络的网关去跑代码</li><li>“工程管理器” -&gt; database -&gt; 启动应用</li><li>左下角 “命令符”，（运行代码，将组态与个网关连接）</li><li>打开 “运行系统” 可视化界面。</li></ol><h2 id="三、各网络网关地址与端口号统计"><a href="#三、各网络网关地址与端口号统计" class="headerlink" title="三、各网络网关地址与端口号统计"></a>三、各网络网关地址与端口号统计</h2><ol><li>WIAPA:    192.168.2.99  15000</li><li>Modbus:   192.168.2.100 15000</li><li>Profibus: 192.168.2.101 16664</li><li>6tisch:   192.168.2.102 15000</li><li>6lowpan:  192.168.2.103 15000</li><li>control:                16664</li><li>meter:                  8667 </li></ol><h2 id="四、IOT实验箱展示"><a href="#四、IOT实验箱展示" class="headerlink" title="四、IOT实验箱展示"></a>四、IOT实验箱展示</h2><ol><li>连 wifi （opent-wrt）</li><li>打开文件“iot-tianzhanbei-big-141008”</li><li><code>./CISCO</code></li><li>server ip: 192.168.1.1</li><li>port: 5222</li></ol><h2 id="五、如何在linux下设置单网卡多个IP"><a href="#五、如何在linux下设置单网卡多个IP" class="headerlink" title="五、如何在linux下设置单网卡多个IP"></a>五、如何在linux下设置单网卡多个IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig br-lan:0 XX:XX:XX:XX netmask 255.255.255.0 up</span><br><span class="line">ifconfig br-lan:1 XX:XX:XX:XX netmask 255.255.255.0 up</span><br></pre></td></tr></table></figure><p>但是后面reboot后ip地址又变回去了，必须设置启动时自动激活IP设置。<br>于是将上面的代码放入自启动文件中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br></pre></td></tr></table></figure><p>查路由表会发现只有br-lan口才是最后的出口。</p><h2 id="六、863组态历史数据开启"><a href="#六、863组态历史数据开启" class="headerlink" title="六、863组态历史数据开启"></a>六、863组态历史数据开启</h2><ol><li>画面管理 -&gt; 工程 -&gt; 模板 </li><li>变量 -&gt; 新建变量</li><li>实例 -&gt; 新建实例 、 实例属性，找到对应的映射关系</li><li>选中里面的图表，左边的属性下 -&gt; 曲线属性，选择线条颜色</li></ol><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> laboratory </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 展厅设备 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>机房服务器问题手册</title>
       <link href="/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/"/>
       <url>/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/</url>
@@ -171,6 +146,31 @@
         <tags>
             
             <tag> 机房服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>展厅设备手册</title>
+      <link href="/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/"/>
+      <url>/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/</url>
+      
+        <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h2 id="一、OPC-UA信息共享平台"><a href="#一、OPC-UA信息共享平台" class="headerlink" title="一、OPC UA信息共享平台"></a>一、OPC UA信息共享平台</h2><ol><li>跑一个程序</li><li>跑一个客户端</li></ol><p>打开终端，依次输入如下指令：</p><ol><li>先跑一个程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop</span><br><span class="line">$ cd New</span><br><span class="line">$ cd 3_iot</span><br><span class="line">$ cd CS</span><br><span class="line">$ .&#x2F;csadapter</span><br></pre></td></tr></table></figure></li><li>再跑一个OPC UA客户端<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop</span><br><span class="line">$ cd New</span><br><span class="line">$ cd Script</span><br><span class="line">$ cd copy</span><br><span class="line">$ .&#x2F;OPC UA</span><br></pre></td></tr></table></figure></li></ol><p>地址：<code>127.0.0.1</code><br>端口号：<code>5222</code></p><h2 id="二、863节点运行系统"><a href="#二、863节点运行系统" class="headerlink" title="二、863节点运行系统"></a>二、863节点运行系统</h2><ol><li>先打开UA Export看所有网络的数据有没有上来，没有上来的话，就要一一进入各网络的网关去跑代码</li><li>“工程管理器” -&gt; database -&gt; 启动应用</li><li>左下角 “命令符”，（运行代码，将组态与个网关连接）</li><li>打开 “运行系统” 可视化界面。</li></ol><h2 id="三、各网络网关地址与端口号统计"><a href="#三、各网络网关地址与端口号统计" class="headerlink" title="三、各网络网关地址与端口号统计"></a>三、各网络网关地址与端口号统计</h2><ol><li>WIAPA:    192.168.2.99  15000</li><li>Modbus:   192.168.2.100 15000</li><li>Profibus: 192.168.2.101 16664</li><li>6tisch:   192.168.2.102 15000</li><li>6lowpan:  192.168.2.103 15000</li><li>control:                16664</li><li>meter:                  8667 </li></ol><h2 id="四、IOT实验箱展示"><a href="#四、IOT实验箱展示" class="headerlink" title="四、IOT实验箱展示"></a>四、IOT实验箱展示</h2><ol><li>连 wifi （opent-wrt）</li><li>打开文件“iot-tianzhanbei-big-141008”</li><li><code>./CISCO</code></li><li>server ip: 192.168.1.1</li><li>port: 5222</li></ol><h2 id="五、如何在linux下设置单网卡多个IP"><a href="#五、如何在linux下设置单网卡多个IP" class="headerlink" title="五、如何在linux下设置单网卡多个IP"></a>五、如何在linux下设置单网卡多个IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig br-lan:0 XX:XX:XX:XX netmask 255.255.255.0 up</span><br><span class="line">ifconfig br-lan:1 XX:XX:XX:XX netmask 255.255.255.0 up</span><br></pre></td></tr></table></figure><p>但是后面reboot后ip地址又变回去了，必须设置启动时自动激活IP设置。<br>于是将上面的代码放入自启动文件中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br></pre></td></tr></table></figure><p>查路由表会发现只有br-lan口才是最后的出口。</p><h2 id="六、863组态历史数据开启"><a href="#六、863组态历史数据开启" class="headerlink" title="六、863组态历史数据开启"></a>六、863组态历史数据开启</h2><ol><li>画面管理 -&gt; 工程 -&gt; 模板 </li><li>变量 -&gt; 新建变量</li><li>实例 -&gt; 新建实例 、 实例属性，找到对应的映射关系</li><li>选中里面的图表，左边的属性下 -&gt; 曲线属性，选择线条颜色</li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> laboratory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 展厅设备 </tag>
             
         </tags>
       
