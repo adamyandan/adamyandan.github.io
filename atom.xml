@@ -18,8 +18,8 @@
   
   <entry>
     <title>差旅的从头到尾</title>
-    <link href="https://adamyandan.github.io/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/"/>
-    <id>https://adamyandan.github.io/2023/09/12/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/</id>
+    <link href="https://adamyandan.github.io/2023/09/12/Telecom/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/"/>
+    <id>https://adamyandan.github.io/2023/09/12/Telecom/%E5%B7%AE%E6%97%85%E7%9A%84%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE/</id>
     <published>2023-09-12T09:50:01.000Z</published>
     <updated>2023-09-18T10:23:38.018Z</updated>
     
@@ -69,8 +69,8 @@
   
   <entry>
     <title>补贴、报销、差旅</title>
-    <link href="https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/"/>
-    <id>https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/</id>
+    <link href="https://adamyandan.github.io/2023/08/15/Telecom/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/"/>
+    <id>https://adamyandan.github.io/2023/08/15/Telecom/%E8%A1%A5%E8%B4%B4%E6%8A%A5%E9%94%80/</id>
     <published>2023-08-15T09:15:01.000Z</published>
     <updated>2023-09-22T01:33:55.586Z</updated>
     
@@ -95,8 +95,8 @@
   
   <entry>
     <title>补充医疗保险</title>
-    <link href="https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/"/>
-    <id>https://adamyandan.github.io/2023/08/15/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/</id>
+    <link href="https://adamyandan.github.io/2023/08/15/Telecom/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/"/>
+    <id>https://adamyandan.github.io/2023/08/15/Telecom/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/</id>
     <published>2023-08-15T09:07:01.000Z</published>
     <updated>2023-09-12T09:46:48.662Z</updated>
     
@@ -146,32 +146,6 @@
   </entry>
   
   <entry>
-    <title>机房服务器问题手册</title>
-    <link href="https://adamyandan.github.io/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/"/>
-    <id>https://adamyandan.github.io/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/</id>
-    <published>2020-05-28T09:07:01.000Z</published>
-    <updated>2020-05-28T13:39:02.186Z</updated>
-    
-    <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h1 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h1><p>  机房里的服务器，在进行“思科-时天河-重邮工业互联网研究院”的项目，网线连通局域网，开4G路由器，让机房服务器连wifi进行上网。<br>  机房电脑开机密码：Cqupt123</p><h2 id="一、机房服务器连上WIFI后依旧无法上网的问题"><a href="#一、机房服务器连上WIFI后依旧无法上网的问题" class="headerlink" title="一、机房服务器连上WIFI后依旧无法上网的问题"></a>一、机房服务器连上WIFI后依旧无法上网的问题</h2><ol><li>先用4G路由器有线连接服务器</li><li>修改正确的时间，看能否上网，能，进行下一步</li><li>修改到2018年8月1日，看能否上网，能，进行下一步</li><li>能否进入 DATAFLOW ，能，进入下一步</li><li>用有线连接服务器，无线连接设备网关，进行展示。</li></ol><h2 id="二、机房EFM服务器开启命令"><a href="#二、机房EFM服务器开启命令" class="headerlink" title="二、机房EFM服务器开启命令"></a>二、机房EFM服务器开启命令</h2><p>打开终端界面，依次按如下命令开启：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su</span><br><span class="line">$ source &#x2F;etc&#x2F;profile</span><br><span class="line">$ cd &#x2F;opt&#x2F;cisco&#x2F;kinetic&#x2F;efm-server&#x2F;bin</span><br><span class="line">$ .&#x2F;daemon.sh start</span><br></pre></td></tr></table></figure><h2 id="三、若机房的电脑重启了，怎么办？"><a href="#三、若机房的电脑重启了，怎么办？" class="headerlink" title="三、若机房的电脑重启了，怎么办？"></a>三、若机房的电脑重启了，怎么办？</h2><ol><li>打开ubuntu 64虚拟机<br>路径： D盘/虚拟机（英文）/ubuntu 64<br>有 cisco 这个用户名</li><li>切换到root用户（sudo su）<br>若网站 2.5：8443/dataflow.html 左边的选项是灰色的，则输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>然后执行EFM服务器执行命令，参照二</li><li>开启天河的端口映射（online那个）<br>若主机地址改了，则也需要相应的更改NATAPP中的IPv4地址<br>网站地址：<br>NATAPP.cn</li><li>打开  天河界面（T5制造平台）<br>账号：efmAdmin<br>密码：123456</li><li>若需要联网远程接入天河数据库界面，则需要开启NATAPP的.exe文件</li></ol><h2 id="四、相关配置"><a href="#四、相关配置" class="headerlink" title="四、相关配置"></a>四、相关配置</h2><ol><li>虚拟网络编辑器 -&gt; NAT setting -&gt; 此虚拟机IP地址：8443 -&gt; 主机端口号8443 -&gt; 确认</li><li><a href="https://192.168.2.XX/dataflow.html" target="_blank" rel="noopener">https://192.168.2.XX/dataflow.html</a> 思科kinetic平台</li></ol><h2 id="五、若想在dataflow中的DS-Link中添加OPC-UA网络"><a href="#五、若想在dataflow中的DS-Link中添加OPC-UA网络" class="headerlink" title="五、若想在dataflow中的DS Link中添加OPC UA网络"></a>五、若想在dataflow中的DS Link中添加OPC UA网络</h2><p>Alias (在upstream底下的OPC UA中）</p><ol><li>Discover tags , Add Endpoints(输入名称+URL)</li><li>在（发现中）里发现节点 <strong>[勿需手动添加]</strong></li><li>订阅 describe</li></ol><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --&gt;
-
-&lt;h1 id=&quot;说</summary>
-      
-    
-    
-    
-    <category term="laboratory" scheme="https://adamyandan.github.io/categories/laboratory/"/>
-    
-    
-    <category term="机房服务器" scheme="https://adamyandan.github.io/tags/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>展厅设备手册</title>
     <link href="https://adamyandan.github.io/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/"/>
     <id>https://adamyandan.github.io/2020/05/28/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/</id>
@@ -194,6 +168,32 @@
     
     
     <category term="展厅设备" scheme="https://adamyandan.github.io/tags/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机房服务器问题手册</title>
+    <link href="https://adamyandan.github.io/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/"/>
+    <id>https://adamyandan.github.io/2020/05/28/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%8B%E5%86%8C/</id>
+    <published>2020-05-28T09:07:01.000Z</published>
+    <updated>2020-05-28T13:39:02.186Z</updated>
+    
+    <content type="html"><![CDATA[<!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --><h1 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h1><p>  机房里的服务器，在进行“思科-时天河-重邮工业互联网研究院”的项目，网线连通局域网，开4G路由器，让机房服务器连wifi进行上网。<br>  机房电脑开机密码：Cqupt123</p><h2 id="一、机房服务器连上WIFI后依旧无法上网的问题"><a href="#一、机房服务器连上WIFI后依旧无法上网的问题" class="headerlink" title="一、机房服务器连上WIFI后依旧无法上网的问题"></a>一、机房服务器连上WIFI后依旧无法上网的问题</h2><ol><li>先用4G路由器有线连接服务器</li><li>修改正确的时间，看能否上网，能，进行下一步</li><li>修改到2018年8月1日，看能否上网，能，进行下一步</li><li>能否进入 DATAFLOW ，能，进入下一步</li><li>用有线连接服务器，无线连接设备网关，进行展示。</li></ol><h2 id="二、机房EFM服务器开启命令"><a href="#二、机房EFM服务器开启命令" class="headerlink" title="二、机房EFM服务器开启命令"></a>二、机房EFM服务器开启命令</h2><p>打开终端界面，依次按如下命令开启：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su</span><br><span class="line">$ source &#x2F;etc&#x2F;profile</span><br><span class="line">$ cd &#x2F;opt&#x2F;cisco&#x2F;kinetic&#x2F;efm-server&#x2F;bin</span><br><span class="line">$ .&#x2F;daemon.sh start</span><br></pre></td></tr></table></figure><h2 id="三、若机房的电脑重启了，怎么办？"><a href="#三、若机房的电脑重启了，怎么办？" class="headerlink" title="三、若机房的电脑重启了，怎么办？"></a>三、若机房的电脑重启了，怎么办？</h2><ol><li>打开ubuntu 64虚拟机<br>路径： D盘/虚拟机（英文）/ubuntu 64<br>有 cisco 这个用户名</li><li>切换到root用户（sudo su）<br>若网站 2.5：8443/dataflow.html 左边的选项是灰色的，则输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>然后执行EFM服务器执行命令，参照二</li><li>开启天河的端口映射（online那个）<br>若主机地址改了，则也需要相应的更改NATAPP中的IPv4地址<br>网站地址：<br>NATAPP.cn</li><li>打开  天河界面（T5制造平台）<br>账号：efmAdmin<br>密码：123456</li><li>若需要联网远程接入天河数据库界面，则需要开启NATAPP的.exe文件</li></ol><h2 id="四、相关配置"><a href="#四、相关配置" class="headerlink" title="四、相关配置"></a>四、相关配置</h2><ol><li>虚拟网络编辑器 -&gt; NAT setting -&gt; 此虚拟机IP地址：8443 -&gt; 主机端口号8443 -&gt; 确认</li><li><a href="https://192.168.2.XX/dataflow.html" target="_blank" rel="noopener">https://192.168.2.XX/dataflow.html</a> 思科kinetic平台</li></ol><h2 id="五、若想在dataflow中的DS-Link中添加OPC-UA网络"><a href="#五、若想在dataflow中的DS-Link中添加OPC-UA网络" class="headerlink" title="五、若想在dataflow中的DS Link中添加OPC UA网络"></a>五、若想在dataflow中的DS Link中添加OPC UA网络</h2><p>Alias (在upstream底下的OPC UA中）</p><ol><li>Discover tags , Add Endpoints(输入名称+URL)</li><li>在（发现中）里发现节点 <strong>[勿需手动添加]</strong></li><li>订阅 describe</li></ol><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory --&gt;
+
+&lt;h1 id=&quot;说</summary>
+      
+    
+    
+    
+    <category term="laboratory" scheme="https://adamyandan.github.io/categories/laboratory/"/>
+    
+    
+    <category term="机房服务器" scheme="https://adamyandan.github.io/tags/%E6%9C%BA%E6%88%BF%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
