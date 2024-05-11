@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、串口波特率测试测试目的：要求多协议网关能正常支持9600-115200bps串口波特率期望结果：多协议网关能够通过串口正常获取数据软件：串口调试助手sscom3.2、putty或者securecrt步骤：  sscom3.2调到9600波特率 在securecrt或者putty中输入命令：piccom –b 9600 &#x2F;dev&#x2F;ttyS1 在sscom3.2中的字符串输入框中输入一些内容，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多协议网关软件性能测试详细步骤">
+<meta property="og:url" content="https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/index.html">
+<meta property="og:site_name" content="不想当咸鱼的盐蛋">
+<meta property="og:description" content="一、串口波特率测试测试目的：要求多协议网关能正常支持9600-115200bps串口波特率期望结果：多协议网关能够通过串口正常获取数据软件：串口调试助手sscom3.2、putty或者securecrt步骤：  sscom3.2调到9600波特率 在securecrt或者putty中输入命令：piccom –b 9600 &#x2F;dev&#x2F;ttyS1 在sscom3.2中的字符串输入框中输入一些内容，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teTRgA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teTOvn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teTxbV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/te795F.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/te7PC4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/te7wGQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/te7srq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/te7vzd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teHCeP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLtyj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLNOs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLc6J.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLgX9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLH6H.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLO0I.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teLvAP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teOyUP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teOoEq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teOL2F.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teXkxe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teXnat.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/teXGrj.png">
+<meta property="article:published_time" content="2020-05-28T13:46:01.000Z">
+<meta property="article:modified_time" content="2020-05-29T01:52:24.365Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="多协议网关">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/28/teTRgA.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>多协议网关软件性能测试详细步骤</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的盐蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2023/08/15/Telecom/%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/28/laboratory/%E5%B1%95%E5%8E%85%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AF%E6%89%8B%E5%86%8C/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&text=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&is_video=false&description=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多协议网关软件性能测试详细步骤&body=Check out this article: https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&name=多协议网关软件性能测试详细步骤&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&t=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、串口波特率测试"><span class="toc-number">1.</span> <span class="toc-text">一、串口波特率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、以太网速率测试"><span class="toc-number">2.</span> <span class="toc-text">二、以太网速率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、支持协议类型测试"><span class="toc-number">3.</span> <span class="toc-text">三、支持协议类型测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-支持IPv4-IPv6协议测试"><span class="toc-number">4.</span> <span class="toc-text">四、  支持IPv4&#x2F;IPv6协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、支持SMTP协议测试"><span class="toc-number">5.</span> <span class="toc-text">五、支持SMTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、支持HTTP协议测试"><span class="toc-number">6.</span> <span class="toc-text">六、支持HTTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、支持POP3协议测试"><span class="toc-number">7.</span> <span class="toc-text">七、支持POP3协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、支持FTP协议测试"><span class="toc-number">8.</span> <span class="toc-text">八、支持FTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、WIFI标准测试"><span class="toc-number">9.</span> <span class="toc-text">九、WIFI标准测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、建立连接功能测试"><span class="toc-number">10.</span> <span class="toc-text">十、建立连接功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、读功能测试"><span class="toc-number">11.</span> <span class="toc-text">十一、读功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、写功能测试"><span class="toc-number">12.</span> <span class="toc-text">十二、写功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、发布-订阅功能测试"><span class="toc-number">13.</span> <span class="toc-text">十三、发布&#x2F;订阅功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、断开连接功能测试"><span class="toc-number">14.</span> <span class="toc-text">十四、断开连接功能测试</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        多协议网关软件性能测试详细步骤
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的盐蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-28T13:46:01.000Z" itemprop="datePublished">2020-05-28</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/laboratory/">laboratory</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3/" rel="tag">多协议网关</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,labratory -->
+
+<h2 id="一、串口波特率测试"><a href="#一、串口波特率测试" class="headerlink" title="一、串口波特率测试"></a>一、串口波特率测试</h2><p><strong>测试目的：</strong>要求多协议网关能正常支持9600-115200bps串口波特率<br><strong>期望结果：</strong>多协议网关能够通过串口正常获取数据<br><strong>软件：</strong>串口调试助手sscom3.2、putty或者securecrt<br><strong>步骤：</strong></p>
+<ol>
+<li>sscom3.2调到9600波特率</li>
+<li>在securecrt或者putty中输入命令：piccom –b 9600 /dev/ttyS1</li>
+<li>在sscom3.2中的字符串输入框中输入一些内容，putty上也能显示出来<br><strong>结果：</strong><ol>
+<li>波特率为9600：<br><img src="https://s1.ax1x.com/2020/05/28/teTRgA.png" alt="teTRgA.png"></li>
+<li>波特率为19200：<br><img src="https://s1.ax1x.com/2020/05/28/teTOvn.png" alt="teTOvn.png"></li>
+<li>波特率为38400：<br><img src="https://s1.ax1x.com/2020/05/28/teTxbV.png" alt="teTxbV.png"></li>
+<li>波特率为57600：<br><img src="https://s1.ax1x.com/2020/05/28/te795F.png" alt="te795F.png"></li>
+<li>波特率为57600：<br><img src="https://s1.ax1x.com/2020/05/28/te7PC4.png" alt="te7PC4.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="二、以太网速率测试"><a href="#二、以太网速率测试" class="headerlink" title="二、以太网速率测试"></a>二、以太网速率测试</h2><p><strong>测试目的：</strong>要求多协议网关以太网支持速率10Mbps-100Mbps<br><strong>期望结果：</strong>通过修改不同电脑网卡的属性值，测试能否ping通测试电脑；若10Mbps与100Mbps都能ping通，则以太网支持速率10Mbps-100Mbps<br><strong>软件：</strong>securecrt<br><strong>步骤：</strong></p>
+<ol>
+<li>以太网-&gt;属性-&gt;配置-&gt;高级-&gt;speed &amp; duplex-&gt;分别选择10 Mbps全双工和100Mbps全双工</li>
+<li>用securecrt进入网关 ping 主机IP<br><strong>结果：</strong><ol>
+<li>10M以太网速率：<br><img src="https://s1.ax1x.com/2020/05/28/te7wGQ.png" alt="te7wGQ.png"></li>
+<li>100M以太网速率：<br><img src="https://s1.ax1x.com/2020/05/28/te7srq.png" alt="te7srq.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="三、支持协议类型测试"><a href="#三、支持协议类型测试" class="headerlink" title="三、支持协议类型测试"></a>三、支持协议类型测试</h2><p><strong>测试目的：</strong>要求多协议网关能正确解析IEEE802.3协议<br><strong>期望结果：</strong>测试电脑能够正常收到ping命令<br><strong>软件：</strong>securecrt、wireshark<br><strong>步骤：</strong></p>
+<ol>
+<li>用网关ping电脑</li>
+<li>用wireshark抓包，可以抓到ICMP格式的报文<br><strong>结果：</strong><ol>
+<li>执行ping命令<br><img src="https://s1.ax1x.com/2020/05/28/te7vzd.png" alt="te7vzd.png">  </li>
+<li>Wireshark抓包图<br><img src="https://s1.ax1x.com/2020/05/28/teHCeP.png" alt="teHCeP.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="四、-支持IPv4-IPv6协议测试"><a href="#四、-支持IPv4-IPv6协议测试" class="headerlink" title="四、  支持IPv4/IPv6协议测试"></a>四、  支持IPv4/IPv6协议测试</h2><p><strong>测试目的：</strong>要求多协议网关能正确解析IPv4/IPv6协议<br><strong>期望结果：</strong>测试电脑能够正常收到ping命令和ping6命令<br><strong>步骤：</strong></p>
+<ol>
+<li>分别ping 电脑的IPv4和IPv6地址</li>
+<li>通过抓包或者securecrt界面的显示均可证明。<br><strong>结果：</strong><ol>
+<li>IPv4通信<br><img src="https://s1.ax1x.com/2020/05/28/teLtyj.png" alt="teLtyj.png"></li>
+<li>IPv6通信<br><img src="https://s1.ax1x.com/2020/05/28/teLNOs.png" alt="teLNOs.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="五、支持SMTP协议测试"><a href="#五、支持SMTP协议测试" class="headerlink" title="五、支持SMTP协议测试"></a>五、支持SMTP协议测试</h2><p><strong>测试目的：</strong>要求被测网关能够支持SMTP协议<br><strong>期望结果：</strong>通过指定邮箱获取SMTP软件发送的邮件，指定邮箱能够获取到网关发送的邮件<br><strong>步骤：</strong></p>
+<ol>
+<li>配置ssmtp.conf文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root &#x3D; XXXXXXXX@163.com</span><br><span class="line">mailhub &#x3D; smtp.163.com</span><br><span class="line">rewriteDomain &#x3D; 163.com</span><br><span class="line">hostname &#x3D; 163.com</span><br><span class="line">FromLineOverride &#x3D; YES</span><br><span class="line">AuthUser &#x3D; XXXXXXXXXX@163.com(这两个邮箱号是一样的)</span><br><span class="line">AuthPass &#x3D; 密码</span><br></pre></td></tr></table></figure></li>
+<li>编写 vim sendmail文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#！&#x2F;bin&#x2F;sh</span><br><span class="line">(echo &quot;From:&lt;XXX@163.com&gt;&quot;;</span><br><span class="line"> echo &quot;To:&lt;XXX@qq.com&gt;&quot;;</span><br><span class="line"> echo &quot;&quot;;</span><br><span class="line"> echo &quot;Subject:I am openwrt.com!&quot;</span><br><span class="line"> echo &quot;$1&quot;</span><br><span class="line"> echo &quot;&quot;</span><br><span class="line">  )|ssmtp -v -f &quot;openwrt.com&quot; -F &quot;www.openwrt.com&quot; XXX@qq.com</span><br></pre></td></tr></table></figure></li>
+<li>执行<code>./sendmail</code>命令</li>
+</ol>
+<h2 id="六、支持HTTP协议测试"><a href="#六、支持HTTP协议测试" class="headerlink" title="六、支持HTTP协议测试"></a>六、支持HTTP协议测试</h2><p><strong>测试目的：</strong>要求被测网关能够支持HTTP协议<br><strong>期望结果：</strong>通过Wireshark软件对被测网关与测试电脑进行交互的数据包进行分析，数据包符合HTTP标准<br><strong>步骤：</strong></p>
+<ol>
+<li>电脑登陆luci，访问网关web界面</li>
+<li>用wireshark软件进行抓包，可抓到HTTP格式的报文<br><strong>结果：</strong><ol>
+<li>测试电脑访问网关web界面<br><img src="https://s1.ax1x.com/2020/05/28/teLc6J.png" alt="teLc6J.png">  </li>
+<li>Wireshark抓包图<br><img src="https://s1.ax1x.com/2020/05/28/teLgX9.png" alt="teLgX9.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="七、支持POP3协议测试"><a href="#七、支持POP3协议测试" class="headerlink" title="七、支持POP3协议测试"></a>七、支持POP3协议测试</h2><p><strong>测试目的：</strong>要求被测网关能够支持POP3协议<br><strong>期望结果：</strong>通过POP3软件获取指定邮箱的邮件，被测网关能够获取到指定邮箱的邮件<br><strong>步骤：</strong></p>
+<ol>
+<li>配置fdm.conf文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">##Accounts and rules for:</span><br><span class="line">#&gt;foo@example.com</span><br><span class="line">#&gt;bar@gmail.com</span><br><span class="line">## Last edit 21-dec-09</span><br><span class="line"></span><br><span class="line">#Catch-all action(mbox):</span><br><span class="line">action “inbox” mbox “%h&#x2F;mail&#x2F;INBOX”</span><br><span class="line">#catch-all action (maildir):</span><br><span class="line">Account “XXXX”</span><br><span class="line">Pop3 server “pop.163.com”</span><br><span class="line">User XXXXX@163.com pass “XXXX”</span><br><span class="line">match all action “inbox”</span><br></pre></td></tr></table></figure></li>
+<li>在/etc目录下，输入命令：<code>fdm –kv fetch</code><br><strong>结果：</strong><ol>
+<li>网关接收邮件<br><img src="https://s1.ax1x.com/2020/05/28/teLH6H.png" alt="teLH6H.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="八、支持FTP协议测试"><a href="#八、支持FTP协议测试" class="headerlink" title="八、支持FTP协议测试"></a>八、支持FTP协议测试</h2><p><strong>测试目的：</strong>要求被测网关能够支持FTP协议<br><strong>期望结果：</strong>通过FTP软件测试电脑上传文件到被测网关，被测网关能够接收上传文件<br><strong>软件：</strong>WINSCP、WIRESHARK<br><strong>步骤：</strong></p>
+<ol>
+<li>在winscp软件中与网关连接，并上传文件</li>
+<li>同时打开wireshark软件进行抓包</li>
+<li>会抓取到FTP格式的报文<br><strong>结果：</strong><ol>
+<li>FTP软件配置<br><img src="https://s1.ax1x.com/2020/05/28/teLO0I.png" alt="teLO0I.png"></li>
+<li>Wireshark抓取FTP数据包<br><img src="https://s1.ax1x.com/2020/05/28/teLvAP.png" alt="teLvAP.png"></li>
+</ol>
+</li>
+</ol>
+<h2 id="九、WIFI标准测试"><a href="#九、WIFI标准测试" class="headerlink" title="九、WIFI标准测试"></a>九、WIFI标准测试</h2><p><strong>测试目的：</strong>要求多协议网关支持802.11标准<br><strong>期望结果：</strong>ping命令能够被正确发送并收到回复<br><strong>步骤：</strong></p>
+<ol>
+<li>网关开启wifi功能，电脑连接wifi</li>
+<li>通过wireshark抓取无线网络连接数据包ICMP报文</li>
+</ol>
+<h2 id="十、建立连接功能测试"><a href="#十、建立连接功能测试" class="headerlink" title="十、建立连接功能测试"></a>十、建立连接功能测试</h2><p><strong>测试目的：</strong>要求测试网关支持OPC UA客户端连接<br><strong>期望结果：</strong>通过Wireshark网络封包分析到OPC UA客户端软件发出连接请求报文后，网关能够将连接请求响应报文返回给OPC UA客户端软件，并且OPC UA客户端显示与网关成功建立连接<br><strong>步骤：</strong></p>
+<ol>
+<li>在opc ua客户端试图连接网关时，同时打开wireshark进行抓包</li>
+<li>可以抓到opc ua格式的报文（需筛选报文格式）（OpenSecureChannel message: OpenSecureChannelRequest）<br><strong>结果：</strong><br><img src="https://s1.ax1x.com/2020/05/28/teOyUP.png" alt="teOyUP.png"></li>
+</ol>
+<h2 id="十一、读功能测试"><a href="#十一、读功能测试" class="headerlink" title="十一、读功能测试"></a>十一、读功能测试</h2><p><strong>测试目的：</strong>要求测试网关支持OPC UA客户端读操作<br><strong>期望结果：</strong>通过OPC UA客户端软件向网关发起读请求，通过Wireshark网络封包分析到OPC UA客户端软件发出读请求报文后，网关能够将需要读取的信息返回给OPC UA客户端软件，并且OPC UA客户端显示读成功<br><strong>步骤：</strong></p>
+<ol>
+<li>UA Secure Conversation Message: ReadRequest<br><strong>结果：</strong><br><img src="https://s1.ax1x.com/2020/05/28/teOoEq.png" alt="teOoEq.png"></li>
+</ol>
+<h2 id="十二、写功能测试"><a href="#十二、写功能测试" class="headerlink" title="十二、写功能测试"></a>十二、写功能测试</h2><p><strong>测试目的：</strong>要求测试多协议网关支持OPC UA客户端写操作<br><strong>期望结果:</strong>通过OPC UA客户端软件向多协议网关发起写请求，通过Wireshark网络封包分析到OPC UA客户端软件发出写请求报文后，多协议网关中的值正确变化，并且OPC UA客户端显示写成功<br><strong>步骤：</strong></p>
+<ol>
+<li>UA Secure Conversation Message: WriteRequest<br><strong>结果：</strong><br><img src="https://s1.ax1x.com/2020/05/28/teOL2F.png" alt="teOL2F.png"></li>
+</ol>
+<h2 id="十三、发布-订阅功能测试"><a href="#十三、发布-订阅功能测试" class="headerlink" title="十三、发布/订阅功能测试"></a>十三、发布/订阅功能测试</h2><p><strong>测试目的：</strong>要求多协议网关支持OPC UA发布/订阅功能<br><strong>期望结果：</strong>通过OPC UA客户端软件向多协议网关发起连接请求，通过Wireshark网络封包分析到OPC UA客户端软件发出发布/订阅请求报文后，多协议网关的OPC UA服务器能够回复发布/订阅响应报文，并且OPC UA客户端显示发布/订阅关系建立成功，并且数据能够周期性更新<br><strong>步骤：</strong></p>
+<ol>
+<li>UA Secure Conversation Message: PublishRequest<br><strong>结果：</strong><br><img src="https://s1.ax1x.com/2020/05/28/teXkxe.png" alt="teXkxe.png"><br><img src="https://s1.ax1x.com/2020/05/28/teXnat.png" alt="teXnat.png"></li>
+</ol>
+<h2 id="十四、断开连接功能测试"><a href="#十四、断开连接功能测试" class="headerlink" title="十四、断开连接功能测试"></a>十四、断开连接功能测试</h2><p><strong>测试目的：</strong>要求多协议网关支持与OPC UA客户端断开连接<br><strong>期望结果:</strong>通过OPC UA客户端软件向多协议网关发起断开连接请求，通过Wireshark网络封包分析到OPC UA客户端软件发出断开请求报文后，多协议网关能够将断开连接成功结果返回给OPC UA客户端软件，并且OPC UA客户端显示与多协议网关成功断开连接<br><strong>步骤：</strong></p>
+<ol>
+<li>CloseSecureChannel message: CloseSecureChannelRequest<br><strong>结果：</strong><br><img src="https://s1.ax1x.com/2020/05/28/teXGrj.png" alt="teXGrj.png"></li>
+</ol>
+<hr>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、串口波特率测试"><span class="toc-number">1.</span> <span class="toc-text">一、串口波特率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、以太网速率测试"><span class="toc-number">2.</span> <span class="toc-text">二、以太网速率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、支持协议类型测试"><span class="toc-number">3.</span> <span class="toc-text">三、支持协议类型测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-支持IPv4-IPv6协议测试"><span class="toc-number">4.</span> <span class="toc-text">四、  支持IPv4&#x2F;IPv6协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、支持SMTP协议测试"><span class="toc-number">5.</span> <span class="toc-text">五、支持SMTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、支持HTTP协议测试"><span class="toc-number">6.</span> <span class="toc-text">六、支持HTTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、支持POP3协议测试"><span class="toc-number">7.</span> <span class="toc-text">七、支持POP3协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、支持FTP协议测试"><span class="toc-number">8.</span> <span class="toc-text">八、支持FTP协议测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、WIFI标准测试"><span class="toc-number">9.</span> <span class="toc-text">九、WIFI标准测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、建立连接功能测试"><span class="toc-number">10.</span> <span class="toc-text">十、建立连接功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、读功能测试"><span class="toc-number">11.</span> <span class="toc-text">十一、读功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、写功能测试"><span class="toc-number">12.</span> <span class="toc-text">十二、写功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、发布-订阅功能测试"><span class="toc-number">13.</span> <span class="toc-text">十三、发布&#x2F;订阅功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、断开连接功能测试"><span class="toc-number">14.</span> <span class="toc-text">十四、断开连接功能测试</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&text=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&is_video=false&description=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多协议网关软件性能测试详细步骤&body=Check out this article: https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&title=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&name=多协议网关软件性能测试详细步骤&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/05/28/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3%E8%BD%AF%E4%BB%B6%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/&t=多协议网关软件性能测试详细步骤" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2024 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

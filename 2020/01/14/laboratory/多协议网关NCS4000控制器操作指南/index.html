@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="安装NCS4000Setup.exe把“NCS4000Setup.exe”软件装在C盘里 一直按“下一步”即可。 一般存储路径： C：&#x2F;Program Files(x86)&#x2F;CQUPT&#x2F;NCS4000&#x2F;1.建立数据库与设备连接1）打开“系统信息数据库管理”新建数据库，设置名字和保存路径创建新数据库成功后，管理工具会询问是否将新建数据库设为激活，点击“是”。 然后可以点那个之后就会启动了 2）打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多协议网关NCS4000控制器操作指南">
+<meta property="og:url" content="https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="不想当咸鱼的盐蛋">
+<meta property="og:description" content="安装NCS4000Setup.exe把“NCS4000Setup.exe”软件装在C盘里 一直按“下一步”即可。 一般存储路径： C：&#x2F;Program Files(x86)&#x2F;CQUPT&#x2F;NCS4000&#x2F;1.建立数据库与设备连接1）打开“系统信息数据库管理”新建数据库，设置名字和保存路径创建新数据库成功后，管理工具会询问是否将新建数据库设为激活，点击“是”。 然后可以点那个之后就会启动了 2）打">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbv2G9.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbv4r6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbv5qK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbvjMt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxkzn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxZLV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxndU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbx1zR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxJL6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxNdO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxrQI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbx5Ss.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbxzlR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbzM0f.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lbz3tg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqSPvn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqS3b6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqSdxA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqSTaT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqSqG4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqppdK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqpPiD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqpWFO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqpo6A.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/14/lqpOk8.png">
+<meta property="article:published_time" content="2020-01-14T06:48:11.000Z">
+<meta property="article:modified_time" content="2020-01-14T07:24:36.693Z">
+<meta property="article:author" content="尹小丹">
+<meta property="article:tag" content="多协议网关">
+<meta property="article:tag" content="NCS4000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/01/14/lbv2G9.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>多协议网关NCS4000控制器操作指南</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不想当咸鱼的盐蛋" type="application/atom+xml">
+</head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/25/laboratory/2020%E9%87%8D%E9%82%AE%E7%A0%94%E7%A9%B6%E7%94%9F%E7%BB%8F%E8%B4%B9%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/14/acrobatics/cheat%20software%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&text=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&is_video=false&description=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多协议网关NCS4000控制器操作指南&body=Check out this article: https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&name=多协议网关NCS4000控制器操作指南&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&t=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装NCS4000Setup-exe"><span class="toc-number">1.</span> <span class="toc-text">安装NCS4000Setup.exe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-建立数据库与设备连接"><span class="toc-number">2.</span> <span class="toc-text">1.建立数据库与设备连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用已有得数据库"><span class="toc-number">3.</span> <span class="toc-text">2.使用已有得数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-资源管理器的使用"><span class="toc-number">4.</span> <span class="toc-text">3.资源管理器的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-中途添加设备（在已有的数据库基础上）"><span class="toc-number">5.</span> <span class="toc-text">4.中途添加设备（在已有的数据库基础上）</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        多协议网关NCS4000控制器操作指南
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">不想当咸鱼的盐蛋</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-14T06:48:11.000Z" itemprop="datePublished">2020-01-14</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/laboratory/">laboratory</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/NCS4000/" rel="tag">NCS4000</a>, <a class="tag-link" href="/tags/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3/" rel="tag">多协议网关</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <!-- English,acrobatics,contiki,entertainment,hexo,interview,linux,technology,thinking about life,windows,wireshark,laboratory -->
+
+<h2 id="安装NCS4000Setup-exe"><a href="#安装NCS4000Setup-exe" class="headerlink" title="安装NCS4000Setup.exe"></a>安装NCS4000Setup.exe</h2><pre><code>把“NCS4000Setup.exe”软件装在C盘里
+一直按“下一步”即可。
+一般存储路径：
+C：/Program Files(x86)/CQUPT/NCS4000/</code></pre><h2 id="1-建立数据库与设备连接"><a href="#1-建立数据库与设备连接" class="headerlink" title="1.建立数据库与设备连接"></a>1.建立数据库与设备连接</h2><p>1）打开“系统信息数据库管理”<br><img src="https://s2.ax1x.com/2020/01/14/lbv2G9.png" alt="lbv2G9.png"><br>新建数据库，设置名字和保存路径<br>创建新数据库成功后，管理工具会询问是否将新建数据库设为激活，点击“是”。</p>
+<p>然后可以点那个<br><img src="https://s2.ax1x.com/2020/01/14/lbv4r6.png" alt="lbv4r6.png"><br>之后就会启动了</p>
+<p>2）打开“系统诊断工具”<br><img src="https://s2.ax1x.com/2020/01/14/lbv5qK.png" alt="lbv5qK.png"></p>
+<p>3）打开 “资源管理器”<br>若这里初始化失败<br><img src="https://s2.ax1x.com/2020/01/14/lbvjMt.png" alt="lbvjMt.png"><br>安装的位置，删掉原来的ios_ip_setting.ini 文件<br>将ios_ip_setting.ini.tmpl 文件改为ios_ip_setting.ini<br>用记事本打开这个刚改完名字的文件，在这里：<br><img src="https://s2.ax1x.com/2020/01/14/lbxkzn.png" alt="lbxkzn.png"><br>将这里的IP Address改为 本计算机的IP地址。在192.168.2.XXX网段。</p>
+<p>4）又打开“系统诊断工具”<br><img src="https://s2.ax1x.com/2020/01/14/lbxZLV.png" alt="lbxZLV.png"><br>先按“停止”，后按“启动”<br>点“更新”<br><strong>需要等待一段时间</strong>，才能显示黄色里的设备信息<br>关掉这个“系统诊断工具”。</p>
+<p>5） “资源管理器”里的东西，一切正常了<br><img src="https://s2.ax1x.com/2020/01/14/lbxndU.png" alt="lbxndU.png"></p>
+<h2 id="2-使用已有得数据库"><a href="#2-使用已有得数据库" class="headerlink" title="2.使用已有得数据库"></a>2.使用已有得数据库</h2><p>1）启动“系统信息数据库管理”（一般会保留上次用过的数据库）<br><img src="https://s2.ax1x.com/2020/01/14/lbx1zR.png" alt="lbx1zR.png"></p>
+<p>2）双击“设置激活数据库”</p>
+<p>3）选择你的数据库（可以为中文名字）<br><img src="https://s2.ax1x.com/2020/01/14/lbxJL6.png" alt="lbxJL6.png"></p>
+<p>4）选中后，按“确定，然后点击绿色的那个按钮。运行数据库就行了</p>
+<p>5）之后就是“资源管理器”中的配置了</p>
+<h2 id="3-资源管理器的使用"><a href="#3-资源管理器的使用" class="headerlink" title="3.资源管理器的使用"></a>3.资源管理器的使用</h2><p>1）运行“资源管理器”</p>
+<p>2）选择“物理网络”，在右侧窗口可以看到在线物理控制器信息<br><img src="https://s2.ax1x.com/2020/01/14/lbxNdO.png" alt="lbxNdO.png"></p>
+<p>3）设计控制策略结构<br>    1.右键选择“系统组态配置信息-&gt;控制策略”节点<br>        选择“新建区域”命令<br>        <img src="https://s2.ax1x.com/2020/01/14/lbxrQI.png" alt="lbxrQI.png"><br>        在“控制策略”节点下会自动添加一个区域对象子节点“区域1”<br>        <img src="https://s2.ax1x.com/2020/01/14/lbx5Ss.png" alt="lbx5Ss.png"><br>    2.右键选择刚刚创建的“区域1”节点<br>        选择“新建模块”命令，添加一个“功能块图”<br>        <img src="https://s2.ax1x.com/2020/01/14/lbxzlR.png" alt="lbxzlR.png"><br>    3.同样地方法，添加一个“梯形图”<br>        <img src="https://s2.ax1x.com/2020/01/14/lbzM0f.png" alt="lbzM0f.png"><br>        <img src="https://s2.ax1x.com/2020/01/14/lbz3tg.png" alt="lbz3tg.png"></p>
+<p>4） 编辑功能块图模块<br>右键选择“系统组态配置信息-&gt;控制策略-&gt;区域1-&gt;Fbd1”<br>选择“编辑-&gt;使用组态软件离线编辑”</p>
+<p>5）添加功能块对象<br>    1. 在控制策略开发环境的模板视图中，选中“功能块库-&gt;输入/输出-&gt;DI”节点<br>    2. “拖拽”至左边的编辑视图中<br>    3. 放“DO”节点<br><img src="https://s2.ax1x.com/2020/01/14/lqSPvn.png" alt="lqSPvn.png"><br>    4. 在模块视图中，右键选择“Fbd1”节点。<br>        选择“添加参数”命令<br>        <img src="https://s2.ax1x.com/2020/01/14/lqS3b6.png" alt="lqS3b6.png"><br>    5. 在属性视图中，将参数对象“Param_1”的对象名称修改为“In1”、参数类型修改为“输入”<br>        <img src="https://s2.ax1x.com/2020/01/14/lqSdxA.png" alt="lqSdxA.png"><br>    6. 使用同样方法，再添加一个对象名称为“Out1”、参数类型修改为“输出”<br>    7. 在“模块视图”和“编辑窗口”都删掉“DI_1”<br>    8. 左边的参数都拖出去，确定连接关系<br>    <img src="https://s2.ax1x.com/2020/01/14/lqSTaT.png" alt="lqSTaT.png"><br>    在模块视图中，右键选择“Fbd1”节点，在弹出的快捷菜单中，选择“有效性检查”命令；<br>    在输出视图中，应显示相关的成功信息。<br>    <img src="https://s2.ax1x.com/2020/01/14/lqSqG4.png" alt="lqSqG4.png"><br>    9.保存，退出。</p>
+<p>6）编辑梯形图模块<br>    1.使用工具条的“添加网络”命令，添加两个网络对象，网络标识分别为“000001”和“000002”<br>    <img src="https://s2.ax1x.com/2020/01/14/lqppdK.png" alt="lqppdK.png"><br>    <img src="https://s2.ax1x.com/2020/01/14/lqpPiD.png" alt="lqpPiD.png"><br>    2. 哎呀，具体的看操作手册 P40页，别人讲很详细了，不想写了。。。。</p>
+<h2 id="4-中途添加设备（在已有的数据库基础上）"><a href="#4-中途添加设备（在已有的数据库基础上）" class="headerlink" title="4.中途添加设备（在已有的数据库基础上）"></a>4.中途添加设备（在已有的数据库基础上）</h2><p>增加 “Modbus从站设置”，对应网络的 “数据项个数”、修改“起始地址”和“读写数量”；<br>去相应的网络下，增加“IO节点”；</p>
+<ul>
+<li><p><strong>增加FF设备</strong></p>
+<p>  1）打开“资源管理器”<br>  2）右键“FF设备库”、“导入FF设备”；<br>  3）在“H1网段”下，“新建H1设备”；<br>  4）选择“物理设备”，将显示的设备拖到新建的设备下，进行映射（模块会自动识别所连接的FF设备）<br>  5）在“FF控制策略”模块下，右键“组态离线编辑”，点击空白地方，左边的“属性”选择“H1网段”；<br>  6）在右边出现的“17-AI7001”拖到空白处即出现“AI_2.”选择参数并拖出，连线；<br>  7）将参数加入Modbus。</p>
+</li>
+<li><p><strong>增添HART设备</strong></p>
+<p>  1）在“控制网络”、“I/O模块列表”、“IO模块4”、“HART”中添加“IO节点”<br>  <img src="https://s2.ax1x.com/2020/01/14/lqpWFO.png" alt="lqpWFO.png"> </p>
+<p>  <img src="https://s2.ax1x.com/2020/01/14/lqpo6A.png" alt="lqpo6A.png"><br>  2）使用“组态软件离线编辑”，增加<br>  <img src="https://s2.ax1x.com/2020/01/14/lqpOk8.png" alt="lqpOk8.png"></p>
+</li>
+<li><p><strong>增添PROFIBUS设备</strong></p>
+<p>  我忘记啦==5555555</p>
+</li>
+</ul>
+<hr>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装NCS4000Setup-exe"><span class="toc-number">1.</span> <span class="toc-text">安装NCS4000Setup.exe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-建立数据库与设备连接"><span class="toc-number">2.</span> <span class="toc-text">1.建立数据库与设备连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用已有得数据库"><span class="toc-number">3.</span> <span class="toc-text">2.使用已有得数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-资源管理器的使用"><span class="toc-number">4.</span> <span class="toc-text">3.资源管理器的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-中途添加设备（在已有的数据库基础上）"><span class="toc-number">5.</span> <span class="toc-text">4.中途添加设备（在已有的数据库基础上）</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&text=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&is_video=false&description=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多协议网关NCS4000控制器操作指南&body=Check out this article: https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&title=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&name=多协议网关NCS4000控制器操作指南&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://adamyandan.github.io/2020/01/14/laboratory/%E5%A4%9A%E5%8D%8F%E8%AE%AE%E7%BD%91%E5%85%B3NCS4000%E6%8E%A7%E5%88%B6%E5%99%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/&t=多协议网关NCS4000控制器操作指南" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2024 尹小丹
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://dufaxing.com/" target="_blank" rel="noopener">Links</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-adamyandan-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
